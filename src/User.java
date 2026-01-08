@@ -62,7 +62,7 @@ public class User {
         securityCode = input;
     }
     
-    public void addPoints(int points) { //Safer to split this into add and remove
+    public void addPoints(int points) {//Safer to split this into add and remove
         this.points += points;
     }
     
