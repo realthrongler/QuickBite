@@ -7,10 +7,10 @@
  *
  * @author noahc
  */
-public class validateCard {
-    boolean validateCard(String cardNumber) {
+public class validateCard { //Luhn algorithm for card number verification
+    boolean validateCard(String cardNumber, String securityCode) {
         boolean cardValid = true;
-        
+        cardNumber = cardNumber.strip();
         
         return cardValid;
     } 
