@@ -7,14 +7,14 @@
  *
  * @author logan
  */
-public class HomeScreen extends javax.swing.JFrame {
+public class CustomerHomeScreen extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(HomeScreen.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CustomerHomeScreen.class.getName());
 
     /**
      * Creates new form HomeScreen
      */
-    public HomeScreen() {
+    public CustomerHomeScreen() {
         initComponents();
     }
 
@@ -31,6 +31,11 @@ public class HomeScreen extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -52,6 +57,28 @@ public class HomeScreen extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/blueskibidigradient.png"))); // NOI18N
         getContentPane().add(jLabel4);
         jLabel4.setBounds(0, 0, 370, 80);
+
+        jLabel2.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        jLabel2.setText("Current Orders:");
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(110, 110, 140, 20);
+
+        jLabel3.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        jLabel3.setText("New Order:");
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(130, 270, 110, 22);
+
+        jButton1.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        jButton1.setText("Place new order");
+        getContentPane().add(jButton1);
+        jButton1.setBounds(110, 320, 140, 40);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(40, 140, 270, 86);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -78,13 +105,18 @@ public class HomeScreen extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new HomeScreen().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new CustomerHomeScreen().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
