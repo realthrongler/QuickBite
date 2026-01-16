@@ -38,6 +38,7 @@ public class RegisterFrame extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setSize(new java.awt.Dimension(370, 480));
         getContentPane().setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
