@@ -61,24 +61,24 @@ public class CustomerHomeScreen extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
         jLabel2.setText("Current Orders:");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(110, 110, 140, 20);
+        jLabel2.setBounds(110, 160, 140, 20);
 
         jLabel3.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
         jLabel3.setText("New Order:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(130, 270, 110, 22);
+        jLabel3.setBounds(130, 310, 110, 22);
 
         jButton1.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         jButton1.setText("Place new order");
         getContentPane().add(jButton1);
-        jButton1.setBounds(110, 320, 140, 40);
+        jButton1.setBounds(110, 360, 140, 40);
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
         getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(40, 140, 270, 86);
+        jScrollPane1.setBounds(40, 190, 270, 86);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
