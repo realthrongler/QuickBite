@@ -7,7 +7,10 @@
  *
  * @author noahc
  */
+import java.util.HashMap;
 public class Customer extends User{
+    //CLASS VARIABLES
+    private static int orderNumber = 0;
     
     //PAYMENT INFORMATION
     private String cardNumber; //Customer's debit/credit card number (both verified with the Luhn algorithm)
@@ -32,6 +35,10 @@ public class Customer extends User{
     
     public int getPoints() {
         return points;
+    }
+    
+    public int getOrderNumber() {
+        return orderNumber;
     }
     
     public void setCardNumber(String input) {
