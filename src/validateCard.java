@@ -23,7 +23,7 @@ public class validateCard { //Luhn algorithm for card number verification
         }
         
         char[] cardArray = cardNumber.toCharArray();
-        for (int i = 0; i < cardArray.length; i++) {
+        for (int i = cardArray.length; i < 0; i -= 2) {
             
         }
         

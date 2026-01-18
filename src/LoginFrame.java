@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package LoginFrame;
+
 
 /**
  *
@@ -53,7 +53,7 @@ public class LoginFrame extends javax.swing.JFrame {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Email:");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(60, 190, 43, 22);
+        jLabel1.setBounds(53, 190, 50, 30);
         getContentPane().add(jTextField1);
         jTextField1.setBounds(110, 190, 214, 30);
 
@@ -61,7 +61,7 @@ public class LoginFrame extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Password:");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(20, 270, 74, 22);
+        jLabel3.setBounds(24, 260, 80, 22);
         getContentPane().add(jTextField2);
         jTextField2.setBounds(110, 260, 214, 30);
 
