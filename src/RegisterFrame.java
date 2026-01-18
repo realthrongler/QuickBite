@@ -98,7 +98,7 @@ public class RegisterFrame extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
         jLabel8.setText("CVV:");
         getContentPane().add(jLabel8);
-        jLabel8.setBounds(20, 310, 50, 22);
+        jLabel8.setBounds(40, 310, 50, 22);
 
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
