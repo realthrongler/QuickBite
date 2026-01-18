@@ -7,8 +7,8 @@
  *
  * @author noahc
  */
-public class validateCard { //Luhn algorithm for card number verification
-    boolean validateCard(String cardNumber, String securityCode) {
+public class ValidateCard { //Luhn algorithm for card number verification
+    public boolean validateCard(String cardNumber, String securityCode) {
         boolean cardValid = true;
         
         cardNumber = cardNumber.strip(); //Removing spaces on the ends of the input
@@ -34,7 +34,7 @@ public class validateCard { //Luhn algorithm for card number verification
             //First step of Luhn algorithm is to double every second digit starting from the second last digit
             //If the digit doubled is 10 or greater, add the 2 digits together
             //for example, 13 --> 4 because 1 + 3 == 4.
-            for (int i = cardArray.length - 2; i < 0; i -= 2) { 
+            for (int i = cardArray.length - 2; i >= 0; i -= 2) { 
                 int digit = (Character.getNumericValue(cardArray[i]) * 2); //Doubling the digit
                 switch (digit) { //Adding digits together if the product is 10 or greater
                     case 10:

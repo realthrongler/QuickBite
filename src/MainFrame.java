@@ -6,8 +6,9 @@
 
 /**
  *
- * @author noahc
+ * @authors Noah Cummings, Ivan Lin, Logan Sevatzian
  */
+import javax.swing.JOptionPane;
 public class MainFrame extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MainFrame.class.getName());
@@ -17,6 +18,10 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
+        pnl_login.setVisible(true);
+        pnl_register.setVisible(false);
+        pnl_customerHomeScreen.setVisible(false);
+        pnl_adminHomeScreen.setVisible(false);
     }
 
     /**
@@ -77,8 +82,13 @@ public class MainFrame extends javax.swing.JFrame {
         txt_IncomingOrders = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(370, 480));
+        setMinimumSize(new java.awt.Dimension(370, 480));
+        setPreferredSize(new java.awt.Dimension(370, 480));
         getContentPane().setLayout(null);
 
+        pnl_login.setMaximumSize(new java.awt.Dimension(370, 480));
+        pnl_login.setPreferredSize(new java.awt.Dimension(370, 480));
         pnl_login.setLayout(null);
 
         lbl_registerPrompt.setText("New user?");
@@ -141,6 +151,7 @@ public class MainFrame extends javax.swing.JFrame {
         getContentPane().add(pnl_login);
         pnl_login.setBounds(0, 0, 370, 480);
 
+        pnl_register.setMaximumSize(new java.awt.Dimension(370, 480));
         pnl_register.setLayout(null);
 
         lbl_email1.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
@@ -210,6 +221,7 @@ public class MainFrame extends javax.swing.JFrame {
         getContentPane().add(pnl_register);
         pnl_register.setBounds(0, 0, 370, 480);
 
+        pnl_customerHomeScreen.setMaximumSize(new java.awt.Dimension(370, 480));
         pnl_customerHomeScreen.setLayout(null);
 
         icon_logo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoReal.png"))); // NOI18N
@@ -255,6 +267,7 @@ public class MainFrame extends javax.swing.JFrame {
         getContentPane().add(pnl_customerHomeScreen);
         pnl_customerHomeScreen.setBounds(0, 0, 370, 480);
 
+        pnl_adminHomeScreen.setMaximumSize(new java.awt.Dimension(370, 480));
         pnl_adminHomeScreen.setLayout(null);
 
         icon_logo3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoReal.png"))); // NOI18N
@@ -294,7 +307,7 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_cardNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cardNumberActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_txt_cardNumberActionPerformed
 
     /**
