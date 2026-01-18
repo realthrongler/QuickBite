@@ -33,20 +33,6 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnl_login = new javax.swing.JPanel();
-        lbl_registerPrompt = new javax.swing.JLabel();
-        btn_login = new javax.swing.JButton();
-        icon_logo = new javax.swing.JLabel();
-        lbl_title = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        txt_email = new javax.swing.JTextField();
-        lbl_companyTitle = new javax.swing.JLabel();
-        txt_password = new javax.swing.JTextField();
-        lbl_login = new javax.swing.JLabel();
-        txt_loginType = new javax.swing.JComboBox<>();
-        btn_toRegisterScreen = new javax.swing.JLabel();
-        lbl_password = new javax.swing.JLabel();
-        lbl_email = new javax.swing.JLabel();
         pnl_register = new javax.swing.JPanel();
         lbl_email1 = new javax.swing.JLabel();
         txt_email1 = new javax.swing.JTextField();
@@ -62,6 +48,22 @@ public class MainFrame extends javax.swing.JFrame {
         txt_cardNumber = new javax.swing.JTextField();
         txt_cvv = new javax.swing.JTextField();
         btn_register = new javax.swing.JButton();
+        lbl_loginPrompt = new javax.swing.JLabel();
+        btn_toLoginScreen = new javax.swing.JLabel();
+        pnl_login = new javax.swing.JPanel();
+        lbl_registerPrompt = new javax.swing.JLabel();
+        btn_login = new javax.swing.JButton();
+        icon_logo = new javax.swing.JLabel();
+        lbl_title = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txt_email = new javax.swing.JTextField();
+        lbl_companyTitle = new javax.swing.JLabel();
+        txt_password = new javax.swing.JTextField();
+        lbl_login = new javax.swing.JLabel();
+        txt_loginType = new javax.swing.JComboBox<>();
+        btn_toRegisterScreen = new javax.swing.JLabel();
+        lbl_password = new javax.swing.JLabel();
+        lbl_email = new javax.swing.JLabel();
         pnl_customerHomeScreen = new javax.swing.JPanel();
         icon_logo2 = new javax.swing.JLabel();
         lbl_companyTitle2 = new javax.swing.JLabel();
@@ -85,71 +87,8 @@ public class MainFrame extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(370, 480));
         setMinimumSize(new java.awt.Dimension(370, 480));
         setPreferredSize(new java.awt.Dimension(370, 480));
+        setResizable(false);
         getContentPane().setLayout(null);
-
-        pnl_login.setMaximumSize(new java.awt.Dimension(370, 480));
-        pnl_login.setPreferredSize(new java.awt.Dimension(370, 480));
-        pnl_login.setLayout(null);
-
-        lbl_registerPrompt.setText("New user?");
-        pnl_login.add(lbl_registerPrompt);
-        lbl_registerPrompt.setBounds(120, 350, 60, 16);
-
-        btn_login.setText("Login");
-        pnl_login.add(btn_login);
-        btn_login.setBounds(150, 310, 60, 23);
-
-        icon_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoReal.png"))); // NOI18N
-        pnl_login.add(icon_logo);
-        icon_logo.setBounds(0, 0, 80, 80);
-
-        lbl_title.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
-        lbl_title.setText("Quick Bite");
-        pnl_login.add(lbl_title);
-        lbl_title.setBounds(150, 10, 80, 22);
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/blueskibidigradient.png"))); // NOI18N
-        pnl_login.add(jLabel7);
-        jLabel7.setBounds(0, 0, 370, 80);
-        pnl_login.add(txt_email);
-        txt_email.setBounds(110, 190, 214, 30);
-
-        lbl_companyTitle.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
-        lbl_companyTitle.setText("Ivan's Z's Inc.");
-        pnl_login.add(lbl_companyTitle);
-        lbl_companyTitle.setBounds(140, 40, 100, 22);
-        pnl_login.add(txt_password);
-        txt_password.setBounds(110, 260, 214, 30);
-
-        lbl_login.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
-        lbl_login.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_login.setText("Login");
-        pnl_login.add(lbl_login);
-        lbl_login.setBounds(100, 90, 170, 38);
-
-        txt_loginType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Customer", "Administrator" }));
-        pnl_login.add(txt_loginType);
-        txt_loginType.setBounds(110, 150, 214, 22);
-
-        btn_toRegisterScreen.setForeground(new java.awt.Color(0, 0, 255));
-        btn_toRegisterScreen.setText("Register an account");
-        pnl_login.add(btn_toRegisterScreen);
-        btn_toRegisterScreen.setBounds(180, 350, 110, 16);
-
-        lbl_password.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
-        lbl_password.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_password.setText("Password:");
-        pnl_login.add(lbl_password);
-        lbl_password.setBounds(24, 260, 80, 22);
-
-        lbl_email.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
-        lbl_email.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_email.setText("Email:");
-        pnl_login.add(lbl_email);
-        lbl_email.setBounds(53, 190, 50, 30);
-
-        getContentPane().add(pnl_login);
-        pnl_login.setBounds(0, 0, 370, 480);
 
         pnl_register.setMaximumSize(new java.awt.Dimension(370, 480));
         pnl_register.setLayout(null);
@@ -218,8 +157,93 @@ public class MainFrame extends javax.swing.JFrame {
         pnl_register.add(btn_register);
         btn_register.setBounds(150, 370, 90, 23);
 
+        lbl_loginPrompt.setText("Already have an account?");
+        pnl_register.add(lbl_loginPrompt);
+        lbl_loginPrompt.setBounds(80, 410, 135, 16);
+
+        btn_toLoginScreen.setForeground(new java.awt.Color(0, 0, 255));
+        btn_toLoginScreen.setText("Login");
+        btn_toLoginScreen.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_toLoginScreen.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_toLoginScreenMouseClicked(evt);
+            }
+        });
+        pnl_register.add(btn_toLoginScreen);
+        btn_toLoginScreen.setBounds(220, 410, 30, 16);
+
         getContentPane().add(pnl_register);
         pnl_register.setBounds(0, 0, 370, 480);
+
+        pnl_login.setMaximumSize(new java.awt.Dimension(370, 480));
+        pnl_login.setPreferredSize(new java.awt.Dimension(370, 480));
+        pnl_login.setLayout(null);
+
+        lbl_registerPrompt.setText("New user?");
+        pnl_login.add(lbl_registerPrompt);
+        lbl_registerPrompt.setBounds(120, 350, 60, 16);
+
+        btn_login.setText("Login");
+        pnl_login.add(btn_login);
+        btn_login.setBounds(150, 310, 60, 23);
+
+        icon_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoReal.png"))); // NOI18N
+        pnl_login.add(icon_logo);
+        icon_logo.setBounds(0, 0, 80, 80);
+
+        lbl_title.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        lbl_title.setText("Quick Bite");
+        pnl_login.add(lbl_title);
+        lbl_title.setBounds(150, 10, 80, 22);
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/blueskibidigradient.png"))); // NOI18N
+        pnl_login.add(jLabel7);
+        jLabel7.setBounds(0, 0, 370, 80);
+        pnl_login.add(txt_email);
+        txt_email.setBounds(110, 190, 214, 30);
+
+        lbl_companyTitle.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        lbl_companyTitle.setText("Ivan's Z's Inc.");
+        pnl_login.add(lbl_companyTitle);
+        lbl_companyTitle.setBounds(140, 40, 100, 22);
+        pnl_login.add(txt_password);
+        txt_password.setBounds(110, 260, 214, 30);
+
+        lbl_login.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        lbl_login.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_login.setText("Login");
+        pnl_login.add(lbl_login);
+        lbl_login.setBounds(100, 90, 170, 38);
+
+        txt_loginType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Customer", "Administrator" }));
+        pnl_login.add(txt_loginType);
+        txt_loginType.setBounds(110, 150, 214, 22);
+
+        btn_toRegisterScreen.setForeground(new java.awt.Color(0, 0, 255));
+        btn_toRegisterScreen.setText("Register an account");
+        btn_toRegisterScreen.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btn_toRegisterScreen.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_toRegisterScreenMouseClicked(evt);
+            }
+        });
+        pnl_login.add(btn_toRegisterScreen);
+        btn_toRegisterScreen.setBounds(180, 350, 110, 16);
+
+        lbl_password.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        lbl_password.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_password.setText("Password:");
+        pnl_login.add(lbl_password);
+        lbl_password.setBounds(24, 260, 80, 22);
+
+        lbl_email.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        lbl_email.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_email.setText("Email:");
+        pnl_login.add(lbl_email);
+        lbl_email.setBounds(53, 190, 50, 30);
+
+        getContentPane().add(pnl_login);
+        pnl_login.setBounds(0, 0, 370, 480);
 
         pnl_customerHomeScreen.setMaximumSize(new java.awt.Dimension(370, 480));
         pnl_customerHomeScreen.setLayout(null);
@@ -310,6 +334,18 @@ public class MainFrame extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txt_cardNumberActionPerformed
 
+    private void btn_toRegisterScreenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_toRegisterScreenMouseClicked
+        //When user clicks the prompt on the login screen, this takes them to the register screen
+        pnl_register.setVisible(true); 
+        pnl_login.setVisible(false);
+    }//GEN-LAST:event_btn_toRegisterScreenMouseClicked
+
+    private void btn_toLoginScreenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_toLoginScreenMouseClicked
+        //When the user clicks the prompt on the register screen, this takes them to the login screen
+        pnl_login.setVisible(true);
+        pnl_register.setVisible(false);
+    }//GEN-LAST:event_btn_toLoginScreenMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -339,6 +375,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btn_login;
     private javax.swing.JButton btn_newOrder;
     private javax.swing.JButton btn_register;
+    private javax.swing.JLabel btn_toLoginScreen;
     private javax.swing.JLabel btn_toRegisterScreen;
     private javax.swing.JLabel icon_gradient;
     private javax.swing.JLabel icon_gradient1;
@@ -359,6 +396,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_email1;
     private javax.swing.JLabel lbl_incomingOrders;
     private javax.swing.JLabel lbl_login;
+    private javax.swing.JLabel lbl_loginPrompt;
     private javax.swing.JLabel lbl_newOrder;
     private javax.swing.JLabel lbl_password;
     private javax.swing.JLabel lbl_password1;
