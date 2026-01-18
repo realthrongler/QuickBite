@@ -27,95 +27,95 @@ public class RegisterFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
+        lbl_email = new javax.swing.JLabel();
+        txt_email = new javax.swing.JTextField();
+        lbl_register = new javax.swing.JLabel();
+        txt_password = new javax.swing.JTextField();
+        lbl_password = new javax.swing.JLabel();
+        icon_logo = new javax.swing.JLabel();
+        lbl_companyTitle = new javax.swing.JLabel();
+        lbl_title = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
+        lbl_cardNumber = new javax.swing.JLabel();
+        lbl_cvv = new javax.swing.JLabel();
+        txt_cardNumber = new javax.swing.JTextField();
+        txt_cvv = new javax.swing.JTextField();
+        btn_register = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setSize(new java.awt.Dimension(370, 480));
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Email:");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 140, 80, 22);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(90, 140, 220, 30);
+        lbl_email.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        lbl_email.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_email.setText("Email:");
+        getContentPane().add(lbl_email);
+        lbl_email.setBounds(0, 140, 80, 22);
+        getContentPane().add(txt_email);
+        txt_email.setBounds(90, 140, 220, 30);
 
-        jLabel2.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Register");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(110, 90, 170, 38);
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(90, 200, 220, 30);
+        lbl_register.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        lbl_register.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_register.setText("Register");
+        getContentPane().add(lbl_register);
+        lbl_register.setBounds(110, 90, 170, 38);
+        getContentPane().add(txt_password);
+        txt_password.setBounds(90, 200, 220, 30);
 
-        jLabel3.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Password:");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(-10, 200, 110, 22);
+        lbl_password.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        lbl_password.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_password.setText("Password:");
+        getContentPane().add(lbl_password);
+        lbl_password.setBounds(-10, 200, 110, 22);
 
-        jToggleButton1.setText("Register");
-        getContentPane().add(jToggleButton1);
-        jToggleButton1.setBounds(150, 370, 90, 23);
+        icon_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoReal.png"))); // NOI18N
+        getContentPane().add(icon_logo);
+        icon_logo.setBounds(0, 0, 80, 80);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoReal.png"))); // NOI18N
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(0, 0, 80, 80);
+        lbl_companyTitle.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        lbl_companyTitle.setText("Ivan's Z's Inc.");
+        getContentPane().add(lbl_companyTitle);
+        lbl_companyTitle.setBounds(140, 40, 180, 22);
 
-        jLabel6.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
-        jLabel6.setText("Ivan's Z's Inc.");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(140, 40, 180, 22);
-
-        jLabel9.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
-        jLabel9.setText("Quick Bite");
-        getContentPane().add(jLabel9);
-        jLabel9.setBounds(150, 10, 80, 22);
+        lbl_title.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        lbl_title.setText("Quick Bite");
+        getContentPane().add(lbl_title);
+        lbl_title.setBounds(150, 10, 80, 22);
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/blueskibidigradient.png"))); // NOI18N
         getContentPane().add(jLabel4);
         jLabel4.setBounds(0, 0, 370, 80);
 
-        jLabel7.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
-        jLabel7.setText("Card Number:");
-        getContentPane().add(jLabel7);
-        jLabel7.setBounds(0, 260, 90, 17);
+        lbl_cardNumber.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        lbl_cardNumber.setText("Card Number:");
+        getContentPane().add(lbl_cardNumber);
+        lbl_cardNumber.setBounds(0, 260, 90, 17);
 
-        jLabel8.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
-        jLabel8.setText("CVV:");
-        getContentPane().add(jLabel8);
-        jLabel8.setBounds(40, 310, 50, 22);
+        lbl_cvv.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        lbl_cvv.setText("CVV:");
+        getContentPane().add(lbl_cvv);
+        lbl_cvv.setBounds(40, 310, 50, 22);
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        txt_cardNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                txt_cardNumberActionPerformed(evt);
             }
         });
-        getContentPane().add(jTextField3);
-        jTextField3.setBounds(90, 250, 220, 30);
-        getContentPane().add(jTextField4);
-        jTextField4.setBounds(90, 310, 80, 22);
+        getContentPane().add(txt_cardNumber);
+        txt_cardNumber.setBounds(90, 250, 220, 30);
+        getContentPane().add(txt_cvv);
+        txt_cvv.setBounds(90, 310, 80, 22);
+
+        btn_register.setText("Register");
+        getContentPane().add(btn_register);
+        btn_register.setBounds(150, 370, 90, 23);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void txt_cardNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cardNumberActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_txt_cardNumberActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,19 +143,19 @@ public class RegisterFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton btn_register;
+    private javax.swing.JLabel icon_logo;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JLabel lbl_cardNumber;
+    private javax.swing.JLabel lbl_companyTitle;
+    private javax.swing.JLabel lbl_cvv;
+    private javax.swing.JLabel lbl_email;
+    private javax.swing.JLabel lbl_password;
+    private javax.swing.JLabel lbl_register;
+    private javax.swing.JLabel lbl_title;
+    private javax.swing.JTextField txt_cardNumber;
+    private javax.swing.JTextField txt_cvv;
+    private javax.swing.JTextField txt_email;
+    private javax.swing.JTextField txt_password;
     // End of variables declaration//GEN-END:variables
 }

@@ -28,68 +28,68 @@ public class LoginFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        lbl_login = new javax.swing.JLabel();
+        lbl_email = new javax.swing.JLabel();
+        txt_email = new javax.swing.JTextField();
+        lbl_password = new javax.swing.JLabel();
+        txt_password = new javax.swing.JTextField();
+        txt_loginType = new javax.swing.JComboBox<>();
+        icon_logo = new javax.swing.JLabel();
+        lbl_companyTitle = new javax.swing.JLabel();
+        lbl_title = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        btn_login = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
 
-        jLabel2.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Login");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(100, 90, 170, 38);
+        lbl_login.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        lbl_login.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_login.setText("Login");
+        getContentPane().add(lbl_login);
+        lbl_login.setBounds(100, 90, 170, 38);
 
-        jLabel1.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Email:");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(53, 190, 50, 30);
-        getContentPane().add(jTextField1);
-        jTextField1.setBounds(110, 190, 214, 30);
+        lbl_email.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        lbl_email.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_email.setText("Email:");
+        getContentPane().add(lbl_email);
+        lbl_email.setBounds(53, 190, 50, 30);
+        getContentPane().add(txt_email);
+        txt_email.setBounds(110, 190, 214, 30);
 
-        jLabel3.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Password:");
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(24, 260, 80, 22);
-        getContentPane().add(jTextField2);
-        jTextField2.setBounds(110, 260, 214, 30);
+        lbl_password.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        lbl_password.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_password.setText("Password:");
+        getContentPane().add(lbl_password);
+        lbl_password.setBounds(24, 260, 80, 22);
+        getContentPane().add(txt_password);
+        txt_password.setBounds(110, 260, 214, 30);
 
-        jToggleButton1.setText("Login");
-        getContentPane().add(jToggleButton1);
-        jToggleButton1.setBounds(150, 310, 60, 23);
+        txt_loginType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Customer", "Administrator" }));
+        getContentPane().add(txt_loginType);
+        txt_loginType.setBounds(110, 150, 214, 22);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Customer", "Administrator" }));
-        getContentPane().add(jComboBox1);
-        jComboBox1.setBounds(110, 150, 214, 22);
+        icon_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoReal.png"))); // NOI18N
+        getContentPane().add(icon_logo);
+        icon_logo.setBounds(0, 0, 80, 80);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoReal.png"))); // NOI18N
-        getContentPane().add(jLabel5);
-        jLabel5.setBounds(0, 0, 80, 80);
+        lbl_companyTitle.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        lbl_companyTitle.setText("Ivan's Z's Inc.");
+        getContentPane().add(lbl_companyTitle);
+        lbl_companyTitle.setBounds(140, 40, 100, 22);
 
-        jLabel4.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
-        jLabel4.setText("Ivan's Z's Inc.");
-        getContentPane().add(jLabel4);
-        jLabel4.setBounds(140, 40, 100, 22);
-
-        jLabel6.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
-        jLabel6.setText("Quick Bite");
-        getContentPane().add(jLabel6);
-        jLabel6.setBounds(150, 10, 80, 22);
+        lbl_title.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        lbl_title.setText("Quick Bite");
+        getContentPane().add(lbl_title);
+        lbl_title.setBounds(150, 10, 80, 22);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/blueskibidigradient.png"))); // NOI18N
         getContentPane().add(jLabel7);
         jLabel7.setBounds(0, 0, 370, 80);
+
+        btn_login.setText("Login");
+        getContentPane().add(btn_login);
+        btn_login.setBounds(150, 310, 60, 23);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -120,16 +120,16 @@ public class LoginFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    private javax.swing.JButton btn_login;
+    private javax.swing.JLabel icon_logo;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JLabel lbl_companyTitle;
+    private javax.swing.JLabel lbl_email;
+    private javax.swing.JLabel lbl_login;
+    private javax.swing.JLabel lbl_password;
+    private javax.swing.JLabel lbl_title;
+    private javax.swing.JTextField txt_email;
+    private javax.swing.JComboBox<String> txt_loginType;
+    private javax.swing.JTextField txt_password;
     // End of variables declaration//GEN-END:variables
 }
