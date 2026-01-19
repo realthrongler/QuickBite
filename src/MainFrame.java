@@ -452,7 +452,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
     
     public boolean searchFile(String email) { //This method searches the arraylist for the input email, and returns a boolean based on if the email is registered already
-        
+        return false;
     }
     /**
      * @param args the command line arguments
