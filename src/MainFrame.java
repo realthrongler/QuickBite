@@ -364,7 +364,7 @@ public class MainFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Please ensure all input fields are filled in.", "Error", 2);
         } else if (!txt_email1.getText().strip().contains(".") || !txt_email1.getText().strip().contains("@")) {
             JOptionPane.showMessageDialog(this, "Please ensure you have entered a valid email.", "Error", 2);
-        } else if (!validator.validateCard(txt_cardNumber.getText(), txt_cvv.getText().strip())) {
+        } else if (!validator.ValidateCard(txt_cardNumber.getText(), txt_cvv.getText().strip())) {
             JOptionPane.showMessageDialog(this, "Please ensure you enter a valid credit/debit card number and CVV code.", "Error", 2);
         }
     }//GEN-LAST:event_btn_registerActionPerformed
