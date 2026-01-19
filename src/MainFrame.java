@@ -303,59 +303,40 @@ public class MainFrame extends javax.swing.JFrame {
     //Account information arraylist (for searching and modifying the text file)
     ArrayList<Customer> AccountList = new ArrayList<>();
     User currentUser;
+<<<<<<< Updated upstream
         
+=======
+    
+    private void txt_cardNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cardNumberActionPerformed
+
+    }//GEN-LAST:event_txt_cardNumberActionPerformed
+
+    private void btn_toRegisterScreenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_toRegisterScreenMouseClicked
+        //When user clicks the prompt on the login screen, this takes them to the register screen
+        pnl_register.setVisible(true); 
+        pnl_login.setVisible(false);
+    }//GEN-LAST:event_btn_toRegisterScreenMouseClicked
+
+    private void btn_toLoginScreenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_toLoginScreenMouseClicked
+        //When the user clicks the prompt on the register screen, this takes them to the login screen
+        pnl_login.setVisible(true);
+        pnl_register.setVisible(false);
+    }//GEN-LAST:event_btn_toLoginScreenMouseClicked
+
+    private void btn_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registerActionPerformed
+        
+    }//GEN-LAST:event_btn_registerActionPerformed
+    
+>>>>>>> Stashed changes
     //Saving data to the database (text file) as customer closes app
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        writeFile();
+        
     }//GEN-LAST:event_formWindowClosing
     
-    public void writeFile() {
-        try {
-            AccountFile.createNewFile();
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(AccountFile.getAbsolutePath()))) {
-                writer.write("");
-                for (int index = 0; index < AccountList.size(); index++) {
-                    String writeLine = "";
-                    writeLine += AccountList.get(index).getEmail();
-                    writeLine += AccountList.get(index).getPassword();
-                    writeLine += AccountList.get(index).getCardNumber();
-                    writeLine += AccountList.get(index).getSecurityCode();
-                    writeLine += AccountList.get(index).getPoints();
-                    writer.append(writeLine);
-                }
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "A fatal error occured: " + e, "ERROR!", 1);
-        }
-    }
-    public void readFile() { //Method for reading from the text file, and converting the raw data into customer instances    
-        try {
-            if (!AccountFile.createNewFile()) { try ( //If the account fails to create (Already existing), read from the file
-                    BufferedReader reader = new BufferedReader(new FileReader(AccountFile.getAbsolutePath()))) {
-                String line;
-                
-                while ((line = reader.readLine()) != null) {
-                    String[] lineArray = line.split(","); //Splitting everything by commas
-                    String email = lineArray[0];
-                    String password = lineArray[1];
-                    String cardNumber = lineArray[2];
-                    String cvv = lineArray[3];
-                    int points = Integer.parseInt(lineArray[4]);
-                    Customer person = new Customer(email, password, cardNumber, cvv); //Constructor only takes these values
-                    person.addPoints(points); //Adding customer's points to the default balance of zero
-                    AccountList.add(person);
-                    currentUser = person;
-                }
-                }
-            }            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Fatal error reading from accounts file.", "ERROR!", 2);
-        }
-    }
     
-    public boolean searchFile(String email) { //This method searches the arraylist for the input email, and returns a boolean based on if the email is registered already
-        return false;
-    }
+    
+    
+    
     /**
      * @param args the command line arguments
      */
