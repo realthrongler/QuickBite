@@ -153,7 +153,7 @@ public class MainFrame extends javax.swing.JFrame {
         pnl_register.add(txt_cardNumber);
         txt_cardNumber.setBounds(90, 250, 220, 30);
         pnl_register.add(txt_cvv);
-        txt_cvv.setBounds(90, 310, 80, 22);
+        txt_cvv.setBounds(90, 310, 80, 23);
 
         btn_register.setText("Register");
         btn_register.addActionListener(new java.awt.event.ActionListener() {
@@ -166,7 +166,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         lbl_loginPrompt.setText("Already have an account?");
         pnl_register.add(lbl_loginPrompt);
-        lbl_loginPrompt.setBounds(80, 410, 135, 16);
+        lbl_loginPrompt.setBounds(80, 410, 151, 17);
 
         btn_toLoginScreen.setForeground(new java.awt.Color(0, 0, 255));
         btn_toLoginScreen.setText("Login");
@@ -177,7 +177,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         pnl_register.add(btn_toLoginScreen);
-        btn_toLoginScreen.setBounds(220, 410, 30, 16);
+        btn_toLoginScreen.setBounds(220, 410, 31, 17);
 
         getContentPane().add(pnl_register);
         pnl_register.setBounds(0, 0, 370, 480);
@@ -188,7 +188,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         lbl_registerPrompt.setText("New user?");
         pnl_login.add(lbl_registerPrompt);
-        lbl_registerPrompt.setBounds(120, 350, 60, 16);
+        lbl_registerPrompt.setBounds(120, 350, 60, 17);
 
         btn_login.setText("Login");
         pnl_login.add(btn_login);
@@ -224,7 +224,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         txt_loginType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Customer", "Administrator" }));
         pnl_login.add(txt_loginType);
-        txt_loginType.setBounds(110, 150, 214, 22);
+        txt_loginType.setBounds(110, 150, 214, 23);
 
         btn_toRegisterScreen.setForeground(new java.awt.Color(0, 0, 255));
         btn_toRegisterScreen.setText("Register an account");
@@ -235,7 +235,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         pnl_login.add(btn_toRegisterScreen);
-        btn_toRegisterScreen.setBounds(180, 350, 110, 16);
+        btn_toRegisterScreen.setBounds(180, 350, 110, 17);
 
         lbl_password.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
         lbl_password.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
