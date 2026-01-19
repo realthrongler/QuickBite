@@ -341,6 +341,7 @@ public class MainFrame extends javax.swing.JFrame {
     File AccountFile = new File("Accounts.txt");
     //Account information arraylist (for searching and modifying the text file)
     ArrayList<Customer> AccountList = new ArrayList<>();
+    User CurrentUser;
     
     private void txt_cardNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cardNumberActionPerformed
 
@@ -375,8 +376,14 @@ public class MainFrame extends javax.swing.JFrame {
                 AccountFile.createNewFile(); //Creates the accounts.txt file if it doesn't exist already
                 if (AccountList.isEmpty()) { //If the account list is empty, read from the file
                     readFile();
-                    if (AccountList.isEmpty()) { //If the account list is STILL empty, add the new user's info to the text file
-                        
+                    if (AccountList.isEmpty()) { //If the account list is STILL empty, add the new user's info to the arraylist
+                        String email = txt_email1.getText().strip();
+                        String password = txt_password1.getText().strip();
+                        String cardNumber = txt_cardNumber.getText().strip();
+                        String[] splitNumber = cardNumber.split(" "); //Formatting card number
+                        cardNumber = String.join("", splitNumber);
+                        String cvv = txt_cvv.getText().strip();
+                        Customer newCustomer = new Customer(email, password, cardNumber, cvv);
                     }  
                 }
             } catch (Exception e) {
