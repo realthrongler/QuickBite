@@ -53,7 +53,7 @@ public class ValidateCard { //Luhn algorithm for card number verification
                         cardArray[i] = '9';
                         break;
                     default:
-                        cardArray[i] = (char)digit; //If the digit doubled is not 10 or greater, set the current digit to the product
+                        cardArray[i] = Character.forDigit(digit, 10); //If the digit doubled is not 10 or greater, set the current digit to the product
                         break;
                 }
             }
@@ -64,7 +64,7 @@ public class ValidateCard { //Luhn algorithm for card number verification
             }
             
             int doubledSum = 0;
-            for (int j = 0; j < cardArray.length; j += 2) { //Sum of all doubled digits
+            for (int j = 1; j < cardArray.length; j += 2) { //Sum of all doubled digits
                 doubledSum += Character.getNumericValue(cardArray[j]);
             }
             

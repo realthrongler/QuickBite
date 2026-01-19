@@ -9,6 +9,7 @@
  * @authors Noah Cummings, Ivan Lin, Logan Sevatzian
  */
 import javax.swing.JOptionPane;
+import java.io.File;
 public class MainFrame extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MainFrame.class.getName());
@@ -97,7 +98,7 @@ public class MainFrame extends javax.swing.JFrame {
         lbl_email1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_email1.setText("Email:");
         pnl_register.add(lbl_email1);
-        lbl_email1.setBounds(0, 140, 80, 22);
+        lbl_email1.setBounds(40, 140, 50, 22);
         pnl_register.add(txt_email1);
         txt_email1.setBounds(90, 140, 220, 30);
 
@@ -154,6 +155,11 @@ public class MainFrame extends javax.swing.JFrame {
         txt_cvv.setBounds(90, 310, 80, 22);
 
         btn_register.setText("Register");
+        btn_register.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_registerActionPerformed(evt);
+            }
+        });
         pnl_register.add(btn_register);
         btn_register.setBounds(150, 370, 90, 23);
 
@@ -329,7 +335,10 @@ public class MainFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    //Account information file
+    File AccountList = new File("Accounts.txt");
+    
     private void txt_cardNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cardNumberActionPerformed
 
     }//GEN-LAST:event_txt_cardNumberActionPerformed
@@ -345,6 +354,20 @@ public class MainFrame extends javax.swing.JFrame {
         pnl_login.setVisible(true);
         pnl_register.setVisible(false);
     }//GEN-LAST:event_btn_toLoginScreenMouseClicked
+
+    private void btn_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registerActionPerformed
+        //Input validation
+        ValidateCard validator = new ValidateCard();
+        
+        //Checking for empty input fields
+        if (txt_email1.getText().strip().isEmpty() || txt_password1.getText().strip().isEmpty() || txt_cardNumber.getText().strip().isEmpty() || txt_cvv.getText().strip().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please ensure all input fields are filled in.", "Error", 2);
+        } else if (!txt_email1.getText().strip().contains(".") || !txt_email1.getText().strip().contains("@")) {
+            JOptionPane.showMessageDialog(this, "Please ensure you have entered a valid email.", "Error", 2);
+        } else if (!validator.validateCard(txt_cardNumber.getText(), txt_cvv.getText().strip())) {
+            JOptionPane.showMessageDialog(this, "Please ensure you enter a valid credit/debit card number and CVV code.", "Error", 2);
+        }
+    }//GEN-LAST:event_btn_registerActionPerformed
 
     /**
      * @param args the command line arguments
