@@ -389,7 +389,12 @@ public class MainFrame extends javax.swing.JFrame {
                         cardNumber = String.join("", splitNumber);
                         String cvv = txt_cvv.getText().strip();
                         Customer newCustomer = new Customer(email, password, cardNumber, cvv);
+                        //TODO: SWITCH TO HOMESCREEN WITH LOGGED IN CUSTOMER
+                        //TODO: ADD ADMIN BOOLEAN ATTRIBUTE TO DATA FILE FOR ADMIN LOGINS
                     }  
+                } else {
+                    //TODO: SEARCH THE FILE AND MAKE SURE THEY'RE NOT REGISTERING AN EXISTING ACCOUNT
+                    //TODO: IMPLEMENT SORTING ALGORITHM
                 }
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "There was an error: " + e, "Error!", 1);
