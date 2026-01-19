@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 /**
  *
- * @author ivanlin
+ * @author Ivan Lin and Noah Cummings
  */
 public class register extends javax.swing.JPanel {
     JPanel mainPanel;
@@ -144,7 +144,13 @@ public class register extends javax.swing.JPanel {
         btn_toLoginScreen.setBounds(250, 440, 30, 16);
         btn_toLoginScreen.setBounds(250, 440, 30, 16);
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    //Account information file
+    File AccountFile = new File("Accounts.txt");
+    //Account information arraylist (for searching and modifying the text file)
+    ArrayList<Customer> AccountList = new ArrayList<>();
+    User CurrentUser;
+    
     private void txt_cardNumberActionPerformed(java.awt.event.ActionEvent evt) {                                               
 
     }                                              
@@ -192,13 +198,7 @@ public class register extends javax.swing.JPanel {
         CardLayout cl = (CardLayout) mainPanel.getLayout();
         cl.show(mainPanel, "login");
     }                                              
-    
-    //Account information file
-    File AccountFile = new File("Accounts.txt");
-    //Account information arraylist (for searching and modifying the text file)
-    ArrayList<Customer> AccountList = new ArrayList<>();
-    User CurrentUser;
-    
+       
     public void readFile() { //Method for reading from the text file, and converting the raw data into customer instances
         
         try {

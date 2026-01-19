@@ -46,11 +46,6 @@ public class MainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    //Account information file
-    File AccountFile = new File("Accounts.txt");
-    //Account information arraylist (for searching and modifying the text file)
-    ArrayList<Customer> AccountList = new ArrayList<>();
-    User currentUser;
     
     private void txt_cardNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cardNumberActionPerformed
 
