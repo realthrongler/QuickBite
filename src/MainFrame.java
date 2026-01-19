@@ -9,7 +9,8 @@
  * @authors Noah Cummings, Ivan Lin, Logan Sevatzian
  */
 import javax.swing.JOptionPane;
-import java.io.File;
+import java.io.*;
+import java.util.ArrayList;
 public class MainFrame extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MainFrame.class.getName());
@@ -337,7 +338,9 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     //Account information file
-    File AccountList = new File("Accounts.txt");
+    File AccountFile = new File("Accounts.txt");
+    //Account information arraylist (for searching and modifying the text file)
+    ArrayList<Customer> AccountList = new ArrayList<>();
     
     private void txt_cardNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cardNumberActionPerformed
 
@@ -363,12 +366,50 @@ public class MainFrame extends javax.swing.JFrame {
         if (txt_email1.getText().strip().isEmpty() || txt_password1.getText().strip().isEmpty() || txt_cardNumber.getText().strip().isEmpty() || txt_cvv.getText().strip().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please ensure all input fields are filled in.", "Error", 2);
         } else if (!txt_email1.getText().strip().contains(".") || !txt_email1.getText().strip().contains("@")) {
+            //Checking if the email input contains a "." and a "@"
             JOptionPane.showMessageDialog(this, "Please ensure you have entered a valid email.", "Error", 2);
         } else if (!validator.validateCard(txt_cardNumber.getText(), txt_cvv.getText().strip())) {
+            //Using luhn algorithm to verify card number and CVV
             JOptionPane.showMessageDialog(this, "Please ensure you enter a valid credit/debit card number and CVV code.", "Error", 2);
+        } else {
+            try {
+                AccountFile.createNewFile(); //Creates the accounts.txt file if it doesn't exist already
+                if (AccountList.isEmpty()) { //If the account list is empty, read from the file
+                    readFile();
+                    if (AccountList.isEmpty()) { //If the account list is STILL empty, add the new user's info to the text file
+                        
+                    }  
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "There was an error: " + e, "Error!", 1);
+            }
         }
     }//GEN-LAST:event_btn_registerActionPerformed
-
+    
+    public void readFile() { //Method for reading from the text file, and converting the raw data into customer instances
+        
+        try {
+            if (!AccountFile.createNewFile()) { //If the account fails to create (Already existing), read from the file
+                BufferedReader reader = new BufferedReader(new FileReader(AccountFile.getAbsoluteFile()));
+                String line;
+                
+                while ((line = reader.readLine()) != null) {
+                    String[] lineArray = line.split(","); //Splitting everything by commas
+                    String email = lineArray[0];
+                    String password = lineArray[1];
+                    String cardNumber = lineArray[2];
+                    String cvv = lineArray[3];
+                    int points = Integer.parseInt(lineArray[4]);
+                    Customer person = new Customer(email, password, cardNumber, cvv); //Constructor only takes these values
+                    person.addPoints(points); //Adding customer's points to the default balance of zero
+                    AccountList.add(person);
+                }
+                reader.close();
+            }            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Fatal error reading from accounts file.", "ERROR!", 2);
+        }
+    }
     /**
      * @param args the command line arguments
      */
