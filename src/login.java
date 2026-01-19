@@ -150,7 +150,7 @@ public class login extends javax.swing.JPanel {
     private void btn_toRegisterScreenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_toRegisterScreenMouseClicked
         //When user clicks the prompt on the login screen, this takes them to the register screen
         CardLayout cl = (CardLayout) mainPanel.getLayout();
-        cl.show(mainPanel, "register");;
+        cl.show(mainPanel, "register");
     }//GEN-LAST:event_btn_toRegisterScreenMouseClicked
 
 
