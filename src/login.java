@@ -50,7 +50,11 @@ public class login extends javax.swing.JPanel {
         lbl_registerPrompt.setText("New user?");
         add(lbl_registerPrompt);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         lbl_registerPrompt.setBounds(120, 350, 60, 16);
+=======
+        lbl_registerPrompt.setBounds(110, 350, 60, 16);
+>>>>>>> Stashed changes
 =======
         lbl_registerPrompt.setBounds(110, 350, 60, 16);
 >>>>>>> Stashed changes
@@ -90,7 +94,11 @@ public class login extends javax.swing.JPanel {
         txt_loginType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Customer", "Administrator" }));
         add(txt_loginType);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         txt_loginType.setBounds(110, 150, 214, 22);
+=======
+        txt_loginType.setBounds(80, 130, 214, 22);
+>>>>>>> Stashed changes
 =======
         txt_loginType.setBounds(80, 130, 214, 22);
 >>>>>>> Stashed changes
@@ -105,7 +113,11 @@ public class login extends javax.swing.JPanel {
         });
         add(btn_toRegisterScreen);
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         btn_toRegisterScreen.setBounds(180, 350, 110, 16);
+=======
+        btn_toRegisterScreen.setBounds(170, 350, 110, 16);
+>>>>>>> Stashed changes
 =======
         btn_toRegisterScreen.setBounds(170, 350, 110, 16);
 >>>>>>> Stashed changes

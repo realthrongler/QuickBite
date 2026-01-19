@@ -48,6 +48,7 @@ public class MainFrame extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         pnl_register.setMaximumSize(new java.awt.Dimension(370, 480));
         pnl_register.setLayout(null);
 
@@ -290,6 +291,8 @@ public class MainFrame extends javax.swing.JFrame {
         getContentPane().add(pnl_adminHomeScreen);
         pnl_adminHomeScreen.setBounds(0, 0, 370, 480);
 
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
         pack();
