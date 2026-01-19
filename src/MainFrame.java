@@ -341,7 +341,7 @@ public class MainFrame extends javax.swing.JFrame {
     File AccountFile = new File("Accounts.txt");
     //Account information arraylist (for searching and modifying the text file)
     ArrayList<Customer> AccountList = new ArrayList<>();
-    User CurrentUser;
+    User currentUser;
     
     private void txt_cardNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cardNumberActionPerformed
 
@@ -409,6 +409,7 @@ public class MainFrame extends javax.swing.JFrame {
                     Customer person = new Customer(email, password, cardNumber, cvv); //Constructor only takes these values
                     person.addPoints(points); //Adding customer's points to the default balance of zero
                     AccountList.add(person);
+                    currentUser = person;
                 }
                 reader.close();
             }            
