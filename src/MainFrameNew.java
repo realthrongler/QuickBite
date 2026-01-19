@@ -1,31 +1,31 @@
-
-import java.awt.CardLayout;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 
+
 /**
  *
- * @author ivanlin
+ * @authors Noah Cummings, Ivan Lin, Logan Sevatzian
  */
-public class TestMain extends javax.swing.JFrame {
+import java.awt.CardLayout;
+public class MainFrameNew extends javax.swing.JFrame {
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(TestMain.class.getName());
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MainFrame.class.getName());
 
     /**
-     * Creates new form TestMain
+     * Creates new form LoginFrame
      */
-    public TestMain() {
+    public MainFrameNew() {
         initComponents();
         
-        jPanelMain.add(new test1(jPanelMain), "test_1");
-        jPanelMain.add(new test2(jPanelMain), "test_2");
-        jPanelMain.add(new test3(jPanelMain), "test_3");
+        jPanelMain.add(new login(jPanelMain), "login");
+        jPanelMain.add(new register(jPanelMain), "register");
+        jPanelMain.add(new newOrder(jPanelMain), "MakeOrder");
         
+        //Shows login as default
         CardLayout cl = (CardLayout) jPanelMain.getLayout();
-        cl.show(jPanelMain, "test_1");
+        cl.show(jPanelMain, "login");
         pack();
     }
 
@@ -41,14 +41,13 @@ public class TestMain extends javax.swing.JFrame {
         jPanelMain = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new javax.swing.OverlayLayout(getContentPane()));
-
-        jPanelMain.setLayout(new java.awt.CardLayout());
-        getContentPane().add(jPanelMain);
+        setMinimumSize(new java.awt.Dimension(370, 480));
+        setResizable(false);
+        getContentPane().add(jPanelMain, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     /**
      * @param args the command line arguments
      */
@@ -71,7 +70,7 @@ public class TestMain extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new TestMain().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> new MainFrame().setVisible(true));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
