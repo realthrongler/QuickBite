@@ -108,7 +108,11 @@ public class register extends javax.swing.JPanel {
         add(txt_cvv);
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         txt_cvv.setBounds(90, 310, 80, 22);
+=======
+        txt_cvv.setBounds(50, 370, 80, 22);
+>>>>>>> Stashed changes
 =======
         txt_cvv.setBounds(50, 370, 80, 22);
 >>>>>>> Stashed changes
@@ -129,7 +133,11 @@ public class register extends javax.swing.JPanel {
         add(lbl_loginPrompt);
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         lbl_loginPrompt.setBounds(80, 410, 135, 16);
+=======
+        lbl_loginPrompt.setBounds(110, 440, 135, 16);
+>>>>>>> Stashed changes
 =======
         lbl_loginPrompt.setBounds(110, 440, 135, 16);
 >>>>>>> Stashed changes
@@ -148,7 +156,11 @@ public class register extends javax.swing.JPanel {
         add(btn_toLoginScreen);
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
         btn_toLoginScreen.setBounds(220, 410, 30, 16);
+=======
+        btn_toLoginScreen.setBounds(250, 440, 30, 16);
+>>>>>>> Stashed changes
 =======
         btn_toLoginScreen.setBounds(250, 440, 30, 16);
 >>>>>>> Stashed changes
