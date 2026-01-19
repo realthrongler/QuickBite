@@ -1,7 +1,5 @@
 
 import java.awt.CardLayout;
-import java.awt.Dimension;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /*
@@ -14,14 +12,13 @@ import javax.swing.JPanel;
  * @author ivanlin
  */
 public class test2 extends javax.swing.JPanel {
-    JFrame mainFrame;
     JPanel mainPanel;
     
     /**
      * Creates new form test2
+     * @param mainPanel
      */
-    public test2(JFrame mainFrame, JPanel mainPanel) {
-        this.mainFrame = mainFrame;
+    public test2(JPanel mainPanel) {
         this.mainPanel = mainPanel;
         initComponents();
     }
@@ -89,10 +86,6 @@ public class test2 extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         CardLayout cl = (CardLayout) mainPanel.getLayout();
         cl.show(mainPanel, "test_1");
-        //mainFrame.revalidate();
-        //mainFrame.repaint();
-       // mainFrame.pack();
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

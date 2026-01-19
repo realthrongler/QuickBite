@@ -15,6 +15,7 @@ public class test3 extends javax.swing.JPanel {
     JPanel mainPanel;
     /**
      * Creates new form test3
+     * @param mainPanel
      */
     public test3(JPanel mainPanel) {
         this.mainPanel = mainPanel;

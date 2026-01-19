@@ -3,27 +3,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 import java.awt.CardLayout;
-import java.awt.Dimension;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 /**
  *
  * @author ivanlin
  */
 public class test1 extends javax.swing.JPanel {
-    JFrame mainFrame;
     JPanel mainPanel;
     
     /**
      * Creates new form test1
-     * @param mainFrame
      * @param mainPanel
      */
-    public test1(JFrame mainFrame, JPanel mainPanel) {
-        this.mainFrame = mainFrame;
+    public test1(JPanel mainPanel) {
         this.mainPanel = mainPanel;
         initComponents();
-        setPreferredSize(new Dimension(400, 196));
     }
 
     /**
@@ -77,10 +71,6 @@ public class test1 extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         CardLayout cl = (CardLayout) mainPanel.getLayout();
         cl.show(mainPanel, "test_2");
-        //mainFrame.revalidate();
-        //mainFrame.repaint();
-        mainFrame.pack();
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
