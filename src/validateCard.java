@@ -8,7 +8,7 @@
  * @author noahc
  */
 public class ValidateCard { //Luhn algorithm for card number verification
-    public boolean validateCard(String cardNumber, String securityCode) {
+    public boolean ValidateCard(String cardNumber, String securityCode) {
         boolean cardValid = true;
         
         cardNumber = cardNumber.strip(); //Removing spaces on the ends of the input

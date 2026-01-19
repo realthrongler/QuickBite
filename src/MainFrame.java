@@ -368,8 +368,7 @@ public class MainFrame extends javax.swing.JFrame {
         } else if (!txt_email1.getText().strip().contains(".") || !txt_email1.getText().strip().contains("@")) {
             //Checking if the email input contains a "." and a "@"
             JOptionPane.showMessageDialog(this, "Please ensure you have entered a valid email.", "Error", 2);
-        } else if (!validator.validateCard(txt_cardNumber.getText(), txt_cvv.getText().strip())) {
-            //Using luhn algorithm to verify card number and CVV
+        } else if (!validator.ValidateCard(txt_cardNumber.getText(), txt_cvv.getText().strip())) {
             JOptionPane.showMessageDialog(this, "Please ensure you enter a valid credit/debit card number and CVV code.", "Error", 2);
         } else {
             try {
