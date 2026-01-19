@@ -112,7 +112,7 @@ public class register extends javax.swing.JPanel {
         add(txt_cardNumber);
         txt_cardNumber.setBounds(90, 250, 220, 30);
         add(txt_cvv);
-        txt_cvv.setBounds(90, 310, 80, 23);
+        txt_cvv.setBounds(90, 310, 80, 22);
 
         btn_register.setText("Register");
         btn_register.addActionListener(new java.awt.event.ActionListener() {
@@ -125,7 +125,7 @@ public class register extends javax.swing.JPanel {
 
         lbl_loginPrompt.setText("Already have an account?");
         add(lbl_loginPrompt);
-        lbl_loginPrompt.setBounds(80, 410, 151, 17);
+        lbl_loginPrompt.setBounds(80, 410, 135, 16);
 
         btn_toLoginScreen.setForeground(new java.awt.Color(0, 0, 255));
         btn_toLoginScreen.setText("Login");
@@ -136,7 +136,7 @@ public class register extends javax.swing.JPanel {
             }
         });
         add(btn_toLoginScreen);
-        btn_toLoginScreen.setBounds(220, 410, 31, 17);
+        btn_toLoginScreen.setBounds(220, 410, 30, 16);
     }// </editor-fold>//GEN-END:initComponents
     
     //Account information file

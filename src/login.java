@@ -49,7 +49,7 @@ public class login extends javax.swing.JPanel {
 
         lbl_registerPrompt.setText("New user?");
         add(lbl_registerPrompt);
-        lbl_registerPrompt.setBounds(120, 350, 60, 17);
+        lbl_registerPrompt.setBounds(120, 350, 60, 16);
 
         btn_login.setText("Login");
         add(btn_login);
@@ -85,7 +85,7 @@ public class login extends javax.swing.JPanel {
 
         txt_loginType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Customer", "Administrator" }));
         add(txt_loginType);
-        txt_loginType.setBounds(110, 150, 214, 23);
+        txt_loginType.setBounds(110, 150, 214, 22);
 
         btn_toRegisterScreen.setForeground(new java.awt.Color(0, 0, 255));
         btn_toRegisterScreen.setText("Register an account");
@@ -96,7 +96,7 @@ public class login extends javax.swing.JPanel {
             }
         });
         add(btn_toRegisterScreen);
-        btn_toRegisterScreen.setBounds(180, 350, 110, 17);
+        btn_toRegisterScreen.setBounds(180, 350, 110, 16);
 
         lbl_password.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
         lbl_password.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
