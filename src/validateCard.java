@@ -7,7 +7,7 @@
  *
  * @author noahc
  */
-public class ValidateCard { //Luhn algorithm for card number verification
+public class validateCard { //Luhn algorithm for card number verification
     public boolean validateCard(String cardNumber, String securityCode) {
         boolean cardValid = true;
         
