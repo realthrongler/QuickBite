@@ -20,8 +20,8 @@ public class TestMain extends javax.swing.JFrame {
     public TestMain() {
         initComponents();
         
-        jPanelMain.add(new test1(this, jPanelMain), "test_1");
-        jPanelMain.add(new test2(this, jPanelMain), "test_2");
+        jPanelMain.add(new test1(jPanelMain), "test_1");
+        jPanelMain.add(new test2(jPanelMain), "test_2");
         jPanelMain.add(new test3(jPanelMain), "test_3");
         
         CardLayout cl = (CardLayout) jPanelMain.getLayout();
