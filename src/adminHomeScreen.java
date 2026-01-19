@@ -31,19 +31,48 @@ public class adminHomeScreen extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        icon_logo3 = new javax.swing.JLabel();
+        lbl_title3 = new javax.swing.JLabel();
+        icon_gradient2 = new javax.swing.JLabel();
+        lbl_incomingOrders = new javax.swing.JLabel();
+        pane_incomingOrders = new javax.swing.JScrollPane();
+        txt_IncomingOrders = new javax.swing.JTextArea();
+
+        setLayout(null);
+
+        icon_logo3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quick_bite_logo_80x80.png"))); // NOI18N
+        add(icon_logo3);
+        icon_logo3.setBounds(0, 0, 80, 80);
+
+        lbl_title3.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
+        lbl_title3.setText("Quick Bite");
+        add(lbl_title3);
+        lbl_title3.setBounds(140, 20, 110, 29);
+
+        icon_gradient2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FinalGradient.png"))); // NOI18N
+        add(icon_gradient2);
+        icon_gradient2.setBounds(0, 0, 370, 80);
+
+        lbl_incomingOrders.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        lbl_incomingOrders.setText("Incoming Orders");
+        add(lbl_incomingOrders);
+        lbl_incomingOrders.setBounds(120, 110, 130, 22);
+
+        txt_IncomingOrders.setColumns(20);
+        txt_IncomingOrders.setRows(5);
+        pane_incomingOrders.setViewportView(txt_IncomingOrders);
+
+        add(pane_incomingOrders);
+        pane_incomingOrders.setBounds(40, 150, 290, 130);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel icon_gradient2;
+    private javax.swing.JLabel icon_logo3;
+    private javax.swing.JLabel lbl_incomingOrders;
+    private javax.swing.JLabel lbl_title3;
+    private javax.swing.JScrollPane pane_incomingOrders;
+    private javax.swing.JTextArea txt_IncomingOrders;
     // End of variables declaration//GEN-END:variables
 }

@@ -32,7 +32,6 @@ public class customerHomeScreen extends javax.swing.JPanel {
     private void initComponents() {
 
         icon_logo2 = new javax.swing.JLabel();
-        lbl_companyTitle2 = new javax.swing.JLabel();
         lbl_title2 = new javax.swing.JLabel();
         icon_gradient1 = new javax.swing.JLabel();
         lbl_currentOrders = new javax.swing.JLabel();
@@ -43,28 +42,23 @@ public class customerHomeScreen extends javax.swing.JPanel {
 
         setLayout(null);
 
-        icon_logo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoReal.png"))); // NOI18N
+        icon_logo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quick_bite_logo_80x80.png"))); // NOI18N
         add(icon_logo2);
         icon_logo2.setBounds(0, 0, 80, 80);
 
-        lbl_companyTitle2.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
-        lbl_companyTitle2.setText("Ivan's Z's Inc.");
-        add(lbl_companyTitle2);
-        lbl_companyTitle2.setBounds(140, 40, 100, 22);
-
-        lbl_title2.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        lbl_title2.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
         lbl_title2.setText("Quick Bite");
         add(lbl_title2);
-        lbl_title2.setBounds(150, 10, 80, 22);
+        lbl_title2.setBounds(140, 20, 110, 29);
 
-        icon_gradient1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/blueskibidigradient.png"))); // NOI18N
+        icon_gradient1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FinalGradient.png"))); // NOI18N
         add(icon_gradient1);
         icon_gradient1.setBounds(0, 0, 370, 80);
 
         lbl_currentOrders.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
         lbl_currentOrders.setText("Current Orders:");
         add(lbl_currentOrders);
-        lbl_currentOrders.setBounds(110, 110, 140, 20);
+        lbl_currentOrders.setBounds(120, 100, 140, 20);
 
         lbl_newOrder.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
         lbl_newOrder.setText("New Order:");
@@ -73,32 +67,22 @@ public class customerHomeScreen extends javax.swing.JPanel {
 
         btn_newOrder.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btn_newOrder.setText("Place new order");
-        btn_newOrder.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_newOrderActionPerformed(evt);
-            }
-        });
         add(btn_newOrder);
-        btn_newOrder.setBounds(110, 360, 140, 40);
+        btn_newOrder.setBounds(110, 340, 140, 40);
 
         txt_orderDisplay.setColumns(20);
         txt_orderDisplay.setRows(5);
         pane_orderDisplay.setViewportView(txt_orderDisplay);
 
         add(pane_orderDisplay);
-        pane_orderDisplay.setBounds(40, 136, 270, 160);
+        pane_orderDisplay.setBounds(60, 130, 270, 160);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btn_newOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_newOrderActionPerformed
-        
-    }//GEN-LAST:event_btn_newOrderActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_newOrder;
     private javax.swing.JLabel icon_gradient1;
     private javax.swing.JLabel icon_logo2;
-    private javax.swing.JLabel lbl_companyTitle2;
     private javax.swing.JLabel lbl_currentOrders;
     private javax.swing.JLabel lbl_newOrder;
     private javax.swing.JLabel lbl_title2;

@@ -21,7 +21,7 @@
     <Component class="javax.swing.JLabel" name="icon_logo2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/logoReal.png"/>
+          <Image iconType="3" name="/quick_bite_logo_80x80.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -30,36 +30,23 @@
         </Constraint>
       </Constraints>
     </Component>
-    <Component class="javax.swing.JLabel" name="lbl_companyTitle2">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Gill Sans MT" size="18" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Ivan&apos;s Z&apos;s Inc."/>
-      </Properties>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="140" y="40" width="100" height="-1"/>
-        </Constraint>
-      </Constraints>
-    </Component>
     <Component class="javax.swing.JLabel" name="lbl_title2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Gill Sans MT" size="18" style="0"/>
+          <Font name="Gill Sans MT" size="24" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Quick Bite"/>
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="150" y="10" width="80" height="-1"/>
+          <AbsoluteConstraints x="140" y="20" width="110" height="-1"/>
         </Constraint>
       </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="icon_gradient1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/blueskibidigradient.png"/>
+          <Image iconType="3" name="/FinalGradient.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -77,7 +64,7 @@
       </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="110" y="110" width="140" height="20"/>
+          <AbsoluteConstraints x="120" y="100" width="140" height="20"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -101,12 +88,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Place new order"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_newOrderActionPerformed"/>
-      </Events>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="110" y="360" width="140" height="40"/>
+          <AbsoluteConstraints x="110" y="340" width="140" height="40"/>
         </Constraint>
       </Constraints>
     </Component>
@@ -116,7 +100,7 @@
       </AuxValues>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="40" y="136" width="270" height="160"/>
+          <AbsoluteConstraints x="60" y="130" width="270" height="160"/>
         </Constraint>
       </Constraints>
 

@@ -40,7 +40,6 @@ public class register extends javax.swing.JPanel {
         txt_password1 = new javax.swing.JTextField();
         lbl_password1 = new javax.swing.JLabel();
         icon_logo1 = new javax.swing.JLabel();
-        lbl_companyTitle1 = new javax.swing.JLabel();
         lbl_title1 = new javax.swing.JLabel();
         icon_gradient = new javax.swing.JLabel();
         lbl_cardNumber = new javax.swing.JLabel();
@@ -56,53 +55,48 @@ public class register extends javax.swing.JPanel {
 
         lbl_email1.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
         lbl_email1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_email1.setText("Email:");
+        lbl_email1.setText("Email");
         add(lbl_email1);
-        lbl_email1.setBounds(40, 140, 50, 22);
+        lbl_email1.setBounds(50, 130, 50, 22);
         add(txt_email1);
-        txt_email1.setBounds(90, 140, 220, 30);
+        txt_email1.setBounds(50, 160, 270, 30);
 
         lbl_register.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
         lbl_register.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_register.setText("Register");
+        lbl_register.setText("Sign Up");
         add(lbl_register);
-        lbl_register.setBounds(110, 90, 170, 38);
+        lbl_register.setBounds(100, 90, 170, 38);
         add(txt_password1);
-        txt_password1.setBounds(90, 200, 220, 30);
+        txt_password1.setBounds(50, 230, 270, 30);
 
         lbl_password1.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
         lbl_password1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lbl_password1.setText("Password:");
+        lbl_password1.setText("Password");
         add(lbl_password1);
-        lbl_password1.setBounds(-10, 200, 110, 22);
+        lbl_password1.setBounds(50, 200, 80, 22);
 
-        icon_logo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoReal.png"))); // NOI18N
+        icon_logo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quick_bite_logo_80x80.png"))); // NOI18N
         add(icon_logo1);
         icon_logo1.setBounds(0, 0, 80, 80);
 
-        lbl_companyTitle1.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
-        lbl_companyTitle1.setText("Ivan's Z's Inc.");
-        add(lbl_companyTitle1);
-        lbl_companyTitle1.setBounds(140, 40, 180, 22);
-
-        lbl_title1.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        lbl_title1.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
         lbl_title1.setText("Quick Bite");
         add(lbl_title1);
-        lbl_title1.setBounds(150, 10, 80, 22);
+        lbl_title1.setBounds(140, 20, 130, 30);
 
-        icon_gradient.setIcon(new javax.swing.ImageIcon(getClass().getResource("/blueskibidigradient.png"))); // NOI18N
+        icon_gradient.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FinalGradient.png"))); // NOI18N
         add(icon_gradient);
         icon_gradient.setBounds(0, 0, 370, 80);
 
-        lbl_cardNumber.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
-        lbl_cardNumber.setText("Card Number:");
+        lbl_cardNumber.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
+        lbl_cardNumber.setText("Card Number");
         add(lbl_cardNumber);
-        lbl_cardNumber.setBounds(0, 260, 90, 17);
+        lbl_cardNumber.setBounds(50, 270, 130, 22);
 
         lbl_cvv.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
-        lbl_cvv.setText("CVV:");
+        lbl_cvv.setText("CVV");
         add(lbl_cvv);
-        lbl_cvv.setBounds(40, 310, 50, 22);
+        lbl_cvv.setBounds(50, 340, 50, 22);
 
         txt_cardNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -110,9 +104,13 @@ public class register extends javax.swing.JPanel {
             }
         });
         add(txt_cardNumber);
-        txt_cardNumber.setBounds(90, 250, 220, 30);
+        txt_cardNumber.setBounds(50, 300, 220, 30);
         add(txt_cvv);
+<<<<<<< Updated upstream
         txt_cvv.setBounds(90, 310, 80, 22);
+=======
+        txt_cvv.setBounds(50, 370, 80, 22);
+>>>>>>> Stashed changes
 
         btn_register.setText("Register");
         btn_register.addActionListener(new java.awt.event.ActionListener() {
@@ -121,11 +119,15 @@ public class register extends javax.swing.JPanel {
             }
         });
         add(btn_register);
-        btn_register.setBounds(150, 370, 90, 23);
+        btn_register.setBounds(150, 410, 90, 23);
 
         lbl_loginPrompt.setText("Already have an account?");
         add(lbl_loginPrompt);
+<<<<<<< Updated upstream
         lbl_loginPrompt.setBounds(80, 410, 135, 16);
+=======
+        lbl_loginPrompt.setBounds(110, 440, 135, 16);
+>>>>>>> Stashed changes
 
         btn_toLoginScreen.setForeground(new java.awt.Color(0, 0, 255));
         btn_toLoginScreen.setText("Login");
@@ -136,8 +138,60 @@ public class register extends javax.swing.JPanel {
             }
         });
         add(btn_toLoginScreen);
+<<<<<<< Updated upstream
         btn_toLoginScreen.setBounds(220, 410, 30, 16);
+=======
+        btn_toLoginScreen.setBounds(250, 440, 30, 16);
+>>>>>>> Stashed changes
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txt_cardNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cardNumberActionPerformed
+
+    }//GEN-LAST:event_txt_cardNumberActionPerformed
+
+    private void btn_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registerActionPerformed
+        //Input validation
+        ValidateCard validator = new ValidateCard();
+
+        //Checking for empty input fields
+        if (txt_email1.getText().strip().isEmpty() || txt_password1.getText().strip().isEmpty() || txt_cardNumber.getText().strip().isEmpty() || txt_cvv.getText().strip().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please ensure all input fields are filled in.", "Error", 2);
+        } else if (!txt_email1.getText().strip().contains(".") || !txt_email1.getText().strip().contains("@")) {
+            //Checking if the email input contains a "." and a "@"
+            JOptionPane.showMessageDialog(this, "Please ensure you have entered a valid email.", "Error", 2);
+        } else if (!validator.ValidateCard(txt_cardNumber.getText(), txt_cvv.getText().strip())) {
+            JOptionPane.showMessageDialog(this, "Please ensure you enter a valid credit/debit card number and CVV code.", "Error", 2);
+        } else {
+            try {
+                AccountFile.createNewFile(); //Creates the accounts.txt file if it doesn't exist already
+                if (AccountList.isEmpty()) { //If the account list is empty, read from the file
+                    readFile();
+                    if (AccountList.isEmpty()) { //If the account list is STILL empty, add the new user's info to the arraylist
+                        String email = txt_email1.getText().strip();
+                        String password = txt_password1.getText().strip();
+                        String cardNumber = txt_cardNumber.getText().strip();
+                        String[] splitNumber = cardNumber.split(" "); //Formatting card number
+                        cardNumber = String.join("", splitNumber);
+                        String cvv = txt_cvv.getText().strip();
+                        Customer newCustomer = new Customer(email, password, cardNumber, cvv);
+                        //TODO: SWITCH TO HOMESCREEN WITH LOGGED IN CUSTOMER
+                        //TODO: ADD ADMIN BOOLEAN ATTRIBUTE TO DATA FILE FOR ADMIN LOGINS
+                    }
+                } else {
+                    //TODO: SEARCH THE FILE AND MAKE SURE THEY'RE NOT REGISTERING AN EXISTING ACCOUNT
+                    //TODO: IMPLEMENT SORTING ALGORITHM
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "There was an error: " + e, "Error!", 1);
+            }
+        }
+    }//GEN-LAST:event_btn_registerActionPerformed
+
+    private void btn_toLoginScreenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_toLoginScreenMouseClicked
+        //When the user clicks the prompt on the register screen, this takes them to the login screen
+        pnl_login.setVisible(true);
+        pnl_register.setVisible(false);
+    }//GEN-LAST:event_btn_toLoginScreenMouseClicked
     
     //Account information file
     File AccountFile = new File("Accounts.txt");
@@ -169,43 +223,6 @@ public class register extends javax.swing.JPanel {
         }
     }
     
-    private void btn_toLoginScreenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_toLoginScreenMouseClicked
-        //When the user clicks the prompt on the register screen, this takes them to the login screen
-        CardLayout cl = (CardLayout) mainPanel.getLayout();
-        cl.show(mainPanel, "login");
-    }//GEN-LAST:event_btn_toLoginScreenMouseClicked
-
-    private void btn_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registerActionPerformed
-        //Input validation
-        ValidateCard validator = new ValidateCard();
-
-        //Checking for empty input fields
-        if (txt_email1.getText().strip().isEmpty() || txt_password1.getText().strip().isEmpty() || txt_cardNumber.getText().strip().isEmpty() || txt_cvv.getText().strip().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please ensure all input fields are filled in.", "Error", 2);
-        } else if (!txt_email1.getText().strip().contains(".") || !txt_email1.getText().strip().contains("@")) {
-            //Checking if the email input contains a "." and a "@"
-            JOptionPane.showMessageDialog(this, "Please ensure you have entered a valid email.", "Error", 2);
-        } else if (!validator.ValidateCard(txt_cardNumber.getText(), txt_cvv.getText().strip())) {
-            JOptionPane.showMessageDialog(this, "Please ensure you enter a valid credit/debit card number and CVV code.", "Error", 2);
-        } else {
-            try {
-                AccountFile.createNewFile(); //Creates the accounts.txt file if it doesn't exist already
-                if (AccountList.isEmpty()) { //If the account list is empty, read from the file
-                    readFile();
-                    if (AccountList.isEmpty()) { //If the account list is STILL empty, add the new user's info to the text file
-
-                    }
-                }
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "There was an error: " + e, "Error!", 1);
-            }
-        }
-    }//GEN-LAST:event_btn_registerActionPerformed
-
-    private void txt_cardNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cardNumberActionPerformed
-
-    }//GEN-LAST:event_txt_cardNumberActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_register;
@@ -213,7 +230,6 @@ public class register extends javax.swing.JPanel {
     private javax.swing.JLabel icon_gradient;
     private javax.swing.JLabel icon_logo1;
     private javax.swing.JLabel lbl_cardNumber;
-    private javax.swing.JLabel lbl_companyTitle1;
     private javax.swing.JLabel lbl_cvv;
     private javax.swing.JLabel lbl_email1;
     private javax.swing.JLabel lbl_loginPrompt;

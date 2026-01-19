@@ -35,56 +35,6 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        pnl_register = new javax.swing.JPanel();
-        lbl_email1 = new javax.swing.JLabel();
-        txt_email1 = new javax.swing.JTextField();
-        lbl_register = new javax.swing.JLabel();
-        txt_password1 = new javax.swing.JTextField();
-        lbl_password1 = new javax.swing.JLabel();
-        icon_logo1 = new javax.swing.JLabel();
-        lbl_companyTitle1 = new javax.swing.JLabel();
-        lbl_title1 = new javax.swing.JLabel();
-        icon_gradient = new javax.swing.JLabel();
-        lbl_cardNumber = new javax.swing.JLabel();
-        lbl_cvv = new javax.swing.JLabel();
-        txt_cardNumber = new javax.swing.JTextField();
-        txt_cvv = new javax.swing.JTextField();
-        btn_register = new javax.swing.JButton();
-        lbl_loginPrompt = new javax.swing.JLabel();
-        btn_toLoginScreen = new javax.swing.JLabel();
-        pnl_login = new javax.swing.JPanel();
-        lbl_registerPrompt = new javax.swing.JLabel();
-        btn_login = new javax.swing.JButton();
-        icon_logo = new javax.swing.JLabel();
-        lbl_title = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        txt_email = new javax.swing.JTextField();
-        lbl_companyTitle = new javax.swing.JLabel();
-        txt_password = new javax.swing.JTextField();
-        lbl_login = new javax.swing.JLabel();
-        txt_loginType = new javax.swing.JComboBox<>();
-        btn_toRegisterScreen = new javax.swing.JLabel();
-        lbl_password = new javax.swing.JLabel();
-        lbl_email = new javax.swing.JLabel();
-        pnl_customerHomeScreen = new javax.swing.JPanel();
-        icon_logo2 = new javax.swing.JLabel();
-        lbl_companyTitle2 = new javax.swing.JLabel();
-        lbl_title2 = new javax.swing.JLabel();
-        icon_gradient1 = new javax.swing.JLabel();
-        lbl_currentOrders = new javax.swing.JLabel();
-        lbl_newOrder = new javax.swing.JLabel();
-        btn_newOrder = new javax.swing.JButton();
-        pane_orderDisplay = new javax.swing.JScrollPane();
-        txt_orderDisplay = new javax.swing.JTextArea();
-        pnl_adminHomeScreen = new javax.swing.JPanel();
-        icon_logo3 = new javax.swing.JLabel();
-        lbl_companyTitle3 = new javax.swing.JLabel();
-        lbl_title3 = new javax.swing.JLabel();
-        icon_gradient2 = new javax.swing.JLabel();
-        lbl_incomingOrders = new javax.swing.JLabel();
-        pane_incomingOrders = new javax.swing.JScrollPane();
-        txt_IncomingOrders = new javax.swing.JTextArea();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(370, 480));
         setMinimumSize(new java.awt.Dimension(370, 480));
@@ -97,6 +47,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         getContentPane().setLayout(null);
 
+<<<<<<< Updated upstream
         pnl_register.setMaximumSize(new java.awt.Dimension(370, 480));
         pnl_register.setLayout(null);
 
@@ -339,6 +290,8 @@ public class MainFrame extends javax.swing.JFrame {
         getContentPane().add(pnl_adminHomeScreen);
         pnl_adminHomeScreen.setBounds(0, 0, 370, 480);
 
+=======
+>>>>>>> Stashed changes
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
@@ -347,61 +300,7 @@ public class MainFrame extends javax.swing.JFrame {
     //Account information arraylist (for searching and modifying the text file)
     ArrayList<Customer> AccountList = new ArrayList<>();
     User currentUser;
-    
-    private void txt_cardNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cardNumberActionPerformed
-
-    }//GEN-LAST:event_txt_cardNumberActionPerformed
-
-    private void btn_toRegisterScreenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_toRegisterScreenMouseClicked
-        //When user clicks the prompt on the login screen, this takes them to the register screen
-        pnl_register.setVisible(true); 
-        pnl_login.setVisible(false);
-    }//GEN-LAST:event_btn_toRegisterScreenMouseClicked
-
-    private void btn_toLoginScreenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_toLoginScreenMouseClicked
-        //When the user clicks the prompt on the register screen, this takes them to the login screen
-        pnl_login.setVisible(true);
-        pnl_register.setVisible(false);
-    }//GEN-LAST:event_btn_toLoginScreenMouseClicked
-
-    private void btn_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registerActionPerformed
-        //Input validation
-        ValidateCard validator = new ValidateCard();
         
-        //Checking for empty input fields
-        if (txt_email1.getText().strip().isEmpty() || txt_password1.getText().strip().isEmpty() || txt_cardNumber.getText().strip().isEmpty() || txt_cvv.getText().strip().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please ensure all input fields are filled in.", "Error", 2);
-        } else if (!txt_email1.getText().strip().contains(".") || !txt_email1.getText().strip().contains("@")) {
-            //Checking if the email input contains a "." and a "@"
-            JOptionPane.showMessageDialog(this, "Please ensure you have entered a valid email.", "Error", 2);
-        } else if (!validator.ValidateCard(txt_cardNumber.getText(), txt_cvv.getText().strip())) {
-            JOptionPane.showMessageDialog(this, "Please ensure you enter a valid credit/debit card number and CVV code.", "Error", 2);
-        } else {
-            try {
-                AccountFile.createNewFile(); //Creates the accounts.txt file if it doesn't exist already
-                if (AccountList.isEmpty()) { //If the account list is empty, read from the file
-                    readFile();
-                    if (AccountList.isEmpty()) { //If the account list is STILL empty, add the new user's info to the arraylist
-                        String email = txt_email1.getText().strip();
-                        String password = txt_password1.getText().strip();
-                        String cardNumber = txt_cardNumber.getText().strip();
-                        String[] splitNumber = cardNumber.split(" "); //Formatting card number
-                        cardNumber = String.join("", splitNumber);
-                        String cvv = txt_cvv.getText().strip();
-                        Customer newCustomer = new Customer(email, password, cardNumber, cvv);
-                        //TODO: SWITCH TO HOMESCREEN WITH LOGGED IN CUSTOMER
-                        //TODO: ADD ADMIN BOOLEAN ATTRIBUTE TO DATA FILE FOR ADMIN LOGINS
-                    }  
-                } else {
-                    //TODO: SEARCH THE FILE AND MAKE SURE THEY'RE NOT REGISTERING AN EXISTING ACCOUNT
-                    //TODO: IMPLEMENT SORTING ALGORITHM
-                }
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "There was an error: " + e, "Error!", 1);
-            }
-        }
-    }//GEN-LAST:event_btn_registerActionPerformed
-    
     //Saving data to the database (text file) as customer closes app
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         writeFile();
@@ -480,54 +379,5 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_login;
-    private javax.swing.JButton btn_newOrder;
-    private javax.swing.JButton btn_register;
-    private javax.swing.JLabel btn_toLoginScreen;
-    private javax.swing.JLabel btn_toRegisterScreen;
-    private javax.swing.JLabel icon_gradient;
-    private javax.swing.JLabel icon_gradient1;
-    private javax.swing.JLabel icon_gradient2;
-    private javax.swing.JLabel icon_logo;
-    private javax.swing.JLabel icon_logo1;
-    private javax.swing.JLabel icon_logo2;
-    private javax.swing.JLabel icon_logo3;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel lbl_cardNumber;
-    private javax.swing.JLabel lbl_companyTitle;
-    private javax.swing.JLabel lbl_companyTitle1;
-    private javax.swing.JLabel lbl_companyTitle2;
-    private javax.swing.JLabel lbl_companyTitle3;
-    private javax.swing.JLabel lbl_currentOrders;
-    private javax.swing.JLabel lbl_cvv;
-    private javax.swing.JLabel lbl_email;
-    private javax.swing.JLabel lbl_email1;
-    private javax.swing.JLabel lbl_incomingOrders;
-    private javax.swing.JLabel lbl_login;
-    private javax.swing.JLabel lbl_loginPrompt;
-    private javax.swing.JLabel lbl_newOrder;
-    private javax.swing.JLabel lbl_password;
-    private javax.swing.JLabel lbl_password1;
-    private javax.swing.JLabel lbl_register;
-    private javax.swing.JLabel lbl_registerPrompt;
-    private javax.swing.JLabel lbl_title;
-    private javax.swing.JLabel lbl_title1;
-    private javax.swing.JLabel lbl_title2;
-    private javax.swing.JLabel lbl_title3;
-    private javax.swing.JScrollPane pane_incomingOrders;
-    private javax.swing.JScrollPane pane_orderDisplay;
-    private javax.swing.JPanel pnl_adminHomeScreen;
-    private javax.swing.JPanel pnl_customerHomeScreen;
-    private javax.swing.JPanel pnl_login;
-    private javax.swing.JPanel pnl_register;
-    private javax.swing.JTextArea txt_IncomingOrders;
-    private javax.swing.JTextField txt_cardNumber;
-    private javax.swing.JTextField txt_cvv;
-    private javax.swing.JTextField txt_email;
-    private javax.swing.JTextField txt_email1;
-    private javax.swing.JComboBox<String> txt_loginType;
-    private javax.swing.JTextArea txt_orderDisplay;
-    private javax.swing.JTextField txt_password;
-    private javax.swing.JTextField txt_password1;
     // End of variables declaration//GEN-END:variables
 }
