@@ -20,10 +20,6 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
-        pnl_login.setVisible(true);
-        pnl_register.setVisible(false);
-        pnl_customerHomeScreen.setVisible(false);
-        pnl_adminHomeScreen.setVisible(false);
     }
 
     /**
@@ -62,14 +58,12 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btn_toRegisterScreenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_toRegisterScreenMouseClicked
         //When user clicks the prompt on the login screen, this takes them to the register screen
-        pnl_register.setVisible(true); 
-        pnl_login.setVisible(false);
+        
     }//GEN-LAST:event_btn_toRegisterScreenMouseClicked
 
     private void btn_toLoginScreenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_toLoginScreenMouseClicked
         //When the user clicks the prompt on the register screen, this takes them to the login screen
-        pnl_login.setVisible(true);
-        pnl_register.setVisible(false);
+        
     }//GEN-LAST:event_btn_toLoginScreenMouseClicked
 
     private void btn_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registerActionPerformed
