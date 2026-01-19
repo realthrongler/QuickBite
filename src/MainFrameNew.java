@@ -21,6 +21,7 @@ public class MainFrameNew extends javax.swing.JFrame {
         
         jPanelMain.add(new login(jPanelMain), "login");
         jPanelMain.add(new register(jPanelMain), "register");
+        jPanelMain.add(new newOrder(jPanelMain), "MakeOrder");
         
         //Shows login as default
         CardLayout cl = (CardLayout) jPanelMain.getLayout();

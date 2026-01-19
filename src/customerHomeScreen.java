@@ -73,6 +73,11 @@ public class customerHomeScreen extends javax.swing.JPanel {
 
         btn_newOrder.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
         btn_newOrder.setText("Place new order");
+        btn_newOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_newOrderActionPerformed(evt);
+            }
+        });
         add(btn_newOrder);
         btn_newOrder.setBounds(110, 360, 140, 40);
 
@@ -83,6 +88,10 @@ public class customerHomeScreen extends javax.swing.JPanel {
         add(pane_orderDisplay);
         pane_orderDisplay.setBounds(40, 136, 270, 160);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_newOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_newOrderActionPerformed
+        
+    }//GEN-LAST:event_btn_newOrderActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
