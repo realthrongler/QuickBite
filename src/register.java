@@ -108,19 +108,10 @@ public class register extends javax.swing.JPanel {
         add(txt_cardNumber);
         txt_cardNumber.setBounds(50, 300, 220, 30);
         add(txt_cvv);
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
         txt_cvv.setBounds(90, 310, 80, 22);
-=======
         txt_cvv.setBounds(50, 370, 80, 22);
->>>>>>> Stashed changes
-=======
         txt_cvv.setBounds(50, 370, 80, 22);
->>>>>>> Stashed changes
-=======
         txt_cvv.setBounds(50, 370, 80, 22);
->>>>>>> Stashed changes
 
         btn_register.setText("Register");
         btn_register.addActionListener(new java.awt.event.ActionListener() {
@@ -133,19 +124,11 @@ public class register extends javax.swing.JPanel {
 
         lbl_loginPrompt.setText("Already have an account?");
         add(lbl_loginPrompt);
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
+
         lbl_loginPrompt.setBounds(80, 410, 135, 16);
-=======
         lbl_loginPrompt.setBounds(110, 440, 135, 16);
->>>>>>> Stashed changes
-=======
         lbl_loginPrompt.setBounds(110, 440, 135, 16);
->>>>>>> Stashed changes
-=======
         lbl_loginPrompt.setBounds(110, 440, 135, 16);
->>>>>>> Stashed changes
 
         btn_toLoginScreen.setForeground(new java.awt.Color(0, 0, 255));
         btn_toLoginScreen.setText("Login");
@@ -156,19 +139,10 @@ public class register extends javax.swing.JPanel {
             }
         });
         add(btn_toLoginScreen);
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
         btn_toLoginScreen.setBounds(220, 410, 30, 16);
-=======
         btn_toLoginScreen.setBounds(250, 440, 30, 16);
->>>>>>> Stashed changes
-=======
         btn_toLoginScreen.setBounds(250, 440, 30, 16);
->>>>>>> Stashed changes
-=======
         btn_toLoginScreen.setBounds(250, 440, 30, 16);
->>>>>>> Stashed changes
     }// </editor-fold>//GEN-END:initComponents
 
     private void txt_cardNumberActionPerformed(java.awt.event.ActionEvent evt) {                                               
@@ -273,54 +247,6 @@ public class register extends javax.swing.JPanel {
     public boolean searchFile(String email) { //This method searches the arraylist for the input email, and returns a boolean based on if the email is registered already
         return false;
     }
-    
-    private void btn_toLoginScreenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_toLoginScreenMouseClicked
-        
-    }//GEN-LAST:event_btn_toLoginScreenMouseClicked
-
-    private void btn_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registerActionPerformed
-        //Input validation
-        ValidateCard validator = new ValidateCard();
-        
-        //Checking for empty input fields
-        if (txt_email1.getText().strip().isEmpty() || txt_password1.getText().strip().isEmpty() || txt_cardNumber.getText().strip().isEmpty() || txt_cvv.getText().strip().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Please ensure all input fields are filled in.", "Error", 2);
-        } else if (!txt_email1.getText().strip().contains(".") || !txt_email1.getText().strip().contains("@")) {
-            //Checking if the email input contains a "." and a "@"
-            JOptionPane.showMessageDialog(this, "Please ensure you have entered a valid email.", "Error", 2);
-        } else if (!validator.ValidateCard(txt_cardNumber.getText(), txt_cvv.getText().strip())) {
-            JOptionPane.showMessageDialog(this, "Please ensure you enter a valid credit/debit card number and CVV code.", "Error", 2);
-        } else {
-            try {
-                AccountFile.createNewFile(); //Creates the accounts.txt file if it doesn't exist already
-                if (AccountList.isEmpty()) { //If the account list is empty, read from the file
-                    readFile();
-                    if (AccountList.isEmpty()) { //If the account list is STILL empty, add the new user's info to the arraylist
-                        String email = txt_email1.getText().strip();
-                        String password = txt_password1.getText().strip();
-                        String cardNumber = txt_cardNumber.getText().strip();
-                        String[] splitNumber = cardNumber.split(" "); //Formatting card number
-                        cardNumber = String.join("", splitNumber);
-                        String cvv = txt_cvv.getText().strip();
-                        Customer newCustomer = new Customer(email, password, cardNumber, cvv);
-                        //TODO: SWITCH TO HOMESCREEN WITH LOGGED IN CUSTOMER
-                        //TODO: ADD ADMIN BOOLEAN ATTRIBUTE TO DATA FILE FOR ADMIN LOGINS
-                    }  
-                } else {
-                    //TODO: SEARCH THE FILE AND MAKE SURE THEY'RE NOT REGISTERING AN EXISTING ACCOUNT
-                    //TODO: IMPLEMENT SORTING ALGORITHM
-                }
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "There was an error: " + e, "Error!", 1);
-            }
-        }
-    }//GEN-LAST:event_btn_registerActionPerformed
-    
-    private void txt_cardNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cardNumberActionPerformed
-
-    }//GEN-LAST:event_txt_cardNumberActionPerformed
-
->>>>>>> Stashed changes
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_register;
