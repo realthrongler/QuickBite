@@ -56,26 +56,26 @@ public class customerHomeScreen extends javax.swing.JPanel {
         icon_gradient1.setBounds(0, 0, 370, 80);
 
         lbl_currentOrders.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
-        lbl_currentOrders.setText("Current Orders:");
+        lbl_currentOrders.setText("Current Quick Bite Orders:");
         add(lbl_currentOrders);
-        lbl_currentOrders.setBounds(120, 100, 140, 20);
+        lbl_currentOrders.setBounds(80, 100, 210, 20);
 
         lbl_newOrder.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
         lbl_newOrder.setText("New Order:");
         add(lbl_newOrder);
-        lbl_newOrder.setBounds(130, 310, 110, 22);
+        lbl_newOrder.setBounds(130, 390, 110, 22);
 
-        btn_newOrder.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
+        btn_newOrder.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
         btn_newOrder.setText("Place new order");
         add(btn_newOrder);
-        btn_newOrder.setBounds(110, 340, 140, 40);
+        btn_newOrder.setBounds(120, 420, 120, 40);
 
         txt_orderDisplay.setColumns(20);
         txt_orderDisplay.setRows(5);
         pane_orderDisplay.setViewportView(txt_orderDisplay);
 
         add(pane_orderDisplay);
-        pane_orderDisplay.setBounds(60, 130, 270, 160);
+        pane_orderDisplay.setBounds(0, 130, 370, 240);
     }// </editor-fold>//GEN-END:initComponents
 
 

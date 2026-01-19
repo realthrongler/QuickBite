@@ -63,7 +63,7 @@ public class adminHomeScreen extends javax.swing.JPanel {
         pane_incomingOrders.setViewportView(txt_IncomingOrders);
 
         add(pane_incomingOrders);
-        pane_incomingOrders.setBounds(40, 150, 290, 130);
+        pane_incomingOrders.setBounds(0, 150, 370, 260);
     }// </editor-fold>//GEN-END:initComponents
 
 
