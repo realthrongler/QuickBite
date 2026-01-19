@@ -55,9 +55,6 @@ public class MainFrame extends javax.swing.JFrame {
     //Account information arraylist (for searching and modifying the text file)
     ArrayList<Customer> AccountList = new ArrayList<>();
     User currentUser;
-<<<<<<< Updated upstream
-        
-=======
     
     private void txt_cardNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cardNumberActionPerformed
 
@@ -79,7 +76,6 @@ public class MainFrame extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btn_registerActionPerformed
     
->>>>>>> Stashed changes
     //Saving data to the database (text file) as customer closes app
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         
