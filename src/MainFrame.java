@@ -8,9 +8,7 @@
  *
  * @authors Noah Cummings, Ivan Lin, Logan Sevatzian
  */
-import javax.swing.JOptionPane;
-import java.io.*;
-import java.util.ArrayList;
+import java.awt.CardLayout;
 public class MainFrame extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MainFrame.class.getName());
@@ -20,6 +18,15 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
+        
+        jPanelMain.add(new login(jPanelMain), "login");
+        jPanelMain.add(new register(jPanelMain), "register");
+        jPanelMain.add(new newOrder(jPanelMain), "MakeOrder");
+        
+        //Shows login as default
+        CardLayout cl = (CardLayout) jPanelMain.getLayout();
+        cl.show(jPanelMain, "login");
+        pack();
     }
 
     /**
@@ -31,48 +38,15 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanelMain = new javax.swing.JPanel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(370, 480));
         setMinimumSize(new java.awt.Dimension(370, 480));
-        setPreferredSize(new java.awt.Dimension(370, 480));
         setResizable(false);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowClosing(java.awt.event.WindowEvent evt) {
-                formWindowClosing(evt);
-            }
-        });
-        getContentPane().setLayout(null);
+        getContentPane().add(jPanelMain, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    
-    private void txt_cardNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cardNumberActionPerformed
-
-    }//GEN-LAST:event_txt_cardNumberActionPerformed
-
-    private void btn_toRegisterScreenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_toRegisterScreenMouseClicked
-        //When user clicks the prompt on the login screen, this takes them to the register screen
-        
-    }//GEN-LAST:event_btn_toRegisterScreenMouseClicked
-
-    private void btn_toLoginScreenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_toLoginScreenMouseClicked
-        //When the user clicks the prompt on the register screen, this takes them to the login screen
-        
-    }//GEN-LAST:event_btn_toLoginScreenMouseClicked
-
-    private void btn_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registerActionPerformed
-        
-    }//GEN-LAST:event_btn_registerActionPerformed
-    
-    //Saving data to the database (text file) as customer closes app
-    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
-        
-    }//GEN-LAST:event_formWindowClosing
-    
-    
-    
-    
     
     /**
      * @param args the command line arguments
@@ -100,5 +74,6 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel jPanelMain;
     // End of variables declaration//GEN-END:variables
 }
