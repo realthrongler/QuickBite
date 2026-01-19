@@ -90,6 +90,11 @@ public class MainFrame extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(370, 480));
         setPreferredSize(new java.awt.Dimension(370, 480));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
         getContentPane().setLayout(null);
 
         pnl_register.setMaximumSize(new java.awt.Dimension(370, 480));
@@ -392,11 +397,34 @@ public class MainFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_registerActionPerformed
     
-    public void readFile() { //Method for reading from the text file, and converting the raw data into customer instances
-        
+    //Saving data to the database (text file) as customer closes app
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        writeFile();
+    }//GEN-LAST:event_formWindowClosing
+    
+    public void writeFile() {
         try {
-            if (!AccountFile.createNewFile()) { //If the account fails to create (Already existing), read from the file
-                BufferedReader reader = new BufferedReader(new FileReader(AccountFile.getAbsoluteFile()));
+            AccountFile.createNewFile();
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(AccountFile.getAbsolutePath()))) {
+                writer.write("");
+                for (int index = 0; index < AccountList.size(); index++) {
+                    String writeLine = "";
+                    writeLine += AccountList.get(index).getEmail();
+                    writeLine += AccountList.get(index).getPassword();
+                    writeLine += AccountList.get(index).getCardNumber();
+                    writeLine += AccountList.get(index).getSecurityCode();
+                    writeLine += AccountList.get(index).getPoints();
+                    writer.append(writeLine);
+                }
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "A fatal error occured: " + e, "ERROR!", 1);
+        }
+    }
+    public void readFile() { //Method for reading from the text file, and converting the raw data into customer instances    
+        try {
+            if (!AccountFile.createNewFile()) { try ( //If the account fails to create (Already existing), read from the file
+                    BufferedReader reader = new BufferedReader(new FileReader(AccountFile.getAbsolutePath()))) {
                 String line;
                 
                 while ((line = reader.readLine()) != null) {
@@ -411,7 +439,7 @@ public class MainFrame extends javax.swing.JFrame {
                     AccountList.add(person);
                     currentUser = person;
                 }
-                reader.close();
+                }
             }            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Fatal error reading from accounts file.", "ERROR!", 2);
