@@ -171,11 +171,11 @@ public class register extends javax.swing.JPanel {
 >>>>>>> Stashed changes
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_cardNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cardNumberActionPerformed
+    private void txt_cardNumberActionPerformed(java.awt.event.ActionEvent evt) {                                               
 
-    }//GEN-LAST:event_txt_cardNumberActionPerformed
+    }                                              
 
-    private void btn_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registerActionPerformed
+    private void btn_registerActionPerformed(java.awt.event.ActionEvent evt) {                                             
         //Input validation
         ValidateCard validator = new ValidateCard();
 
@@ -211,13 +211,13 @@ public class register extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "There was an error: " + e, "Error!", 1);
             }
         }
-    }//GEN-LAST:event_btn_registerActionPerformed
+    }                                            
 
-    private void btn_toLoginScreenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_toLoginScreenMouseClicked
+    private void btn_toLoginScreenMouseClicked(java.awt.event.MouseEvent evt) {                                               
         //When the user clicks the prompt on the register screen, this takes them to the login screen
-        pnl_login.setVisible(true);
-        pnl_register.setVisible(false);
-    }//GEN-LAST:event_btn_toLoginScreenMouseClicked
+        CardLayout cl = (CardLayout) mainPanel.getLayout();
+        cl.show(mainPanel, "login");
+    }                                              
     
     //Account information file
     File AccountFile = new File("Accounts.txt");
@@ -250,8 +250,6 @@ public class register extends javax.swing.JPanel {
         }
     }
     
-<<<<<<< Updated upstream
-=======
     public void writeFile() {
         try {
             AccountFile.createNewFile();
@@ -277,9 +275,7 @@ public class register extends javax.swing.JPanel {
     }
     
     private void btn_toLoginScreenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_toLoginScreenMouseClicked
-        //When the user clicks the prompt on the register screen, this takes them to the login screen
-        CardLayout cl = (CardLayout) mainPanel.getLayout();
-        cl.show(mainPanel, "login");
+        
     }//GEN-LAST:event_btn_toLoginScreenMouseClicked
 
     private void btn_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registerActionPerformed
