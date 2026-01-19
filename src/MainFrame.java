@@ -450,6 +450,10 @@ public class MainFrame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Fatal error reading from accounts file.", "ERROR!", 2);
         }
     }
+    
+    public boolean searchFile(String email) { //This method searches the arraylist for the input email, and returns a boolean based on if the email is registered already
+        
+    }
     /**
      * @param args the command line arguments
      */
