@@ -149,7 +149,7 @@ public class register extends javax.swing.JPanel {
     File AccountFile = new File("Accounts.txt");
     //Account information arraylist (for searching and modifying the text file)
     ArrayList<Customer> AccountList = new ArrayList<>();
-    User CurrentUser;
+    public static User CurrentUser;
     
     private void txt_cardNumberActionPerformed(java.awt.event.ActionEvent evt) {                                               
 
@@ -180,7 +180,9 @@ public class register extends javax.swing.JPanel {
                         cardNumber = String.join("", splitNumber);
                         String cvv = txt_cvv.getText().strip();
                         Customer newCustomer = new Customer(email, password, cardNumber, cvv);
-                        //TODO: SWITCH TO HOMESCREEN WITH LOGGED IN CUSTOMER
+                        CurrentUser = newCustomer;
+                        CardLayout cl = (CardLayout) mainPanel.getLayout();
+                        cl.show(mainPanel, "customerHomeScreen");
                         //TODO: ADD ADMIN BOOLEAN ATTRIBUTE TO DATA FILE FOR ADMIN LOGINS
                     }
                 } else {

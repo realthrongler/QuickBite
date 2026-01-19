@@ -17,8 +17,7 @@ public class customerHomeScreen extends javax.swing.JPanel {
      * Creates new form customerHomeScreen
      */
     public customerHomeScreen(JPanel mainPanel) {
-        this.mainPanel = mainPanel;
-        
+        this.mainPanel = mainPanel;        
         initComponents();
     }
 
@@ -33,6 +32,7 @@ public class customerHomeScreen extends javax.swing.JPanel {
 
         icon_logo2 = new javax.swing.JLabel();
         lbl_title2 = new javax.swing.JLabel();
+        lbl_loggedInAs = new javax.swing.JLabel();
         icon_gradient1 = new javax.swing.JLabel();
         lbl_currentOrders = new javax.swing.JLabel();
         lbl_newOrder = new javax.swing.JLabel();
@@ -51,6 +51,11 @@ public class customerHomeScreen extends javax.swing.JPanel {
         add(lbl_title2);
         lbl_title2.setBounds(140, 20, 110, 29);
 
+        lbl_loggedInAs.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
+        lbl_loggedInAs.setText("Logged in as: ");
+        add(lbl_loggedInAs);
+        lbl_loggedInAs.setBounds(140, 40, 210, 30);
+
         icon_gradient1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FinalGradient.png"))); // NOI18N
         add(icon_gradient1);
         icon_gradient1.setBounds(0, 0, 370, 80);
@@ -67,6 +72,11 @@ public class customerHomeScreen extends javax.swing.JPanel {
 
         btn_newOrder.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
         btn_newOrder.setText("Place new order");
+        btn_newOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_newOrderActionPerformed(evt);
+            }
+        });
         add(btn_newOrder);
         btn_newOrder.setBounds(120, 420, 120, 40);
 
@@ -78,12 +88,17 @@ public class customerHomeScreen extends javax.swing.JPanel {
         pane_orderDisplay.setBounds(0, 130, 370, 240);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btn_newOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_newOrderActionPerformed
+
+    }//GEN-LAST:event_btn_newOrderActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_newOrder;
     private javax.swing.JLabel icon_gradient1;
     private javax.swing.JLabel icon_logo2;
     private javax.swing.JLabel lbl_currentOrders;
+    private javax.swing.JLabel lbl_loggedInAs;
     private javax.swing.JLabel lbl_newOrder;
     private javax.swing.JLabel lbl_title2;
     private javax.swing.JScrollPane pane_orderDisplay;

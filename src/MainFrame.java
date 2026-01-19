@@ -22,6 +22,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanelMain.add(new login(jPanelMain), "login");
         jPanelMain.add(new register(jPanelMain), "register");
         jPanelMain.add(new newOrder(jPanelMain), "MakeOrder");
+        jPanelMain.add(new customerHomeScreen(jPanelMain), "customerHomeScreen");
         
         //Shows login as default
         CardLayout cl = (CardLayout) jPanelMain.getLayout();
@@ -43,6 +44,8 @@ public class MainFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(370, 480));
         setResizable(false);
+
+        jPanelMain.setLayout(new java.awt.CardLayout());
         getContentPane().add(jPanelMain, java.awt.BorderLayout.CENTER);
 
         pack();
