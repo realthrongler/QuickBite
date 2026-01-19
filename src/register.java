@@ -243,10 +243,6 @@ public class register extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "A fatal error occured: " + e, "ERROR!", 1);
         }
     }
-    
-    public boolean searchFile(String email) { //This method searches the arraylist for the input email, and returns a boolean based on if the email is registered already
-        return false;
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_register;

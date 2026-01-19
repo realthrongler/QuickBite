@@ -9,7 +9,8 @@
  */
 import java.util.HashMap;
 import java.util.Map;
-public class Customer extends User{
+
+public class Customer extends User{ //Uses inheritance, and encapsulation
     //CLASS VARIABLES
     private static int orderNumber = 0;
     
