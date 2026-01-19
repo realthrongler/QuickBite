@@ -2,6 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
+import java.awt.CardLayout;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -170,7 +171,8 @@ public class register extends javax.swing.JPanel {
     
     private void btn_toLoginScreenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_toLoginScreenMouseClicked
         //When the user clicks the prompt on the register screen, this takes them to the login screen
-        
+        CardLayout cl = (CardLayout) mainPanel.getLayout();
+        cl.show(mainPanel, "login");
     }//GEN-LAST:event_btn_toLoginScreenMouseClicked
 
     private void btn_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registerActionPerformed
