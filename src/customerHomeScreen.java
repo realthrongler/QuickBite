@@ -40,6 +40,11 @@ public class customerHomeScreen extends javax.swing.JPanel {
         pane_orderDisplay = new javax.swing.JScrollPane();
         txt_orderDisplay = new javax.swing.JTextArea();
 
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
         setLayout(null);
 
         icon_logo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quick_bite_logo_80x80.png"))); // NOI18N
@@ -91,6 +96,10 @@ public class customerHomeScreen extends javax.swing.JPanel {
     private void btn_newOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_newOrderActionPerformed
 
     }//GEN-LAST:event_btn_newOrderActionPerformed
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        lbl_loggedInAs.setText("Logged in as: " + register.CurrentUser.getEmail());
+    }//GEN-LAST:event_formComponentShown
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
