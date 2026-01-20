@@ -153,7 +153,13 @@ public class login extends javax.swing.JPanel {
                    }
                } 
                if (loginSuccess == false) {
-                   JOptionPane.showMessageDialog(this, "The email or password entered is incorrect.");
+                   if (txt_email.getText().strip().equalsIgnoreCase("admin") && txt_password.getText().strip().equals("khurramrulez")) {
+                       //Sending user to admin screen
+                       CardLayout cl = (CardLayout) mainPanel.getLayout();
+                       cl.show(mainPanel, "adminHomeScreen");
+                   } else {
+                       JOptionPane.showMessageDialog(this, "The email or password entered is incorrect.");
+                   }
                }
             } else {
                 JOptionPane.showMessageDialog(this, "Please enter a registered email.", "Error", 2);

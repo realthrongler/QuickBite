@@ -23,6 +23,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanelMain.add(new register(jPanelMain), "register");
         jPanelMain.add(new newOrder(jPanelMain), "MakeOrder");
         jPanelMain.add(new customerHomeScreen(jPanelMain), "customerHomeScreen");
+        jPanelMain.add(new adminHomeScreen(jPanelMain), "adminHomeScreen");
         
         //Shows login as default
         CardLayout cl = (CardLayout) jPanelMain.getLayout();
