@@ -8,6 +8,9 @@
  * @author noahc
  */
 import java.awt.CardLayout;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 public class adminHome extends javax.swing.JPanel {
     JPanel mainPanel;
@@ -35,6 +38,12 @@ public class adminHome extends javax.swing.JPanel {
         btnCompleteOrders = new javax.swing.JButton();
         btnEditMenu = new javax.swing.JButton();
         btnClearAllOrders = new javax.swing.JButton();
+
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
 
         cbxPeriod.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         cbxPeriod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2", "3", "4" }));
@@ -113,7 +122,7 @@ public class adminHome extends javax.swing.JPanel {
                 .addGap(60, 60, 60))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void btnIncomingOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIncomingOrdersActionPerformed
         CardLayout cl = (CardLayout) mainPanel.getLayout();
         cl.show(mainPanel, "incomingOrders");
@@ -132,6 +141,35 @@ public class adminHome extends javax.swing.JPanel {
     private void btnClearAllOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearAllOrdersActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnClearAllOrdersActionPerformed
+    
+    static ArrayList <Order> orders = new ArrayList <Order>();
+    
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        try{
+            BufferedReader reader = new BufferedReader(new FileReader("src/orders.txt"));
+                String line;
+                while((line = reader.readLine()) != null){
+                    String[] order = line.split(",");
+                    int orderID = Integer.parseInt(order[0]);
+                    int period = Integer.parseInt(order[1]);
+                    boolean status = Boolean.parseBoolean(order[2]);
+                    double cost = Double.parseDouble(order[3]);
+                    ArrayList<Item> items = new ArrayList<Item>();
+                    for(int i = 4; i < order.length; i+=3){
+                        String itemName = order[i];
+                        int itemQuantity = Integer.parseInt(order[i+1]);
+                        double itemCost = Double.parseDouble(order[i+2]);
+                        
+                        items.add(new Item(itemName, itemQuantity, itemCost));
+                    }
+                    
+                    orders.add(new Order(orderID, period, status, cost, items));
+                    
+                }
+        } catch (Exception e){
+            //e.printStackTrace();
+        }
+    }//GEN-LAST:event_formComponentShown
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
