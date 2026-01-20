@@ -37,9 +37,9 @@ public class register extends javax.swing.JPanel {
     private void initComponents() {
 
         lbl_email1 = new javax.swing.JLabel();
-        txt_email1 = new javax.swing.JTextField();
+        txt_email = new javax.swing.JTextField();
         lbl_register = new javax.swing.JLabel();
-        txt_password1 = new javax.swing.JTextField();
+        txt_password = new javax.swing.JTextField();
         lbl_password1 = new javax.swing.JLabel();
         icon_logo1 = new javax.swing.JLabel();
         lbl_title1 = new javax.swing.JLabel();
@@ -60,16 +60,16 @@ public class register extends javax.swing.JPanel {
         lbl_email1.setText("Email");
         add(lbl_email1);
         lbl_email1.setBounds(50, 130, 50, 22);
-        add(txt_email1);
-        txt_email1.setBounds(50, 160, 270, 30);
+        add(txt_email);
+        txt_email.setBounds(50, 160, 270, 30);
 
         lbl_register.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
         lbl_register.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_register.setText("Sign Up");
         add(lbl_register);
         lbl_register.setBounds(100, 90, 170, 38);
-        add(txt_password1);
-        txt_password1.setBounds(50, 230, 270, 30);
+        add(txt_password);
+        txt_password.setBounds(50, 230, 270, 30);
 
         lbl_password1.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
         lbl_password1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -108,9 +108,6 @@ public class register extends javax.swing.JPanel {
         add(txt_cardNumber);
         txt_cardNumber.setBounds(50, 300, 220, 30);
         add(txt_cvv);
-        txt_cvv.setBounds(90, 310, 80, 22);
-        txt_cvv.setBounds(50, 370, 80, 22);
-        txt_cvv.setBounds(50, 370, 80, 22);
         txt_cvv.setBounds(50, 370, 80, 22);
 
         btn_register.setText("Register");
@@ -124,10 +121,6 @@ public class register extends javax.swing.JPanel {
 
         lbl_loginPrompt.setText("Already have an account?");
         add(lbl_loginPrompt);
-
-        lbl_loginPrompt.setBounds(80, 410, 135, 16);
-        lbl_loginPrompt.setBounds(110, 440, 135, 16);
-        lbl_loginPrompt.setBounds(110, 440, 135, 16);
         lbl_loginPrompt.setBounds(110, 440, 135, 16);
 
         btn_toLoginScreen.setForeground(new java.awt.Color(0, 0, 255));
@@ -139,9 +132,6 @@ public class register extends javax.swing.JPanel {
             }
         });
         add(btn_toLoginScreen);
-        btn_toLoginScreen.setBounds(220, 410, 30, 16);
-        btn_toLoginScreen.setBounds(250, 440, 30, 16);
-        btn_toLoginScreen.setBounds(250, 440, 30, 16);
         btn_toLoginScreen.setBounds(250, 440, 30, 16);
     }// </editor-fold>//GEN-END:initComponents
     
@@ -160,9 +150,9 @@ public class register extends javax.swing.JPanel {
         ValidateCard validator = new ValidateCard();
 
         //Checking for empty input fields
-        if (txt_email1.getText().strip().isEmpty() || txt_password1.getText().strip().isEmpty() || txt_cardNumber.getText().strip().isEmpty() || txt_cvv.getText().strip().isEmpty()) {
+        if (txt_email.getText().strip().isEmpty() || txt_password.getText().strip().isEmpty() || txt_cardNumber.getText().strip().isEmpty() || txt_cvv.getText().strip().isEmpty()) {
             JOptionPane.showMessageDialog(this, "Please ensure all input fields are filled in.", "Error", 2);
-        } else if (!txt_email1.getText().strip().contains(".") || !txt_email1.getText().strip().contains("@")) {
+        } else if (!txt_email.getText().strip().contains(".") || !txt_email.getText().strip().contains("@")) {
             //Checking if the email input contains a "." and a "@"
             JOptionPane.showMessageDialog(this, "Please ensure you have entered a valid email.", "Error", 2);
         } else if (!validator.ValidateCard(txt_cardNumber.getText(), txt_cvv.getText().strip())) {
@@ -173,20 +163,56 @@ public class register extends javax.swing.JPanel {
                 if (AccountList.isEmpty()) { //If the account list is empty, read from the file
                     readFile();
                     if (AccountList.isEmpty()) { //If the account list is STILL empty, add the new user's info to the arraylist
-                        String email = txt_email1.getText().strip();
-                        String password = txt_password1.getText().strip();
+                        String email = txt_email.getText().strip();
+                        String password = txt_password.getText().strip();
                         String cardNumber = txt_cardNumber.getText().strip();
                         String[] splitNumber = cardNumber.split(" "); //Formatting card number
                         cardNumber = String.join("", splitNumber);
                         String cvv = txt_cvv.getText().strip();
                         Customer newCustomer = new Customer(email, password, cardNumber, cvv);
                         CurrentUser = newCustomer;
+                        
+                        //Sending user to home screen
                         CardLayout cl = (CardLayout) mainPanel.getLayout();
                         cl.show(mainPanel, "customerHomeScreen");
                         //TODO: ADD ADMIN BOOLEAN ATTRIBUTE TO DATA FILE FOR ADMIN LOGINS
+                    } else {
+                        BinarySearch search = new BinarySearch();
+                        if (search.search(AccountList, txt_email.getText())) {
+                            JOptionPane.showMessageDialog(this, "Error, this email is already registered.", "Warning", 1);
+                        } else {
+                            String email = txt_email.getText().strip();
+                            String password = txt_password.getText().strip();
+                            String cardNumber = txt_cardNumber.getText().strip();
+                            String[] splitNumber = cardNumber.split(" "); //Formatting card number
+                            cardNumber = String.join("", splitNumber);
+                            String cvv = txt_cvv.getText().strip();
+                            Customer newCustomer = new Customer(email, password, cardNumber, cvv);
+                            CurrentUser = newCustomer;
+
+                            //Sending user to home screen
+                            CardLayout cl = (CardLayout) mainPanel.getLayout();
+                            cl.show(mainPanel, "customerHomeScreen");
+                        }
                     }
                 } else {
-                    //TODO: SEARCH THE FILE AND MAKE SURE THEY'RE NOT REGISTERING AN EXISTING ACCOUNT
+                    BinarySearch search = new BinarySearch();
+                    if (search.search(AccountList, txt_email.getText().strip())) {
+                        JOptionPane.showMessageDialog(this, "Error, this email is already registered.", "Warning", 1);
+                    } else {
+                        String email = txt_email.getText().strip();
+                        String password = txt_password.getText().strip();
+                        String cardNumber = txt_cardNumber.getText().strip();
+                        String[] splitNumber = cardNumber.split(" "); //Formatting card number
+                        cardNumber = String.join("", splitNumber);
+                        String cvv = txt_cvv.getText().strip();
+                        Customer newCustomer = new Customer(email, password, cardNumber, cvv);
+                        CurrentUser = newCustomer;
+
+                        //Sending user to home screen
+                        CardLayout cl = (CardLayout) mainPanel.getLayout();
+                        cl.show(mainPanel, "customerHomeScreen");
+                    }
                     //TODO: IMPLEMENT SORTING ALGORITHM
                 }
             } catch (Exception e) {
@@ -260,7 +286,7 @@ public class register extends javax.swing.JPanel {
     private javax.swing.JLabel lbl_title1;
     private javax.swing.JTextField txt_cardNumber;
     private javax.swing.JTextField txt_cvv;
-    private javax.swing.JTextField txt_email1;
-    private javax.swing.JTextField txt_password1;
+    private javax.swing.JTextField txt_email;
+    private javax.swing.JTextField txt_password;
     // End of variables declaration//GEN-END:variables
 }
