@@ -263,6 +263,9 @@ public class register extends javax.swing.JPanel {
     }
     
     public void writeFile() {
+        InsertionSort sort = new InsertionSort(); //Sorting array list with insertion sort 
+        //Insertion sort is great for arrays that are almost entirely sorted
+        sort.InsertionSort(AccountList);
         try {
             AccountFile.createNewFile();
             try (BufferedWriter deleter = new BufferedWriter(new FileWriter(AccountFile.getAbsolutePath()))) 

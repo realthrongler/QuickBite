@@ -21,7 +21,7 @@ public class BinarySearch { //Class for binary searching things
         
         int mid = left + (right - left) / 2;
         String midEmail = list.get(mid).getEmail();
-        int compare = email.compareToIgnoreCase(email);
+        int compare = email.compareToIgnoreCase(midEmail);
         
         if (compare == 0) {
             return true;
