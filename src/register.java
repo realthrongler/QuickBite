@@ -138,7 +138,7 @@ public class register extends javax.swing.JPanel {
     //Account information file
     File AccountFile = new File("Accounts.txt");
     //Account information arraylist (for searching and modifying the text file)
-    ArrayList<Customer> AccountList = new ArrayList<>();
+    public static ArrayList<Customer> AccountList = new ArrayList<>();
     public static User CurrentUser;
     
     private void txt_cardNumberActionPerformed(java.awt.event.ActionEvent evt) {                                               
@@ -178,7 +178,6 @@ public class register extends javax.swing.JPanel {
                         //Sending user to home screen
                         CardLayout cl = (CardLayout) mainPanel.getLayout();
                         cl.show(mainPanel, "customerHomeScreen");
-                        //TODO: ADD ADMIN BOOLEAN ATTRIBUTE TO DATA FILE FOR ADMIN LOGINS
                     } else {
                         BinarySearch search = new BinarySearch();
                         if (search.search(AccountList, txt_email.getText())) {
@@ -223,7 +222,6 @@ public class register extends javax.swing.JPanel {
                         cl.show(mainPanel, "customerHomeScreen");
                         
                     }
-                    //TODO: IMPLEMENT SORTING ALGORITHM
                 }
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "There was an error: " + e, "Error!", 1);
@@ -238,7 +236,6 @@ public class register extends javax.swing.JPanel {
     }                                              
        
     public void readFile() { //Method for reading from the text file, and converting the raw data into customer instances
-        
         try {
             if (!AccountFile.createNewFile()) { //If the account fails to create (Already existing), read from the file
                 BufferedReader reader = new BufferedReader(new FileReader(AccountFile.getAbsoluteFile()));

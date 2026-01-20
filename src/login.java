@@ -1,5 +1,7 @@
 
 import java.awt.CardLayout;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import javax.swing.JPanel;
 
 /*
@@ -9,8 +11,11 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author ivanlin
+ * @author noahc
  */
+import javax.swing.JOptionPane;
+import java.io.*;
+
 public class login extends javax.swing.JPanel {
     JPanel mainPanel;
     /**
@@ -49,12 +54,14 @@ public class login extends javax.swing.JPanel {
 
         lbl_registerPrompt.setText("New user?");
         add(lbl_registerPrompt);
-        lbl_registerPrompt.setBounds(120, 350, 60, 16);
-        lbl_registerPrompt.setBounds(110, 350, 60, 16);
-        lbl_registerPrompt.setBounds(110, 350, 60, 16);
         lbl_registerPrompt.setBounds(110, 350, 60, 16);
 
         btn_login.setText("Login");
+        btn_login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_loginActionPerformed(evt);
+            }
+        });
         add(btn_login);
         btn_login.setBounds(160, 310, 60, 23);
 
@@ -88,9 +95,6 @@ public class login extends javax.swing.JPanel {
 
         txt_loginType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Customer", "Administrator" }));
         add(txt_loginType);
-        txt_loginType.setBounds(110, 150, 214, 22);
-        txt_loginType.setBounds(80, 130, 214, 22);
-        txt_loginType.setBounds(80, 130, 214, 22);
         txt_loginType.setBounds(80, 130, 214, 22);
 
         btn_toRegisterScreen.setForeground(new java.awt.Color(0, 0, 255));
@@ -102,9 +106,6 @@ public class login extends javax.swing.JPanel {
             }
         });
         add(btn_toRegisterScreen);
-        btn_toRegisterScreen.setBounds(180, 350, 110, 16);
-        btn_toRegisterScreen.setBounds(170, 350, 110, 16);
-        btn_toRegisterScreen.setBounds(170, 350, 110, 16);
         btn_toRegisterScreen.setBounds(170, 350, 110, 16);
 
         lbl_password.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
@@ -126,6 +127,64 @@ public class login extends javax.swing.JPanel {
         cl.show(mainPanel, "register");
     }//GEN-LAST:event_btn_toRegisterScreenMouseClicked
 
+    private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
+        //Filling in account list arraylist
+        if (register.AccountList.isEmpty()) {
+            readFile();
+        }
+
+        //Validating input fields
+        //Checking for empty fields
+        if (txt_email.getText().strip().isEmpty() || txt_password.getText().strip().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please ensure an email and password have been entered.", "Warning!", 2);
+        } else {
+            BinarySearch search = new BinarySearch();
+            if (search.search(register.AccountList, txt_email.getText().strip())) { //Checking if the email maps to a registered email
+               boolean loginSuccess = false; 
+               for (int i = 0; i < register.AccountList.size(); i++) {
+                   if (register.AccountList.get(i).getEmail().equalsIgnoreCase(txt_email.getText().strip()) && register.AccountList.get(i).getPassword().equals(txt_password.getText().strip())) {
+                       loginSuccess = true;
+                       register.CurrentUser = register.AccountList.get(i);
+                       JOptionPane.showMessageDialog(this, "Login success!");
+                       
+                       //Sending user to homescreen
+                       CardLayout cl = (CardLayout) mainPanel.getLayout();
+                       cl.show(mainPanel, "customerHomeScreen");
+                   }
+               } 
+               if (loginSuccess == false) {
+                   JOptionPane.showMessageDialog(this, "The email or password entered is incorrect.");
+               }
+            } else {
+                JOptionPane.showMessageDialog(this, "Please enter a registered email.", "Error", 2);
+            }
+        }
+    }//GEN-LAST:event_btn_loginActionPerformed
+    
+    File AccountFile = new File("Accounts.txt");
+    public void readFile() { //Method for reading from the text file, and converting the raw data into customer instances
+        try {
+            if (!AccountFile.createNewFile()) { //If the account fails to create (Already existing), read from the file
+                BufferedReader reader = new BufferedReader(new FileReader(AccountFile.getAbsoluteFile()));
+                String line;
+                
+                while ((line = reader.readLine()) != null) {
+                    String[] lineArray = line.split(","); //Splitting everything by commas
+                    String email = lineArray[0];
+                    String password = lineArray[1];
+                    String cardNumber = lineArray[2];
+                    String cvv = lineArray[3];
+                    int points = Integer.parseInt(lineArray[4]);
+                    Customer person = new Customer(email, password, cardNumber, cvv); //Constructor only takes these values
+                    person.addPoints(points); //Adding customer's points to the default balance of zero
+                    register.AccountList.add(person);
+                }
+                reader.close();
+            }            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Fatal error reading from accounts file.", "ERROR!", 2);
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_login;
