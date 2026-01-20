@@ -32,7 +32,7 @@ public class MainFrame extends javax.swing.JFrame {
         
         //Shows login as default
         CardLayout cl = (CardLayout) jPanelMain.getLayout();
-        cl.show(jPanelMain, "login");
+        cl.show(jPanelMain, "adminHome");
         pack();
     }
 

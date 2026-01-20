@@ -2,6 +2,7 @@
 import java.awt.CardLayout;
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 
 /*
@@ -59,6 +60,17 @@ public class incomingOrders extends javax.swing.JPanel {
             }
         });
 
+        lst_incomingOrders.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { " ", " ", " ", " " };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        lst_incomingOrders.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        lst_incomingOrders.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lst_incomingOrdersValueChanged(evt);
+            }
+        });
         jScrollPane2.setViewportView(lst_incomingOrders);
 
         lblOrder.setFont(new java.awt.Font("sansserif", 0, 20)); // NOI18N
@@ -130,7 +142,19 @@ public class incomingOrders extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
-        // TODO add your handling code here:
+        adminHome.refresh();
+        
+        for(int i = 0; i < adminHome.orders.size(); i++){
+            if(adminHome.orders.get(i).getPeriod() == adminHome.period){
+                incomingOrders.add(adminHome.orders.get(i));
+            }
+        }
+        
+        String[] lstOutput = new String[incomingOrders.size()];
+        for(int i = 0; i < incomingOrders.size(); i++){
+            lstOutput[i] = Integer.toString(incomingOrders.get(i).getOrderID());
+        }
+        lst_incomingOrders.setListData(lstOutput);
     }//GEN-LAST:event_btnRefreshActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -139,22 +163,49 @@ public class incomingOrders extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnCompleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompleteActionPerformed
-        // TODO add your handling code here:
+        int index = lst_incomingOrders.getSelectedIndex();
+        index = BinarySearch.binarySearch(adminHome.orders, incomingOrders.get(index), 0, adminHome.orders.size()-1);
+        adminHome.orders.get(index).setStatus(1);
+        
+        
+        
     }//GEN-LAST:event_btnCompleteActionPerformed
-
+    
+    ArrayList <Order> incomingOrders = new ArrayList <Order>();
+    
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
-        try{
-            BufferedReader reader = new BufferedReader(new FileReader("src/orders.txt"));
-                String line;
-                while((line = reader.readLine()) != null){
-                    String[] order = line.split(",");
-                    
-                }
-        } catch (Exception e){
-            //e.printStackTrace();
+        for(int i = 0; i < adminHome.orders.size(); i++){
+            if(adminHome.orders.get(i).getPeriod() == adminHome.period 
+               && adminHome.orders.get(i).getStatusInt() < 0){
+                incomingOrders.add(adminHome.orders.get(i));
+            }
         }
+        
+        String[] lstOutput = new String[incomingOrders.size()];
+        for(int i = 0; i < incomingOrders.size(); i++){
+            lstOutput[i] = Integer.toString(incomingOrders.get(i).getOrderID());
+        }
+        lst_incomingOrders.setListData(lstOutput);
     }//GEN-LAST:event_formComponentShown
 
+    private void lst_incomingOrdersValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lst_incomingOrdersValueChanged
+        int index = lst_incomingOrders.getSelectedIndex();
+        Order order = incomingOrders.get(index);
+        ArrayList <Item> items = order.getItems();
+        String strItems = "";
+        for(int i = 0; i < items.size(); i++){
+            Item item = items.get(i);
+            strItems += "\n  x" + item.getQuantity() + " " + item.getName() + ", " + item.getCost();
+        }
+        
+        String txpOutput = "Order ID : " + order.getOrderID() +
+                         "\nPeriod : " + order.getPeriod() + 
+                         "\nStatus : " + order.getStatusString() + 
+                         "\nCost : " + order.getCost() + 
+                         "\nItems : " + strItems + "\n\n";
+        txpOrder.setText(strItems);
+    }//GEN-LAST:event_lst_incomingOrdersValueChanged
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;

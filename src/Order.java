@@ -12,12 +12,12 @@ public class Order {
     //Instance Variables
     private int orderID;
     private int period;
-    private boolean status;
+    private int status;
     private double cost;
     private ArrayList<Item> items;
     
     //Constructor
-    public Order(int orderID, int period, boolean status, double cost, ArrayList<Item> items){
+    public Order(int orderID, int period, int status, double cost, ArrayList<Item> items){
         this.orderID = orderID;
         this.period = period;
         this.status = status;
@@ -32,8 +32,17 @@ public class Order {
     public int getPeriod(){
         return period;
     }
-    public boolean getStatus(){
+    public int getStatusInt(){
         return status;
+    }
+    public String getStatusString(){
+        if(status > 0){
+            return "ready";
+        } else if(status < 0) {
+            return "not ready";
+        } else {
+            return "served";
+        }
     }
     public double getCost(){
         return cost;
@@ -49,7 +58,7 @@ public class Order {
     public void setPeriod(int period){
         this.period = period;
     }
-    public void setStatus(boolean status){
+    public void setStatus(int status){
         this.status = status;
     }
     public void setCost(double cost){

@@ -139,12 +139,18 @@ public class adminHome extends javax.swing.JPanel {
     }//GEN-LAST:event_btnEditMenuActionPerformed
 
     private void btnClearAllOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearAllOrdersActionPerformed
-        // TODO add your handling code here:
+        orders.clear();
     }//GEN-LAST:event_btnClearAllOrdersActionPerformed
     
     static ArrayList <Order> orders = new ArrayList <Order>();
+    static int period = 2;
     
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        refresh();
+        period = cbxPeriod.getSelectedIndex();
+    }//GEN-LAST:event_formComponentShown
+    
+    public static void refresh(){
         try{
             BufferedReader reader = new BufferedReader(new FileReader("src/orders.txt"));
                 String line;
@@ -152,7 +158,7 @@ public class adminHome extends javax.swing.JPanel {
                     String[] order = line.split(",");
                     int orderID = Integer.parseInt(order[0]);
                     int period = Integer.parseInt(order[1]);
-                    boolean status = Boolean.parseBoolean(order[2]);
+                    int status = Integer.parseInt(order[2]);
                     double cost = Double.parseDouble(order[3]);
                     ArrayList<Item> items = new ArrayList<Item>();
                     for(int i = 4; i < order.length; i+=3){
@@ -169,8 +175,7 @@ public class adminHome extends javax.swing.JPanel {
         } catch (Exception e){
             //e.printStackTrace();
         }
-    }//GEN-LAST:event_formComponentShown
-
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClearAllOrders;

@@ -31,7 +31,18 @@ public class BinarySearch { //Class for binary searching things
             return binarySearch(list, email, mid + 1, right);
         }
     }
-    public void BinarySearch() {
-        //Empty for Ivan to fill out and adjust
+    public static int binarySearch(ArrayList<Order> orders, Order order, int left, int right) {
+        if(left > right){
+            return -1;
+        }
+        
+        int mid = left + (right  - left)/2;
+        if(order.getOrderID() == orders.get(mid).getOrderID()){
+            return mid;
+        } else if (order.getOrderID() < orders.get(mid).getOrderID()){
+            return binarySearch(orders, order, left, mid-1);
+        } else {
+            return binarySearch(orders, order, mid+1, right);
+        }
     }
 }
