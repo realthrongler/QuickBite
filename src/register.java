@@ -171,6 +171,9 @@ public class register extends javax.swing.JPanel {
                         String cvv = txt_cvv.getText().strip();
                         Customer newCustomer = new Customer(email, password, cardNumber, cvv);
                         CurrentUser = newCustomer;
+                        AccountList.add(newCustomer);
+                        writeFile(); 
+                        JOptionPane.showMessageDialog(this, "Success! Account registered.");
                         
                         //Sending user to home screen
                         CardLayout cl = (CardLayout) mainPanel.getLayout();
@@ -189,7 +192,10 @@ public class register extends javax.swing.JPanel {
                             String cvv = txt_cvv.getText().strip();
                             Customer newCustomer = new Customer(email, password, cardNumber, cvv);
                             CurrentUser = newCustomer;
-
+                            AccountList.add(newCustomer);
+                            writeFile();
+                            JOptionPane.showMessageDialog(this, "Success! Account registered.");
+                            
                             //Sending user to home screen
                             CardLayout cl = (CardLayout) mainPanel.getLayout();
                             cl.show(mainPanel, "customerHomeScreen");
@@ -208,10 +214,14 @@ public class register extends javax.swing.JPanel {
                         String cvv = txt_cvv.getText().strip();
                         Customer newCustomer = new Customer(email, password, cardNumber, cvv);
                         CurrentUser = newCustomer;
+                        AccountList.add(newCustomer);
+                        writeFile();
+                        JOptionPane.showMessageDialog(this, "Success! Account registered.");
 
                         //Sending user to home screen
                         CardLayout cl = (CardLayout) mainPanel.getLayout();
                         cl.show(mainPanel, "customerHomeScreen");
+                        
                     }
                     //TODO: IMPLEMENT SORTING ALGORITHM
                 }
@@ -255,17 +265,23 @@ public class register extends javax.swing.JPanel {
     public void writeFile() {
         try {
             AccountFile.createNewFile();
-            try (BufferedWriter writer = new BufferedWriter(new FileWriter(AccountFile.getAbsolutePath()))) {
-                writer.write("");
+            try (BufferedWriter deleter = new BufferedWriter(new FileWriter(AccountFile.getAbsolutePath()))) 
+            {
+                deleter.write("");
+                deleter.close();
+                BufferedWriter writer = new BufferedWriter(new FileWriter(AccountFile.getAbsolutePath(), true));
+                
                 for (int index = 0; index < AccountList.size(); index++) {
                     String writeLine = "";
-                    writeLine += AccountList.get(index).getEmail();
-                    writeLine += AccountList.get(index).getPassword();
-                    writeLine += AccountList.get(index).getCardNumber();
-                    writeLine += AccountList.get(index).getSecurityCode();
+                    writeLine += AccountList.get(index).getEmail() + ",";
+                    writeLine += AccountList.get(index).getPassword() + ",";
+                    writeLine += AccountList.get(index).getCardNumber() + ",";
+                    writeLine += AccountList.get(index).getSecurityCode() + ",";
                     writeLine += AccountList.get(index).getPoints();
+                    writeLine += "\n";
                     writer.append(writeLine);
                 }
+                writer.close();
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "A fatal error occured: " + e, "ERROR!", 1);
