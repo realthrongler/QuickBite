@@ -42,6 +42,10 @@ public class Item {
         this.cost = cost;
     }
     
+    @Override
+    public String toString(){
+        return name + "," + quantity + "," + cost;
+    }
     public String toString(String str){
         if(str.equals("admin")){
             return name + "," + cost;

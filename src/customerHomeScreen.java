@@ -1,4 +1,8 @@
 
+import java.awt.CardLayout;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 
 /*
@@ -39,6 +43,7 @@ public class customerHomeScreen extends javax.swing.JPanel {
         btn_newOrder = new javax.swing.JButton();
         pane_orderDisplay = new javax.swing.JScrollPane();
         txt_orderDisplay = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
 
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
@@ -91,21 +96,36 @@ public class customerHomeScreen extends javax.swing.JPanel {
 
         add(pane_orderDisplay);
         pane_orderDisplay.setBounds(0, 130, 370, 240);
-    }// </editor-fold>//GEN-END:initComponents
-    
-    private void btn_newOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_newOrderActionPerformed
 
+        jButton1.setText("Refresh");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        add(jButton1);
+        jButton1.setBounds(290, 375, 74, 21);
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_newOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_newOrderActionPerformed
+        CardLayout cl = (CardLayout) mainPanel.getLayout();
+        cl.show(mainPanel, "newOrder");
     }//GEN-LAST:event_btn_newOrderActionPerformed
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         lbl_loggedInAs.setText("Logged in as: " + register.CurrentUser.getEmail());
     }//GEN-LAST:event_formComponentShown
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_newOrder;
     private javax.swing.JLabel icon_gradient1;
     private javax.swing.JLabel icon_logo2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel lbl_currentOrders;
     private javax.swing.JLabel lbl_loggedInAs;
     private javax.swing.JLabel lbl_newOrder;

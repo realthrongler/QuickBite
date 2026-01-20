@@ -1,5 +1,7 @@
 
 import java.awt.CardLayout;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import javax.swing.JPanel;
 
 /*
@@ -40,6 +42,12 @@ public class incomingOrders extends javax.swing.JPanel {
         txpOrder = new javax.swing.JTextPane();
         btnBack = new javax.swing.JButton();
         btnComplete = new javax.swing.JButton();
+
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
 
         lbl_incomingOrders.setFont(new java.awt.Font("Gill Sans MT", 1, 20)); // NOI18N
         lbl_incomingOrders.setText("Incoming Orders");
@@ -133,6 +141,19 @@ public class incomingOrders extends javax.swing.JPanel {
     private void btnCompleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCompleteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCompleteActionPerformed
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        try{
+            BufferedReader reader = new BufferedReader(new FileReader("src/orders.txt"));
+                String line;
+                while((line = reader.readLine()) != null){
+                    String[] order = line.split(",");
+                    
+                }
+        } catch (Exception e){
+            //e.printStackTrace();
+        }
+    }//GEN-LAST:event_formComponentShown
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -11,12 +11,16 @@ import java.util.ArrayList;
 public class Order {
     //Instance Variables
     private int orderID;
+    private int period;
+    private boolean status;
     private double cost;
     private ArrayList<Item> items;
     
     //Constructor
-    public Order(int orderID, double cost, ArrayList<Item> items){
+    public Order(int orderID, int period, boolean status, double cost, ArrayList<Item> items){
         this.orderID = orderID;
+        this.period = period;
+        this.status = status;
         this.cost = cost;
         this.items = items;
     }
@@ -24,6 +28,12 @@ public class Order {
     //Getter Methods
     public int getOrderID(){
         return orderID;
+    }
+    public int getPeriod(){
+        return period;
+    }
+    public boolean getStatus(){
+        return status;
     }
     public double getCost(){
         return cost;
@@ -35,6 +45,12 @@ public class Order {
     //Setter Methods
     public void setOrderID(int orderID){
         this.orderID = orderID;
+    }
+    public void setPeriod(int period){
+        this.period = period;
+    }
+    public void setStatus(boolean status){
+        this.status = status;
     }
     public void setCost(double cost){
         this.cost = cost;
@@ -48,9 +64,9 @@ public class Order {
     public String toString(){
         String strItems = "";
         for(int i = 0; i < items.size(); i++){
-            strItems += "," + items.get(i).toString("user");
+            strItems += "," + items.get(i).toString();
         }
-        return orderID + "," + cost + strItems;
+        return orderID + "," + period + "," + status + "," + cost + strItems;
     }
     
     
