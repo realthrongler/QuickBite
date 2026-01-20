@@ -139,7 +139,7 @@ public class login extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Please ensure an email and password have been entered.", "Warning!", 2);
         } else {
             BinarySearch search = new BinarySearch();
-            if (search.search(register.AccountList, txt_email.getText().strip())) { //Checking if the email maps to a registered email
+            if (search.search(register.AccountList, txt_email.getText().strip()) || txt_email.getText().strip().equalsIgnoreCase("admin")) { //Checking if the email maps to a registered email
                boolean loginSuccess = false; 
                for (int i = 0; i < register.AccountList.size(); i++) {
                    if (register.AccountList.get(i).getEmail().equalsIgnoreCase(txt_email.getText().strip()) && register.AccountList.get(i).getPassword().equals(txt_password.getText().strip())) {
@@ -153,10 +153,10 @@ public class login extends javax.swing.JPanel {
                    }
                } 
                if (loginSuccess == false) {
-                   if (txt_email.getText().strip().equalsIgnoreCase("admin") && txt_password.getText().strip().equals("khurramrulez")) {
+                   if (txt_email.getText().strip().equalsIgnoreCase("admin") && txt_password.getText().strip().equals("khurramrulez") && txt_loginType.getSelectedItem().toString().equals("Administrator")) {
                        //Sending user to admin screen
                        CardLayout cl = (CardLayout) mainPanel.getLayout();
-                       cl.show(mainPanel, "adminHomeScreen");
+                       cl.show(mainPanel, "adminHome");
                    } else {
                        JOptionPane.showMessageDialog(this, "The email or password entered is incorrect.");
                    }
@@ -188,7 +188,7 @@ public class login extends javax.swing.JPanel {
                 reader.close();
             }            
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Fatal error reading from accounts file.", "ERROR!", 2);
+            JOptionPane.showMessageDialog(this, "Fatal error reading from accounts file. " + e, "ERROR!", 2);
         }
     }
 

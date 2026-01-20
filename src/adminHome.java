@@ -1,6 +1,3 @@
-
-import javax.swing.JPanel;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
@@ -8,17 +5,17 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author ivanlin
+ * @author noahc
  */
-public class adminHomeScreen extends javax.swing.JPanel {
+import javax.swing.JPanel;
+public class adminHome extends javax.swing.JPanel {
     JPanel mainPanel;
     
     /**
-     * Creates new form adminHomeScreen
+     * Creates new form adminHome
      */
-    public adminHomeScreen(JPanel mainPanel) {
+    public adminHome(JPanel mainPanel) {
         this.mainPanel = mainPanel;
-        
         initComponents();
     }
 
