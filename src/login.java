@@ -36,10 +36,10 @@ public class login extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lbl_title = new javax.swing.JLabel();
         lbl_registerPrompt = new javax.swing.JLabel();
         btn_login = new javax.swing.JButton();
         icon_logo = new javax.swing.JLabel();
-        lbl_title = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         txt_email = new javax.swing.JTextField();
         lbl_companyTitle = new javax.swing.JLabel();
@@ -52,9 +52,14 @@ public class login extends javax.swing.JPanel {
 
         setLayout(null);
 
+        lbl_title.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
+        lbl_title.setText("Quick Bite");
+        add(lbl_title);
+        lbl_title.setBounds(130, 25, 130, 30);
+
         lbl_registerPrompt.setText("New user?");
         add(lbl_registerPrompt);
-        lbl_registerPrompt.setBounds(110, 350, 60, 16);
+        lbl_registerPrompt.setBounds(100, 400, 60, 15);
 
         btn_login.setText("Login");
         btn_login.addActionListener(new java.awt.event.ActionListener() {
@@ -63,39 +68,34 @@ public class login extends javax.swing.JPanel {
             }
         });
         add(btn_login);
-        btn_login.setBounds(160, 310, 60, 23);
+        btn_login.setBounds(160, 360, 60, 21);
 
         icon_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quick_bite_logo_80x80.png"))); // NOI18N
         add(icon_logo);
         icon_logo.setBounds(0, 0, 80, 80);
 
-        lbl_title.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
-        lbl_title.setText("Quick Bite");
-        add(lbl_title);
-        lbl_title.setBounds(150, 20, 120, 29);
-
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FinalGradient.png"))); // NOI18N
         add(jLabel7);
         jLabel7.setBounds(0, 0, 370, 80);
         add(txt_email);
-        txt_email.setBounds(80, 190, 214, 30);
+        txt_email.setBounds(80, 240, 214, 30);
 
         lbl_companyTitle.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
         lbl_companyTitle.setText("Ivan's Z's Inc.");
         add(lbl_companyTitle);
         lbl_companyTitle.setBounds(140, 40, 100, 22);
         add(txt_password);
-        txt_password.setBounds(80, 260, 214, 30);
+        txt_password.setBounds(80, 310, 214, 30);
 
         lbl_login.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
         lbl_login.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_login.setText("Login");
         add(lbl_login);
-        lbl_login.setBounds(100, 90, 170, 38);
+        lbl_login.setBounds(100, 130, 170, 38);
 
         txt_loginType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Customer", "Administrator" }));
         add(txt_loginType);
-        txt_loginType.setBounds(80, 130, 214, 22);
+        txt_loginType.setBounds(80, 180, 214, 21);
 
         btn_toRegisterScreen.setForeground(new java.awt.Color(0, 0, 255));
         btn_toRegisterScreen.setText("Register an account");
@@ -106,19 +106,19 @@ public class login extends javax.swing.JPanel {
             }
         });
         add(btn_toRegisterScreen);
-        btn_toRegisterScreen.setBounds(170, 350, 110, 16);
+        btn_toRegisterScreen.setBounds(160, 400, 120, 15);
 
         lbl_password.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
         lbl_password.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_password.setText("Password");
         add(lbl_password);
-        lbl_password.setBounds(80, 230, 80, 22);
+        lbl_password.setBounds(80, 280, 81, 22);
 
         lbl_email.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
         lbl_email.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_email.setText("Email");
         add(lbl_email);
-        lbl_email.setBounds(80, 160, 50, 30);
+        lbl_email.setBounds(80, 210, 50, 30);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_toRegisterScreenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_toRegisterScreenMouseClicked

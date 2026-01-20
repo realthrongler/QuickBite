@@ -54,7 +54,7 @@ public class customerHomeScreen extends javax.swing.JPanel {
         lbl_title2.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
         lbl_title2.setText("Quick Bite");
         add(lbl_title2);
-        lbl_title2.setBounds(140, 20, 110, 29);
+        lbl_title2.setBounds(140, 20, 130, 30);
 
         lbl_loggedInAs.setFont(new java.awt.Font("Gill Sans MT", 0, 12)); // NOI18N
         lbl_loggedInAs.setText("Logged in as: ");
@@ -68,7 +68,7 @@ public class customerHomeScreen extends javax.swing.JPanel {
         lbl_currentOrders.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
         lbl_currentOrders.setText("Current Quick Bite Orders:");
         add(lbl_currentOrders);
-        lbl_currentOrders.setBounds(80, 100, 210, 20);
+        lbl_currentOrders.setBounds(60, 100, 240, 20);
 
         lbl_newOrder.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
         lbl_newOrder.setText("New Order:");
@@ -83,7 +83,7 @@ public class customerHomeScreen extends javax.swing.JPanel {
             }
         });
         add(btn_newOrder);
-        btn_newOrder.setBounds(120, 420, 120, 40);
+        btn_newOrder.setBounds(120, 420, 130, 40);
 
         txt_orderDisplay.setColumns(20);
         txt_orderDisplay.setRows(5);
@@ -92,7 +92,7 @@ public class customerHomeScreen extends javax.swing.JPanel {
         add(pane_orderDisplay);
         pane_orderDisplay.setBounds(0, 130, 370, 240);
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void btn_newOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_newOrderActionPerformed
 
     }//GEN-LAST:event_btn_newOrderActionPerformed

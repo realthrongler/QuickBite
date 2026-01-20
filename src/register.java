@@ -84,7 +84,7 @@ public class register extends javax.swing.JPanel {
         lbl_title1.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
         lbl_title1.setText("Quick Bite");
         add(lbl_title1);
-        lbl_title1.setBounds(140, 20, 130, 30);
+        lbl_title1.setBounds(130, 25, 130, 30);
 
         icon_gradient.setIcon(new javax.swing.ImageIcon(getClass().getResource("/FinalGradient.png"))); // NOI18N
         add(icon_gradient);
@@ -108,7 +108,7 @@ public class register extends javax.swing.JPanel {
         add(txt_cardNumber);
         txt_cardNumber.setBounds(50, 300, 220, 30);
         add(txt_cvv);
-        txt_cvv.setBounds(50, 370, 80, 22);
+        txt_cvv.setBounds(50, 370, 80, 21);
 
         btn_register.setText("Register");
         btn_register.addActionListener(new java.awt.event.ActionListener() {
@@ -117,11 +117,11 @@ public class register extends javax.swing.JPanel {
             }
         });
         add(btn_register);
-        btn_register.setBounds(150, 410, 90, 23);
+        btn_register.setBounds(150, 410, 90, 21);
 
         lbl_loginPrompt.setText("Already have an account?");
         add(lbl_loginPrompt);
-        lbl_loginPrompt.setBounds(110, 440, 135, 16);
+        lbl_loginPrompt.setBounds(100, 440, 146, 15);
 
         btn_toLoginScreen.setForeground(new java.awt.Color(0, 0, 255));
         btn_toLoginScreen.setText("Login");
@@ -132,7 +132,7 @@ public class register extends javax.swing.JPanel {
             }
         });
         add(btn_toLoginScreen);
-        btn_toLoginScreen.setBounds(250, 440, 30, 16);
+        btn_toLoginScreen.setBounds(250, 440, 30, 15);
     }// </editor-fold>//GEN-END:initComponents
     
     //Account information file

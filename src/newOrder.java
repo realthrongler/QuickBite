@@ -27,19 +27,128 @@ public class newOrder extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 370, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 480, Short.MAX_VALUE)
-        );
+        lblMenu = new javax.swing.JLabel();
+        btnAddToOrder = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txpOrder = new javax.swing.JTextPane();
+        sprQuantity = new javax.swing.JSpinner();
+        sprQuantity.setValue(Integer.valueOf(1));
+        btnUndo = new javax.swing.JButton();
+        lblOrder = new javax.swing.JLabel();
+        btnPlaceOrder = new javax.swing.JButton();
+        btnCancelOrder = new javax.swing.JButton();
+        lstMenu = new javax.swing.JList<>();
+        /*
+        lstMenu.setSelectionModel(new javax.swing.DefaultListSelectionModel() {
+            @Override
+            public void setSelectionInterval(int index0, int index1) {
+                // Prevent selection
+            }
+        }
+    );
+    */
+    cbxPeriod = new javax.swing.JComboBox<>();
+
+    setLayout(null);
+
+    lblMenu.setFont(new java.awt.Font("sansserif", 1, 20)); // NOI18N
+    lblMenu.setText("Menu");
+    add(lblMenu);
+    lblMenu.setBounds(18, 12, 56, 25);
+
+    btnAddToOrder.setText("Add to Order");
+    btnAddToOrder.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnAddToOrderActionPerformed(evt);
+        }
+    });
+    add(btnAddToOrder);
+    btnAddToOrder.setBounds(240, 79, 107, 21);
+
+    jScrollPane2.setViewportView(txpOrder);
+
+    add(jScrollPane2);
+    jScrollPane2.setBounds(10, 222, 350, 190);
+    add(sprQuantity);
+    sprQuantity.setBounds(240, 43, 107, 21);
+
+    btnUndo.setText("Undo");
+    btnUndo.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnUndoActionPerformed(evt);
+        }
+    });
+    add(btnUndo);
+    btnUndo.setBounds(240, 117, 107, 21);
+
+    lblOrder.setFont(new java.awt.Font("sansserif", 1, 20)); // NOI18N
+    lblOrder.setText("Order");
+    add(lblOrder);
+    lblOrder.setBounds(18, 191, 59, 25);
+
+    btnPlaceOrder.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+    btnPlaceOrder.setText("Place Order");
+    btnPlaceOrder.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnPlaceOrderActionPerformed(evt);
+        }
+    });
+    add(btnPlaceOrder);
+    btnPlaceOrder.setBounds(129, 430, 120, 35);
+
+    btnCancelOrder.setText("Cancel Order");
+    btnCancelOrder.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            btnCancelOrderActionPerformed(evt);
+        }
+    });
+    add(btnCancelOrder);
+    btnCancelOrder.setBounds(240, 154, 107, 21);
+
+    lstMenu.setModel(new javax.swing.AbstractListModel<String>() {
+        String[] strings = { " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " " };
+        public int getSize() { return strings.length; }
+        public String getElementAt(int i) { return strings[i]; }
+    });
+    lstMenu.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+    lstMenu.setRequestFocusEnabled(false);
+    lstMenu.setSelectionBackground(new java.awt.Color(165, 221, 208));
+    add(lstMenu);
+    lstMenu.setBounds(10, 43, 202, 132);
+
+    cbxPeriod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Period 2", "Period 3", "Period 4" }));
+    add(cbxPeriod);
+    cbxPeriod.setBounds(90, 193, 82, 21);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddToOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddToOrderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddToOrderActionPerformed
+
+    private void btnUndoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUndoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnUndoActionPerformed
+
+    private void btnCancelOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelOrderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelOrderActionPerformed
+
+    private void btnPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrderActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPlaceOrderActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddToOrder;
+    private javax.swing.JButton btnCancelOrder;
+    private javax.swing.JButton btnPlaceOrder;
+    private javax.swing.JButton btnUndo;
+    private javax.swing.JComboBox<String> cbxPeriod;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblMenu;
+    private javax.swing.JLabel lblOrder;
+    private javax.swing.JList<String> lstMenu;
+    private javax.swing.JSpinner sprQuantity;
+    private javax.swing.JTextPane txpOrder;
     // End of variables declaration//GEN-END:variables
 }
