@@ -107,7 +107,7 @@ public class customerHomeScreen extends javax.swing.JPanel {
         btnRefresh.setBounds(290, 375, 75, 23);
     }// </editor-fold>//GEN-END:initComponents
 
-    ArrayList <Order> orders = new ArrayList <Order>();
+    static ArrayList <Order> orders = new ArrayList <Order>();
     
     private void btn_newOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_newOrderActionPerformed
         CardLayout cl = (CardLayout) mainPanel.getLayout();
@@ -115,11 +115,11 @@ public class customerHomeScreen extends javax.swing.JPanel {
     }//GEN-LAST:event_btn_newOrderActionPerformed
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
-        ArrayList <Customer> AccountList = new ArrayList <Customer> ();
         try {
                 BufferedReader reader = new BufferedReader(new FileReader("QuickBite/Accounts.txt"));
                 String line;
                 
+                register.AccountList.clear();
                 while ((line = reader.readLine()) != null) {
                     String[] lineArray = line.split(","); //Splitting everything by commas
                     String email = lineArray[0];
@@ -134,7 +134,7 @@ public class customerHomeScreen extends javax.swing.JPanel {
                     Customer person = new Customer(email, password, cardNumber, cvv); //Constructor only takes these values
                     person.addPoints(points); //Adding customer's points to the default balance of zero
                     person.setOrderIDs(orderIDs);
-                    AccountList.add(person);
+                    register.AccountList.add(person);
                 }
                 reader.close();
                        
@@ -179,8 +179,6 @@ public class customerHomeScreen extends javax.swing.JPanel {
             //e.printStackTrace();
         }
         
-        Customer test = register.CurrentUser;
-        
         ArrayList <Integer> orderIDs = register.CurrentUser.getOrderIDsArrayList();
         
         String strOutput = "";
@@ -192,7 +190,7 @@ public class customerHomeScreen extends javax.swing.JPanel {
                     ArrayList <Item> items = order.getItems();
                     String strItems = "";
                     for(int j = 0; j < items.size(); j++){
-                        Item item = items.get(i);
+                        Item item = items.get(j);
                         strItems += "\n  x" + item.getQuantity() + " " + item.getName() + ", " + item.getCost();
                     }
 

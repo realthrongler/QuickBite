@@ -53,6 +53,11 @@ public class register extends javax.swing.JPanel {
         btn_toLoginScreen = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(370, 480));
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
         setLayout(null);
 
         lbl_email1.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
@@ -99,16 +104,11 @@ public class register extends javax.swing.JPanel {
         lbl_cvv.setText("CVV");
         add(lbl_cvv);
         lbl_cvv.setBounds(50, 340, 50, 22);
-
-        txt_cardNumber.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-
-            }
-        });
+        
         add(txt_cardNumber);
         txt_cardNumber.setBounds(50, 300, 220, 30);
         add(txt_cvv);
-        txt_cvv.setBounds(50, 370, 80, 21);
+        txt_cvv.setBounds(50, 370, 80, 23);
 
         btn_register.setText("Register");
         btn_register.addActionListener(new java.awt.event.ActionListener() {
@@ -117,11 +117,11 @@ public class register extends javax.swing.JPanel {
             }
         });
         add(btn_register);
-        btn_register.setBounds(150, 410, 90, 21);
+        btn_register.setBounds(150, 410, 90, 23);
 
         lbl_loginPrompt.setText("Already have an account?");
         add(lbl_loginPrompt);
-        lbl_loginPrompt.setBounds(100, 440, 146, 15);
+        lbl_loginPrompt.setBounds(100, 440, 151, 17);
 
         btn_toLoginScreen.setForeground(new java.awt.Color(0, 0, 255));
         btn_toLoginScreen.setText("Login");
@@ -132,8 +132,15 @@ public class register extends javax.swing.JPanel {
             }
         });
         add(btn_toLoginScreen);
-        btn_toLoginScreen.setBounds(250, 440, 30, 15);
+        btn_toLoginScreen.setBounds(250, 440, 31, 17);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        txt_email.setText("");
+        txt_password.setText("");
+        txt_cardNumber.setText("");
+        txt_cvv.setText("");
+    }//GEN-LAST:event_formComponentShown
     
     //Account information file
     static File AccountFile = new File("Accounts.txt");

@@ -1,0 +1,8 @@
+Cookie,0,2
+Poutine,0,6
+Pop,0,2
+Water,0,2
+Spagetti & MeatBalls,0,8.5
+Fries,0,6
+Burger,0,5
+Pizza,0,4

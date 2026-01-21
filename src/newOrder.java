@@ -4,7 +4,9 @@
  */
 import java.awt.CardLayout;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 /**
@@ -41,93 +43,80 @@ public class newOrder extends javax.swing.JPanel {
         lblOrder = new javax.swing.JLabel();
         btnPlaceOrder = new javax.swing.JButton();
         btnCancelOrder = new javax.swing.JButton();
+        cbxPeriod = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
         lstMenu = new javax.swing.JList<>();
-        /*
-        lstMenu.setSelectionModel(new javax.swing.DefaultListSelectionModel() {
-            @Override
-            public void setSelectionInterval(int index0, int index1) {
-                // Prevent selection
+
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
             }
-        }
-    );
-    */
-    cbxPeriod = new javax.swing.JComboBox<>();
+        });
+        setLayout(null);
 
-    addComponentListener(new java.awt.event.ComponentAdapter() {
-        public void componentShown(java.awt.event.ComponentEvent evt) {
-            formComponentShown(evt);
-        }
-    });
-    setLayout(null);
+        lblMenu.setFont(new java.awt.Font("sansserif", 1, 20)); // NOI18N
+        lblMenu.setText("Menu");
+        add(lblMenu);
+        lblMenu.setBounds(18, 12, 56, 25);
 
-    lblMenu.setFont(new java.awt.Font("sansserif", 1, 20)); // NOI18N
-    lblMenu.setText("Menu");
-    add(lblMenu);
-    lblMenu.setBounds(18, 12, 56, 25);
+        btnAddToOrder.setText("Add to Order");
+        btnAddToOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddToOrderActionPerformed(evt);
+            }
+        });
+        add(btnAddToOrder);
+        btnAddToOrder.setBounds(240, 79, 106, 23);
 
-    btnAddToOrder.setText("Add to Order");
-    btnAddToOrder.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            btnAddToOrderActionPerformed(evt);
-        }
-    });
-    add(btnAddToOrder);
-    btnAddToOrder.setBounds(240, 79, 106, 23);
+        jScrollPane2.setViewportView(txpOrder);
 
-    jScrollPane2.setViewportView(txpOrder);
+        add(jScrollPane2);
+        jScrollPane2.setBounds(10, 222, 350, 190);
+        add(sprQuantity);
+        sprQuantity.setBounds(240, 43, 107, 23);
 
-    add(jScrollPane2);
-    jScrollPane2.setBounds(10, 222, 350, 190);
-    add(sprQuantity);
-    sprQuantity.setBounds(240, 43, 107, 23);
+        btnUndo.setText("Undo");
+        btnUndo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUndoActionPerformed(evt);
+            }
+        });
+        add(btnUndo);
+        btnUndo.setBounds(240, 117, 107, 23);
 
-    btnUndo.setText("Undo");
-    btnUndo.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            btnUndoActionPerformed(evt);
-        }
-    });
-    add(btnUndo);
-    btnUndo.setBounds(240, 117, 107, 23);
+        lblOrder.setFont(new java.awt.Font("sansserif", 1, 20)); // NOI18N
+        lblOrder.setText("Order");
+        add(lblOrder);
+        lblOrder.setBounds(18, 191, 59, 25);
 
-    lblOrder.setFont(new java.awt.Font("sansserif", 1, 20)); // NOI18N
-    lblOrder.setText("Order");
-    add(lblOrder);
-    lblOrder.setBounds(18, 191, 59, 25);
+        btnPlaceOrder.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
+        btnPlaceOrder.setText("Place Order");
+        btnPlaceOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPlaceOrderActionPerformed(evt);
+            }
+        });
+        add(btnPlaceOrder);
+        btnPlaceOrder.setBounds(129, 430, 120, 35);
 
-    btnPlaceOrder.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-    btnPlaceOrder.setText("Place Order");
-    btnPlaceOrder.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            btnPlaceOrderActionPerformed(evt);
-        }
-    });
-    add(btnPlaceOrder);
-    btnPlaceOrder.setBounds(129, 430, 120, 35);
+        btnCancelOrder.setText("Cancel Order");
+        btnCancelOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelOrderActionPerformed(evt);
+            }
+        });
+        add(btnCancelOrder);
+        btnCancelOrder.setBounds(240, 154, 107, 23);
 
-    btnCancelOrder.setText("Cancel Order");
-    btnCancelOrder.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            btnCancelOrderActionPerformed(evt);
-        }
-    });
-    add(btnCancelOrder);
-    btnCancelOrder.setBounds(240, 154, 107, 23);
+        cbxPeriod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Period 2", "Period 3", "Period 4" }));
+        add(cbxPeriod);
+        cbxPeriod.setBounds(90, 193, 83, 23);
 
-    lstMenu.setModel(new javax.swing.AbstractListModel<String>() {
-        String[] strings = { " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " " };
-        public int getSize() { return strings.length; }
-        public String getElementAt(int i) { return strings[i]; }
-    });
-    lstMenu.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-    lstMenu.setRequestFocusEnabled(false);
-    lstMenu.setSelectionBackground(new java.awt.Color(165, 221, 208));
-    add(lstMenu);
-    lstMenu.setBounds(10, 43, 202, 132);
+        lstMenu.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane1.setViewportView(lstMenu);
 
-    cbxPeriod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Period 2", "Period 3", "Period 4" }));
-    add(cbxPeriod);
-    cbxPeriod.setBounds(90, 193, 83, 23);
+        add(jScrollPane1);
+        jScrollPane1.setBounds(10, 40, 200, 140);
     }// </editor-fold>//GEN-END:initComponents
     
     ArrayList <Item> menuItems = new ArrayList <Item>();
@@ -139,10 +128,14 @@ public class newOrder extends javax.swing.JPanel {
         int quantity = n.intValue();
         Item item = menuItems.get(index);
         orderItems.add(new Item(item.getName(), quantity, item.getCost()));
+        
+        refresh();
     }//GEN-LAST:event_btnAddToOrderActionPerformed
 
     private void btnUndoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUndoActionPerformed
         orderItems.removeLast();
+        
+        refresh();
     }//GEN-LAST:event_btnUndoActionPerformed
 
     private void btnCancelOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelOrderActionPerformed
@@ -152,13 +145,68 @@ public class newOrder extends javax.swing.JPanel {
     }//GEN-LAST:event_btnCancelOrderActionPerformed
 
     private void btnPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrderActionPerformed
-        // TODO add your handling code here:
+        if(!orderItems.isEmpty()){
+            int period = cbxPeriod.getSelectedIndex() + 2;
+            double orderCost = 0;
+            
+            for(int i = 0; i < orderItems.size(); i++){
+                orderCost += orderItems.get(i).getCost() * orderItems.get(i).getQuantity();
+            }
+            ArrayList <Integer> orderIDs = register.CurrentUser.getOrderIDsArrayList();
+            orderIDs.add(customerHomeScreen.orders.size() + 1);
+            register.CurrentUser.setOrderIDs(orderIDs);
+            register.AccountList.remove(login.userIndex);
+            register.AccountList.add(login.userIndex, register.CurrentUser);
+            
+            Order order = new Order(customerHomeScreen.orders.size() + 1, period, -1, orderCost, orderItems);
+            customerHomeScreen.orders.add(order);
+            
+            try {
+                register.AccountFile.createNewFile();
+                try (BufferedWriter deleter = new BufferedWriter(new FileWriter(register.AccountFile.getAbsolutePath()))){
+                    deleter.write("");
+                    deleter.close();
+                    BufferedWriter writer = new BufferedWriter(new FileWriter(register.AccountFile.getAbsolutePath(), true));
+
+                    for (int index = 0; index < register.AccountList.size(); index++) {
+                        String writeLine = "";
+                        writeLine += register.AccountList.get(index).getEmail() + ",";
+                        writeLine += register.AccountList.get(index).getPassword() + ",";
+                        writeLine += register.AccountList.get(index).getCardNumber() + ",";
+                        writeLine += register.AccountList.get(index).getSecurityCode() + ",";
+                        writeLine += register.AccountList.get(index).getPoints();
+                        writeLine += register.AccountList.get(index).getOrderIDsString() + "\n";
+                        writer.append(writeLine);
+                    }
+                    writer.close();
+                }
+            } catch (Exception e) {
+                //JOptionPane.showMessageDialog(this, "A fatal error occured: " + e, "ERROR!", 1);
+                e.printStackTrace();
+            }
+            
+            try{
+                BufferedWriter writer = new BufferedWriter(new FileWriter("src/orders.txt"));
+                writer.write(customerHomeScreen.orders.get(0).toString());
+                for(int i = 1; i < customerHomeScreen.orders.size(); i++){
+                    writer.write("\n" + (customerHomeScreen.orders.get(i).toString()));
+                }
+                writer.close();
+            } catch (Exception e){
+
+            }
+            
+            CardLayout cl = (CardLayout) mainPanel.getLayout();
+            cl.show(mainPanel, "customerHomeScreen");
+            orderItems.clear();
+        }
     }//GEN-LAST:event_btnPlaceOrderActionPerformed
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         try{
             BufferedReader reader = new BufferedReader(new FileReader("src/menuItems.txt"));
                 String line;
+                menuItems.clear();
                 while((line = reader.readLine()) != null){
                     String[] item = line.split(",");
                     String name = item[0];
@@ -180,7 +228,16 @@ public class newOrder extends javax.swing.JPanel {
         
         lstMenu.setListData(lstOutput);
     }//GEN-LAST:event_formComponentShown
-
+    
+    public void refresh(){
+        String strOutput = "";
+        for(int i = 0; i < orderItems.size(); i++){
+            Item item = orderItems.get(i);
+            strOutput += "x" + item.getQuantity() + " " + item.getName() + " : $" + item.getCost() + "\n";
+        }
+        
+        txpOrder.setText(strOutput);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddToOrder;
@@ -188,6 +245,7 @@ public class newOrder extends javax.swing.JPanel {
     private javax.swing.JButton btnPlaceOrder;
     private javax.swing.JButton btnUndo;
     private javax.swing.JComboBox<String> cbxPeriod;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblMenu;
     private javax.swing.JLabel lblOrder;
