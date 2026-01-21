@@ -193,6 +193,10 @@ public class editMenu extends javax.swing.JPanel {
             //e.printStackTrace();
         }
         
+        refresh();
+    }//GEN-LAST:event_formComponentShown
+    
+    public void refresh(){
         String[] lstOutput = new String[menuItems.size()];
         for(int i = 0; i < menuItems.size(); i++){
             Item item = menuItems.get(i);
@@ -200,8 +204,7 @@ public class editMenu extends javax.swing.JPanel {
         }
         
         lstMenu.setListData(lstOutput);
-    }//GEN-LAST:event_formComponentShown
-
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
