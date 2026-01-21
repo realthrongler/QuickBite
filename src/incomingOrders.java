@@ -184,7 +184,7 @@ public class incomingOrders extends javax.swing.JPanel {
 
         }
         
-        
+        adminHome.refresh();
     }//GEN-LAST:event_btnCompleteActionPerformed
     
     ArrayList <Order> incomingOrders = new ArrayList <Order>();

@@ -157,6 +157,8 @@ public class completeOrders extends javax.swing.JPanel {
         } catch (Exception e){
 
         }
+        
+        adminHome.refresh();
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
