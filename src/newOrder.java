@@ -185,6 +185,13 @@ public class newOrder extends javax.swing.JPanel {
                 e.printStackTrace();
             }
             
+             try (BufferedWriter deleter = new BufferedWriter(new FileWriter("src/orders.txt"))){
+                    deleter.write("");
+                    deleter.close();
+             } catch (Exception e){
+                 
+             }
+            
             try{
                 BufferedWriter writer = new BufferedWriter(new FileWriter("src/orders.txt"));
                 writer.write(customerHomeScreen.orders.get(0).toString());
