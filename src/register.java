@@ -139,11 +139,7 @@ public class register extends javax.swing.JPanel {
     static File AccountFile = new File("Accounts.txt");
     //Account information arraylist (for searching and modifying the text file)
     public static ArrayList<Customer> AccountList = new ArrayList<>();
-    public static Customer CurrentUser;
-    
-    private void txt_cardNumberActionPerformed(java.awt.event.ActionEvent evt) {                                               
-
-    }                                              
+    public static Customer CurrentUser;                                             
 
     private void btn_registerActionPerformed(java.awt.event.ActionEvent evt) {                                             
         //Input validation
@@ -248,7 +244,7 @@ public class register extends javax.swing.JPanel {
                     String cardNumber = lineArray[2];
                     String cvv = lineArray[3];
                     int points = Integer.parseInt(lineArray[4]);
-                    ArrayList <Integer> orderIDs = new ArrayList <Integer>();
+                    ArrayList <Integer> orderIDs = new ArrayList <>();
                     for(int i = 5; i < lineArray.length; i++){
                         orderIDs.add(Integer.parseInt(lineArray[i]));
                     }
