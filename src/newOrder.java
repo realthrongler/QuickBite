@@ -185,13 +185,6 @@ public class newOrder extends javax.swing.JPanel {
                 e.printStackTrace();
             }
             
-             try (BufferedWriter deleter = new BufferedWriter(new FileWriter("src/orders.txt"))){
-                    deleter.write("");
-                    deleter.close();
-             } catch (Exception e){
-                 
-             }
-            
             try{
                 BufferedWriter writer = new BufferedWriter(new FileWriter("src/orders.txt"));
                 writer.write(customerHomeScreen.orders.get(0).toString());
@@ -211,6 +204,7 @@ public class newOrder extends javax.swing.JPanel {
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         try{
+            menuItems.clear();
             BufferedReader reader = new BufferedReader(new FileReader("src/menuItems.txt"));
                 String line;
                 menuItems.clear();
