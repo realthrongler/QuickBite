@@ -192,6 +192,14 @@ public class editMenu extends javax.swing.JPanel {
         } catch (Exception e){
             //e.printStackTrace();
         }
+        
+        String[] lstOutput = new String[menuItems.size()];
+        for(int i = 0; i < menuItems.size(); i++){
+            Item item = menuItems.get(i);
+            lstOutput[i] = item.getName() + " : $" + item.getCost();
+        }
+        
+        lstMenu.setListData(lstOutput);
     }//GEN-LAST:event_formComponentShown
 
 
