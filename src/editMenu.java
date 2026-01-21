@@ -1,8 +1,8 @@
-
-import static adminHome.orders;
 import java.awt.CardLayout;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 
@@ -164,15 +164,35 @@ public class editMenu extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
-        // TODO add your handling code here:
+        int index = lstMenu.getSelectedIndex();
+        menuItems.remove(index);
+        
+        write();
+        refresh();
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
-        // TODO add your handling code here:
+        String name = txtName.getText();
+        double cost = Double.parseDouble(txtCost.getText());
+        menuItems.add(new Item(name, 0, cost));
+        
+        write();
+        refresh();
+        txtName.setText("");
+        txtCost.setText("");
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnReplaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReplaceActionPerformed
-        // TODO add your handling code here:
+        int index = lstMenu.getSelectedIndex();
+        String name = txtName.getText();
+        double cost = Double.parseDouble(txtCost.getText());
+        menuItems.remove(index);
+        menuItems.add(index, new Item(name, 0, cost));
+      
+        write();
+        refresh();
+        txtName.setText("");
+        txtCost.setText("");
     }//GEN-LAST:event_btnReplaceActionPerformed
     
     ArrayList <Item> menuItems = new ArrayList <Item>();
@@ -195,6 +215,19 @@ public class editMenu extends javax.swing.JPanel {
         
         refresh();
     }//GEN-LAST:event_formComponentShown
+    
+    public void write(){
+        try{
+            BufferedWriter writer = new BufferedWriter(new FileWriter("src/orders.txt"));
+            writer.write(adminHome.orders.get(0).toString());
+            for(int i = 1; i < adminHome.orders.size(); i++){
+                writer.write("\n" + (adminHome.orders.get(i).toString()));
+            }
+            writer.close();
+        } catch (Exception e){
+
+        }
+    }
     
     public void refresh(){
         String[] lstOutput = new String[menuItems.size()];
