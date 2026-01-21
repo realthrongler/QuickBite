@@ -130,14 +130,19 @@ public class newOrder extends javax.swing.JPanel {
     cbxPeriod.setBounds(90, 193, 83, 23);
     }// </editor-fold>//GEN-END:initComponents
     
+    ArrayList <Item> menuItems = new ArrayList <Item>();
     ArrayList <Item> orderItems = new ArrayList <Item>();
     
     private void btnAddToOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddToOrderActionPerformed
-        // TODO add your handling code here:
+        int index = lstMenu.getSelectedIndex();
+        Number n = (Number) sprQuantity.getValue();
+        int quantity = n.intValue();
+        Item item = menuItems.get(index);
+        orderItems.add(new Item(item.getName(), quantity, item.getCost()));
     }//GEN-LAST:event_btnAddToOrderActionPerformed
 
     private void btnUndoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUndoActionPerformed
-        // TODO add your handling code here:
+        orderItems.removeLast();
     }//GEN-LAST:event_btnUndoActionPerformed
 
     private void btnCancelOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelOrderActionPerformed
@@ -151,8 +156,6 @@ public class newOrder extends javax.swing.JPanel {
     }//GEN-LAST:event_btnPlaceOrderActionPerformed
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
-        ArrayList <Item> menuItems = new ArrayList <Item>();
-        
         try{
             BufferedReader reader = new BufferedReader(new FileReader("src/menuItems.txt"));
                 String line;
