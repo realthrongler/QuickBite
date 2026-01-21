@@ -63,14 +63,14 @@ public class newOrder extends javax.swing.JPanel {
         }
     });
     add(btnAddToOrder);
-    btnAddToOrder.setBounds(240, 79, 107, 21);
+    btnAddToOrder.setBounds(240, 79, 106, 23);
 
     jScrollPane2.setViewportView(txpOrder);
 
     add(jScrollPane2);
     jScrollPane2.setBounds(10, 222, 350, 190);
     add(sprQuantity);
-    sprQuantity.setBounds(240, 43, 107, 21);
+    sprQuantity.setBounds(240, 43, 107, 23);
 
     btnUndo.setText("Undo");
     btnUndo.addActionListener(new java.awt.event.ActionListener() {
@@ -79,7 +79,7 @@ public class newOrder extends javax.swing.JPanel {
         }
     });
     add(btnUndo);
-    btnUndo.setBounds(240, 117, 107, 21);
+    btnUndo.setBounds(240, 117, 107, 23);
 
     lblOrder.setFont(new java.awt.Font("sansserif", 1, 20)); // NOI18N
     lblOrder.setText("Order");
@@ -103,7 +103,7 @@ public class newOrder extends javax.swing.JPanel {
         }
     });
     add(btnCancelOrder);
-    btnCancelOrder.setBounds(240, 154, 107, 21);
+    btnCancelOrder.setBounds(240, 154, 107, 23);
 
     lstMenu.setModel(new javax.swing.AbstractListModel<String>() {
         String[] strings = { " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " ", " " };
@@ -118,7 +118,7 @@ public class newOrder extends javax.swing.JPanel {
 
     cbxPeriod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Period 2", "Period 3", "Period 4" }));
     add(cbxPeriod);
-    cbxPeriod.setBounds(90, 193, 82, 21);
+    cbxPeriod.setBounds(90, 193, 83, 23);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddToOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddToOrderActionPerformed
