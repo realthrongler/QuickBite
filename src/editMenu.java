@@ -174,25 +174,29 @@ public class editMenu extends javax.swing.JPanel {
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         String name = txtName.getText();
         double cost = Double.parseDouble(txtCost.getText());
-        menuItems.add(new Item(name, 0, cost));
-        
-        write();
-        refresh();
-        txtName.setText("");
-        txtCost.setText("");
+        if(!name.equals("") || !name.contains(",")){
+            menuItems.add(new Item(name, 0, cost));
+
+            write();
+            refresh();
+            txtName.setText("");
+            txtCost.setText("");
+        }
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnReplaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReplaceActionPerformed
         int index = lstMenu.getSelectedIndex();
         String name = txtName.getText();
         double cost = Double.parseDouble(txtCost.getText());
-        menuItems.remove(index);
-        menuItems.add(index, new Item(name, 0, cost));
-      
-        write();
-        refresh();
-        txtName.setText("");
-        txtCost.setText("");
+        if(!name.equals("") || !name.contains(",")){
+            menuItems.remove(index);
+            menuItems.add(index, new Item(name, 0, cost));
+
+            write();
+            refresh();
+            txtName.setText("");
+            txtCost.setText("");
+        }
     }//GEN-LAST:event_btnReplaceActionPerformed
     
     ArrayList <Item> menuItems = new ArrayList <Item>();
