@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author ivanlin
+ * @author Noah Cummings, Ivan Lin, Logan Sevatzian
  */
 public class customerHomeScreen extends javax.swing.JPanel {
     JPanel mainPanel;
@@ -90,6 +90,8 @@ public class customerHomeScreen extends javax.swing.JPanel {
         add(btn_newOrder);
         btn_newOrder.setBounds(120, 420, 130, 40);
 
+        txt_orderDisplay.setEditable(false);
+        txt_orderDisplay.setBackground(new java.awt.Color(255, 255, 255));
         txt_orderDisplay.setColumns(20);
         txt_orderDisplay.setRows(5);
         pane_orderDisplay.setViewportView(txt_orderDisplay);
@@ -157,6 +159,7 @@ public class customerHomeScreen extends javax.swing.JPanel {
         try{
             BufferedReader reader = new BufferedReader(new FileReader("src/orders.txt"));
                 String line;
+                orders.clear();
                 while((line = reader.readLine()) != null){
                     String[] order = line.split(",");
                     int orderID = Integer.parseInt(order[0]);
@@ -182,7 +185,7 @@ public class customerHomeScreen extends javax.swing.JPanel {
         ArrayList <Integer> orderIDs = register.CurrentUser.getOrderIDsArrayList();
         
         String strOutput = "";
-        if(orderIDs != null){
+        if(!orderIDs.isEmpty()){
             for(int i = 0; i < orderIDs.size(); i++){
                 int index = BinarySearch.binarySearch(orders, orderIDs.get(i), 0, orders.size());
                 if(index >= 0){
@@ -191,7 +194,7 @@ public class customerHomeScreen extends javax.swing.JPanel {
                     String strItems = "";
                     for(int j = 0; j < items.size(); j++){
                         Item item = items.get(j);
-                        strItems += "\n  x" + item.getQuantity() + " " + item.getName() + ", " + item.getCost();
+                        strItems += "\n  x" + item.getQuantity() + " " + item.getName() + " : $" + item.getCost();
                     }
 
                     strOutput += "Order ID : " + order.getOrderID() +

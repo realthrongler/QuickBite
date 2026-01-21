@@ -5,7 +5,7 @@
 
 /**
  *
- * @author ivanlin
+ * @author Noah Cummings, Ivan Lin, Logan Sevatzian
  */
 public class Item {
     //Instance Variables

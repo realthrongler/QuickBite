@@ -11,7 +11,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author noahc
+ * @author Noah Cummings, Ivan Lin, Logan Sevatzian
  */
 import javax.swing.JOptionPane;
 import java.io.*;

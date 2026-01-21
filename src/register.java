@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 /**
  *
- * @author Ivan Lin and Noah Cummings
+ * @author Noah Cummings, Ivan Lin, Logan Sevatzian
  */
 public class register extends javax.swing.JPanel {
     JPanel mainPanel;
@@ -292,8 +292,8 @@ public class register extends javax.swing.JPanel {
                 writer.close();
             }
         } catch (Exception e) {
-            //JOptionPane.showMessageDialog(this, "A fatal error occured: " + e, "ERROR!", 1);
-            e.printStackTrace();
+            JOptionPane.showMessageDialog(this, "A fatal error occured: " + e, "ERROR!", 1);
+            //e.printStackTrace();
         }
     }
 

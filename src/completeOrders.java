@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author ivanlin
+ * @author Noah Cummings, Ivan Lin, Logan Sevatzian
  */
 public class completeOrders extends javax.swing.JPanel {
     JPanel mainPanel;
@@ -159,6 +159,20 @@ public class completeOrders extends javax.swing.JPanel {
         }
         
         adminHome.refresh();
+        
+        completeOrders.clear();
+        for(int i = 0; i < adminHome.orders.size(); i++){
+            if(adminHome.orders.get(i).getPeriod() == adminHome.period 
+               && adminHome.orders.get(i).getStatusInt() > 0){
+                completeOrders.add(adminHome.orders.get(i));
+            }
+        }
+        
+        String[] lstOutput = new String[completeOrders.size()];
+        for(int i = 0; i < completeOrders.size(); i++){
+            lstOutput[i] = Integer.toString(completeOrders.get(i).getOrderID());
+        }
+        lst_completeOrders.setListData(lstOutput);
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
@@ -182,6 +196,7 @@ public class completeOrders extends javax.swing.JPanel {
     ArrayList <Order> completeOrders = new ArrayList <Order>();
     
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        completeOrders.clear();
         for(int i = 0; i < adminHome.orders.size(); i++){
             if(adminHome.orders.get(i).getPeriod() == adminHome.period 
                && adminHome.orders.get(i).getStatusInt() > 0){

@@ -5,7 +5,7 @@
 
 /**
  *
- * @author noahc
+ * @author Noah Cummings, Ivan Lin, Logan Sevatzian
  */
 import java.util.ArrayList;
 public class BinarySearch { //Class for binary searching things

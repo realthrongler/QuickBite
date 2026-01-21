@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author ivanlin
+ * @author Noah Cummings, Ivan Lin, Logan Sevatzian
  */
 public class Order {
     //Instance Variables

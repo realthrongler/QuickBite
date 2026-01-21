@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import javax.swing.JPanel;
 /**
  *
- * @author ivanlin
+ * @author Noah Cummings, Ivan Lin, Logan Sevatzian
  */
 public class newOrder extends javax.swing.JPanel {
     JPanel mainPanel;
@@ -181,7 +181,6 @@ public class newOrder extends javax.swing.JPanel {
                     writer.close();
                 }
             } catch (Exception e) {
-                //JOptionPane.showMessageDialog(this, "A fatal error occured: " + e, "ERROR!", 1);
                 e.printStackTrace();
             }
             
@@ -204,7 +203,6 @@ public class newOrder extends javax.swing.JPanel {
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         try{
-            menuItems.clear();
             BufferedReader reader = new BufferedReader(new FileReader("src/menuItems.txt"));
                 String line;
                 menuItems.clear();
@@ -228,6 +226,7 @@ public class newOrder extends javax.swing.JPanel {
         }
         
         lstMenu.setListData(lstOutput);
+        txpOrder.setText("");
     }//GEN-LAST:event_formComponentShown
     
     public void refresh(){

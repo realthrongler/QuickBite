@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author ivanlin
+ * @author Noah Cummings, Ivan Lin, Logan Sevatzian
  */
 public class editMenu extends javax.swing.JPanel {
     JPanel mainPanel;

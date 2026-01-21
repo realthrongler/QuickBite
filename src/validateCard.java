@@ -5,7 +5,7 @@
 
 /**
  *
- * @author noahc
+ * @author Noah Cummings, Ivan Lin, Logan Sevatzian
  */
 public class ValidateCard{ //Luhn algorithm for card number verification
     //Methods

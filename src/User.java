@@ -5,7 +5,7 @@
 
 /**
  *
- * @author noahc
+ * @author Noah Cummings, Ivan Lin, Logan Sevatzian
  */
 public class User {
     //LOGIN INFORMATION

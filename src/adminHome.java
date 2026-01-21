@@ -5,11 +5,13 @@
 
 /**
  *
- * @author noahc
+ * @author Noah Cummings, Ivan Lin, Logan Sevatzian
  */
 import java.awt.CardLayout;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 public class adminHome extends javax.swing.JPanel {
@@ -47,6 +49,11 @@ public class adminHome extends javax.swing.JPanel {
 
         cbxPeriod.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         cbxPeriod.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2", "3", "4" }));
+        cbxPeriod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxPeriodActionPerformed(evt);
+            }
+        });
 
         lblPeriod.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         lblPeriod.setText("Period : ");
@@ -140,6 +147,14 @@ public class adminHome extends javax.swing.JPanel {
 
     private void btnClearAllOrdersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearAllOrdersActionPerformed
         orders.clear();
+        
+        try{
+            BufferedWriter writer = new BufferedWriter(new FileWriter("src/orders.txt"));
+            writer.write("");
+            writer.close();
+        } catch (Exception e){
+
+        }
     }//GEN-LAST:event_btnClearAllOrdersActionPerformed
     
     static ArrayList <Order> orders = new ArrayList <Order>();
@@ -147,8 +162,11 @@ public class adminHome extends javax.swing.JPanel {
     
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         refresh();
-        period = cbxPeriod.getSelectedIndex()+2;
     }//GEN-LAST:event_formComponentShown
+
+    private void cbxPeriodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxPeriodActionPerformed
+        period = cbxPeriod.getSelectedIndex()+2;
+    }//GEN-LAST:event_cbxPeriodActionPerformed
     
     public static void refresh(){
         try{

@@ -5,10 +5,9 @@
 
 /**
  *
- * @author noahc
+ * @author Noah Cummings, Ivan Lin, Logan Sevatzian
  */
 import java.util.ArrayList;
-import java.util.Map;
 
 public class Customer extends User{ //Uses inheritance, and encapsulation
     

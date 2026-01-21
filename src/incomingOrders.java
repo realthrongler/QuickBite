@@ -1,8 +1,6 @@
 
 import java.awt.CardLayout;
-import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import javax.swing.JPanel;
@@ -185,11 +183,26 @@ public class incomingOrders extends javax.swing.JPanel {
         }
         
         adminHome.refresh();
+        
+        incomingOrders.clear();
+        for(int i = 0; i < adminHome.orders.size(); i++){
+            if(adminHome.orders.get(i).getPeriod() == adminHome.period 
+               && adminHome.orders.get(i).getStatusInt() < 0){
+                incomingOrders.add(adminHome.orders.get(i));
+            }
+        }
+        
+        String[] lstOutput = new String[incomingOrders.size()];
+        for(int i = 0; i < incomingOrders.size(); i++){
+            lstOutput[i] = Integer.toString(incomingOrders.get(i).getOrderID());
+        }
+        lst_incomingOrders.setListData(lstOutput);
     }//GEN-LAST:event_btnCompleteActionPerformed
     
     ArrayList <Order> incomingOrders = new ArrayList <Order>();
     
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        incomingOrders.clear();
         for(int i = 0; i < adminHome.orders.size(); i++){
             if(adminHome.orders.get(i).getPeriod() == adminHome.period 
                && adminHome.orders.get(i).getStatusInt() < 0){
