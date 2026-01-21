@@ -201,6 +201,7 @@ public class editMenu extends javax.swing.JPanel {
         try{
             BufferedReader reader = new BufferedReader(new FileReader("src/menuItems.txt"));
                 String line;
+                menuItems.clear();
                 while((line = reader.readLine()) != null){
                     String[] item = line.split(",");
                     String name = item[0];
@@ -221,7 +222,7 @@ public class editMenu extends javax.swing.JPanel {
             BufferedWriter writer = new BufferedWriter(new FileWriter("src/menuItems.txt"));
             writer.write(menuItems.get(0).toString());
             for(int i = 1; i < menuItems.size(); i++){
-                writer.write("\n" + (menuItems.toString()));
+                writer.write("\n" + (menuItems.get(i).toString()));
             }
             writer.close();
         } catch (Exception e){

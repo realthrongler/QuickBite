@@ -51,6 +51,11 @@ public class login extends javax.swing.JPanel {
         lbl_password = new javax.swing.JLabel();
         lbl_email = new javax.swing.JLabel();
 
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
         setLayout(null);
 
         lbl_title.setFont(new java.awt.Font("Gill Sans MT", 0, 24)); // NOI18N
@@ -170,6 +175,12 @@ public class login extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_btn_loginActionPerformed
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        txt_loginType.setSelectedIndex(0);
+        txt_email.setText("");
+        txt_password.setText("");
+    }//GEN-LAST:event_formComponentShown
     
     File AccountFile = new File("Accounts.txt");
     public void readFile() { //Method for reading from the text file, and converting the raw data into customer instances
