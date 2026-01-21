@@ -102,7 +102,7 @@ public class register extends javax.swing.JPanel {
 
         txt_cardNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_cardNumberActionPerformed(evt);
+
             }
         });
         add(txt_cardNumber);
