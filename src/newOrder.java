@@ -2,6 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
+import java.awt.CardLayout;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 /**
  *
@@ -49,6 +53,11 @@ public class newOrder extends javax.swing.JPanel {
     */
     cbxPeriod = new javax.swing.JComboBox<>();
 
+    addComponentListener(new java.awt.event.ComponentAdapter() {
+        public void componentShown(java.awt.event.ComponentEvent evt) {
+            formComponentShown(evt);
+        }
+    });
     setLayout(null);
 
     lblMenu.setFont(new java.awt.Font("sansserif", 1, 20)); // NOI18N
@@ -120,7 +129,9 @@ public class newOrder extends javax.swing.JPanel {
     add(cbxPeriod);
     cbxPeriod.setBounds(90, 193, 83, 23);
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    ArrayList <Item> orderItems = new ArrayList <Item>();
+    
     private void btnAddToOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddToOrderActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAddToOrderActionPerformed
@@ -130,12 +141,42 @@ public class newOrder extends javax.swing.JPanel {
     }//GEN-LAST:event_btnUndoActionPerformed
 
     private void btnCancelOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelOrderActionPerformed
-        // TODO add your handling code here:
+        CardLayout cl = (CardLayout) mainPanel.getLayout();
+        cl.show(mainPanel, "customerHomeScreen");
+        orderItems.clear();
     }//GEN-LAST:event_btnCancelOrderActionPerformed
 
     private void btnPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrderActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnPlaceOrderActionPerformed
+
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        ArrayList <Item> menuItems = new ArrayList <Item>();
+        
+        try{
+            BufferedReader reader = new BufferedReader(new FileReader("src/menuItems.txt"));
+                String line;
+                while((line = reader.readLine()) != null){
+                    String[] item = line.split(",");
+                    String name = item[0];
+                    int quantity = Integer.parseInt(item[1]);
+                    double cost = Double.parseDouble(item[2]);
+                    
+                    menuItems.add(new Item(name, quantity, cost));
+                }
+        } catch (Exception e){
+            //e.printStackTrace();
+        }
+        
+        
+        String[] lstOutput = new String[menuItems.size()];
+        for(int i = 0; i < menuItems.size(); i++){
+            Item item = menuItems.get(i);
+            lstOutput[i] = item.getName() + " : $" + item.getCost();
+        }
+        
+        lstMenu.setListData(lstOutput);
+    }//GEN-LAST:event_formComponentShown
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
