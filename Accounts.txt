@@ -2,3 +2,4 @@
 asd@gmail.com,asd,0000000,123,0,1
 bvv@gmail.com,bvv,0000000,777,0
 eg@gmail.com,eg,0000000,111,0,1,2,3
+ivan.rizz@sigma.com,sigma,00000000,987,0,3,1

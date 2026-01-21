@@ -184,6 +184,7 @@ public class login extends javax.swing.JPanel {
                     String cardNumber = lineArray[2];
                     String cvv = lineArray[3];
                     int points = Integer.parseInt(lineArray[4]);
+                    
                     Customer person = new Customer(email, password, cardNumber, cvv); //Constructor only takes these values
                     person.addPoints(points); //Adding customer's points to the default balance of zero
                     register.AccountList.add(person);

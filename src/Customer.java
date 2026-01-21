@@ -24,6 +24,7 @@ public class Customer extends User{ //Uses inheritance, and encapsulation
         this.securityCode = securityCode;
         this.points = 0; //By default, the customer start with no points
         this.isAdmin = false; //Customers are not admin
+        this.orderIDs = new ArrayList<>();
     }
     
     //GETTER METHODS

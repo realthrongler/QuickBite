@@ -127,7 +127,7 @@ public class customerHomeScreen extends javax.swing.JPanel {
                     String cardNumber = lineArray[2];
                     String cvv = lineArray[3];
                     int points = Integer.parseInt(lineArray[4]);
-                    ArrayList <Integer> orderIDs = new ArrayList <Integer>();
+                    ArrayList <Integer> orderIDs = new ArrayList <>();
                     for(int i = 5; i < lineArray.length; i++){
                         orderIDs.add(Integer.valueOf(lineArray[i]));
                     }
@@ -141,7 +141,8 @@ public class customerHomeScreen extends javax.swing.JPanel {
         } catch (Exception e) {
             
         }
-        register.CurrentUser = AccountList.get(login.userIndex);
+
+        register.CurrentUser = register.AccountList.get(login.userIndex);
         
         lbl_loggedInAs.setText("Logged in as: " + register.CurrentUser.getEmail());
 
