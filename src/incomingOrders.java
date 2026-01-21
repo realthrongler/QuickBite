@@ -1,7 +1,9 @@
 
 import java.awt.CardLayout;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 
@@ -171,6 +173,16 @@ public class incomingOrders extends javax.swing.JPanel {
         index = BinarySearch.binarySearch(adminHome.orders, incomingOrders.get(index), 0, adminHome.orders.size()-1);
         adminHome.orders.get(index).setStatus(1);
         
+        try{
+            BufferedWriter writer = new BufferedWriter(new FileWriter("src/orders.txt"));
+            writer.write(adminHome.orders.get(0).toString());
+            for(int i = 1; i < adminHome.orders.size(); i++){
+                writer.write("\n" + (adminHome.orders.get(i).toString()));
+            }
+            writer.close();
+        } catch (Exception e){
+
+        }
         
         
     }//GEN-LAST:event_btnCompleteActionPerformed

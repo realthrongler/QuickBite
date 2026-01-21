@@ -1,5 +1,7 @@
 
 import java.awt.CardLayout;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import javax.swing.JPanel;
 
@@ -141,7 +143,20 @@ public class completeOrders extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
+        int index = lst_completeOrders.getSelectedIndex();
+        index = BinarySearch.binarySearch(adminHome.orders, completeOrders.get(index), 0, adminHome.orders.size()-1);
+        adminHome.orders.get(index).setStatus(0);
         
+        try{
+            BufferedWriter writer = new BufferedWriter(new FileWriter("src/orders.txt"));
+            writer.write(adminHome.orders.get(0).toString());
+            for(int i = 1; i < adminHome.orders.size(); i++){
+                writer.write("\n" + (adminHome.orders.get(i).toString()));
+            }
+            writer.close();
+        } catch (Exception e){
+
+        }
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
