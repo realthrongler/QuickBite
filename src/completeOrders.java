@@ -1,5 +1,6 @@
 
 import java.awt.CardLayout;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 
 /*
@@ -41,6 +42,12 @@ public class completeOrders extends javax.swing.JPanel {
         lblOrder = new javax.swing.JLabel();
         btnRefresh = new javax.swing.JButton();
 
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
+            }
+        });
+
         lbl_completeOrders.setFont(new java.awt.Font("Gill Sans MT", 1, 20)); // NOI18N
         lbl_completeOrders.setText("Complete Orders");
 
@@ -51,8 +58,15 @@ public class completeOrders extends javax.swing.JPanel {
             }
         });
 
+        txpOrder.setEditable(false);
+        txpOrder.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(txpOrder);
 
+        lst_completeOrders.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lst_completeOrdersValueChanged(evt);
+            }
+        });
         jScrollPane2.setViewportView(lst_completeOrders);
 
         btnBack.setText("< Back");
@@ -127,12 +141,65 @@ public class completeOrders extends javax.swing.JPanel {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_btnRemoveActionPerformed
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
-        // TODO add your handling code here:
+        adminHome.refresh();
+        
+        completeOrders.clear();
+        for(int i = 0; i < adminHome.orders.size(); i++){
+            if(adminHome.orders.get(i).getPeriod() == adminHome.period 
+               && adminHome.orders.get(i).getStatusInt() > 0){
+                completeOrders.add(adminHome.orders.get(i));
+            }
+        }
+        
+        String[] lstOutput = new String[completeOrders.size()];
+        for(int i = 0; i < completeOrders.size(); i++){
+            lstOutput[i] = Integer.toString(completeOrders.get(i).getOrderID());
+        }
+        lst_completeOrders.setListData(lstOutput);
     }//GEN-LAST:event_btnRefreshActionPerformed
+    
+    ArrayList <Order> completeOrders = new ArrayList <Order>();
+    
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        for(int i = 0; i < adminHome.orders.size(); i++){
+            if(adminHome.orders.get(i).getPeriod() == adminHome.period 
+               && adminHome.orders.get(i).getStatusInt() > 0){
+                completeOrders.add(adminHome.orders.get(i));
+            }
+        }
+        
+        String[] lstOutput = new String[completeOrders.size()];
+        for(int i = 0; i < completeOrders.size(); i++){
+            lstOutput[i] = Integer.toString(completeOrders.get(i).getOrderID());
+        }
+        lst_completeOrders.setListData(lstOutput);
+    }//GEN-LAST:event_formComponentShown
+
+    private void lst_completeOrdersValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lst_completeOrdersValueChanged
+        int index = lst_completeOrders.getSelectedIndex();
+        if(index != -1){
+            Order order = completeOrders.get(index);
+            ArrayList <Item> items = order.getItems();
+            String strItems = "";
+            for(int i = 0; i < items.size(); i++){
+                Item item = items.get(i);
+                strItems += "\n  x" + item.getQuantity() + " " + item.getName() + ", " + item.getCost();
+            }
+
+            String strOutput = "Order ID : " + order.getOrderID() +
+                             "\nPeriod : " + order.getPeriod() + 
+                             "\nStatus : " + order.getStatusString() + 
+                             "\nCost : " + order.getCost() + 
+                             "\nItems : " + strItems;
+            txpOrder.setText(strOutput);
+        } else {
+            txpOrder.setText("");
+        }
+    }//GEN-LAST:event_lst_completeOrdersValueChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

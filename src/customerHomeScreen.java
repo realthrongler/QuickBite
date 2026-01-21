@@ -115,9 +115,9 @@ public class customerHomeScreen extends javax.swing.JPanel {
     }//GEN-LAST:event_btn_newOrderActionPerformed
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        ArrayList <Customer> AccountList = new ArrayList <Customer> ();
         try {
-            if (!register.AccountFile.createNewFile()) { //If the account fails to create (Already existing), read from the file
-                BufferedReader reader = new BufferedReader(new FileReader(register.AccountFile.getAbsoluteFile()));
+                BufferedReader reader = new BufferedReader(new FileReader("QuickBite/Accounts.txt"));
                 String line;
                 
                 while ((line = reader.readLine()) != null) {
@@ -129,19 +129,19 @@ public class customerHomeScreen extends javax.swing.JPanel {
                     int points = Integer.parseInt(lineArray[4]);
                     ArrayList <Integer> orderIDs = new ArrayList <Integer>();
                     for(int i = 5; i < lineArray.length; i++){
-                        orderIDs.add(Integer.parseInt(lineArray[i]));
+                        orderIDs.add(Integer.valueOf(lineArray[i]));
                     }
                     Customer person = new Customer(email, password, cardNumber, cvv); //Constructor only takes these values
                     person.addPoints(points); //Adding customer's points to the default balance of zero
                     person.setOrderIDs(orderIDs);
-                    register.AccountList.add(person);
+                    AccountList.add(person);
                 }
                 reader.close();
-            }            
+                       
         } catch (Exception e) {
             
         }
-        register.CurrentUser = register.AccountList.get(login.userIndex);
+        register.CurrentUser = AccountList.get(login.userIndex);
         
         lbl_loggedInAs.setText("Logged in as: " + register.CurrentUser.getEmail());
 
@@ -178,28 +178,34 @@ public class customerHomeScreen extends javax.swing.JPanel {
             //e.printStackTrace();
         }
         
+        Customer test = register.CurrentUser;
+        
         ArrayList <Integer> orderIDs = register.CurrentUser.getOrderIDsArrayList();
         
         String strOutput = "";
-        for(int i = 0; i < orderIDs.size(); i++){
-            int index = BinarySearch.binarySearch(orders, orderIDs.get(i), 0, orders.size());
-            if(index >= 0){
-                Order order = orders.get(index);
-                ArrayList <Item> items = order.getItems();
-                String strItems = "";
-                for(int j = 0; j < items.size(); j++){
-                    Item item = items.get(i);
-                    strItems += "\n  x" + item.getQuantity() + " " + item.getName() + ", " + item.getCost();
+        if(orderIDs != null){
+            for(int i = 0; i < orderIDs.size(); i++){
+                int index = BinarySearch.binarySearch(orders, orderIDs.get(i), 0, orders.size());
+                if(index >= 0){
+                    Order order = orders.get(index);
+                    ArrayList <Item> items = order.getItems();
+                    String strItems = "";
+                    for(int j = 0; j < items.size(); j++){
+                        Item item = items.get(i);
+                        strItems += "\n  x" + item.getQuantity() + " " + item.getName() + ", " + item.getCost();
+                    }
+
+                    strOutput += "Order ID : " + order.getOrderID() +
+                                 "\nPeriod : " + order.getPeriod() + 
+                                 "\nStatus : " + order.getStatusString() + 
+                                 "\nCost : " + order.getCost() + 
+                                 "\nItems : " + strItems + "\n\n";
                 }
-        
-                strOutput += "Order ID : " + order.getOrderID() +
-                             "\nPeriod : " + order.getPeriod() + 
-                             "\nStatus : " + order.getStatusString() + 
-                             "\nCost : " + order.getCost() + 
-                             "\nItems : " + strItems + "\n\n";
             }
+            txt_orderDisplay.setText(strOutput);
+        } else {
+            txt_orderDisplay.setText("no orders");
         }
-        txt_orderDisplay.setText(strOutput);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

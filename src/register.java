@@ -75,7 +75,7 @@ public class register extends javax.swing.JPanel {
         lbl_password1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_password1.setText("Password");
         add(lbl_password1);
-        lbl_password1.setBounds(50, 200, 80, 22);
+        lbl_password1.setBounds(47, 200, 90, 22);
 
         icon_logo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quick_bite_logo_80x80.png"))); // NOI18N
         add(icon_logo1);
@@ -175,9 +175,9 @@ public class register extends javax.swing.JPanel {
                         writeFile(); 
                         JOptionPane.showMessageDialog(this, "Success! Account registered.");
                         
-                        //Sending user to home screen
+                        //Sending user to login screen
                         CardLayout cl = (CardLayout) mainPanel.getLayout();
-                        cl.show(mainPanel, "customerHomeScreen");
+                        cl.show(mainPanel, "login");
                     } else {
                         BinarySearch search = new BinarySearch();
                         if (search.search(AccountList, txt_email.getText())) {
@@ -195,9 +195,9 @@ public class register extends javax.swing.JPanel {
                             writeFile();
                             JOptionPane.showMessageDialog(this, "Success! Account registered.");
                             
-                            //Sending user to home screen
+                            //Sending user to login screen
                             CardLayout cl = (CardLayout) mainPanel.getLayout();
-                            cl.show(mainPanel, "customerHomeScreen");
+                            cl.show(mainPanel, "login");
                         }
                     }
                 } else {
@@ -217,9 +217,9 @@ public class register extends javax.swing.JPanel {
                         writeFile();
                         JOptionPane.showMessageDialog(this, "Success! Account registered.");
 
-                        //Sending user to home screen
+                        //Sending user to login screen
                         CardLayout cl = (CardLayout) mainPanel.getLayout();
-                        cl.show(mainPanel, "customerHomeScreen");
+                        cl.show(mainPanel, "login");
                         
                     }
                 }
@@ -289,7 +289,8 @@ public class register extends javax.swing.JPanel {
                 writer.close();
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "A fatal error occured: " + e, "ERROR!", 1);
+            //JOptionPane.showMessageDialog(this, "A fatal error occured: " + e, "ERROR!", 1);
+            e.printStackTrace();
         }
     }
 

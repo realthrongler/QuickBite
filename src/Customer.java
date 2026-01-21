@@ -11,8 +11,6 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class Customer extends User{ //Uses inheritance, and encapsulation
-    //CLASS VARIABLES
-    private static int orderNumber = 0;
     
     //PAYMENT INFORMATION
     private String cardNumber; //Customer's debit/credit card number (both verified with the Luhn algorithm)
@@ -41,19 +39,16 @@ public class Customer extends User{ //Uses inheritance, and encapsulation
         return points;
     }
     
-    public int getOrderNumber() {
-        orderNumber += 1;
-        return orderNumber - 1;
-    }
-    
     public ArrayList <Integer> getOrderIDsArrayList() { 
         return orderIDs;
     }
     
     public String getOrderIDsString() { 
         String strOrderIDs = "";
-        for(int i = 0; i < orderIDs.size(); i++){
-            strOrderIDs += "," + orderIDs.get(i);
+        if(orderIDs != null){
+            for(int i = 0; i < orderIDs.size(); i++){
+                strOrderIDs += "," + orderIDs.get(i);
+            }
         }
         return strOrderIDs;
     }

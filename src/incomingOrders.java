@@ -76,6 +76,8 @@ public class incomingOrders extends javax.swing.JPanel {
         lblOrder.setFont(new java.awt.Font("sansserif", 0, 20)); // NOI18N
         lblOrder.setText("Order");
 
+        txpOrder.setEditable(false);
+        txpOrder.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(txpOrder);
 
         btnBack.setText("< Back");
@@ -144,8 +146,10 @@ public class incomingOrders extends javax.swing.JPanel {
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
         adminHome.refresh();
         
+        incomingOrders.clear();
         for(int i = 0; i < adminHome.orders.size(); i++){
-            if(adminHome.orders.get(i).getPeriod() == adminHome.period){
+            if(adminHome.orders.get(i).getPeriod() == adminHome.period 
+               && adminHome.orders.get(i).getStatusInt() < 0){
                 incomingOrders.add(adminHome.orders.get(i));
             }
         }
@@ -190,20 +194,24 @@ public class incomingOrders extends javax.swing.JPanel {
 
     private void lst_incomingOrdersValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lst_incomingOrdersValueChanged
         int index = lst_incomingOrders.getSelectedIndex();
-        Order order = incomingOrders.get(index);
-        ArrayList <Item> items = order.getItems();
-        String strItems = "";
-        for(int i = 0; i < items.size(); i++){
-            Item item = items.get(i);
-            strItems += "\n  x" + item.getQuantity() + " " + item.getName() + ", " + item.getCost();
+        if(index != -1){
+            Order order = incomingOrders.get(index);
+            ArrayList <Item> items = order.getItems();
+            String strItems = "";
+            for(int i = 0; i < items.size(); i++){
+                Item item = items.get(i);
+                strItems += "\n  x" + item.getQuantity() + " " + item.getName() + ", $" + item.getCost();
+            }
+
+            String strOutput = "Order ID : " + order.getOrderID() +
+                             "\nPeriod : " + order.getPeriod() + 
+                             "\nStatus : " + order.getStatusString() + 
+                             "\nCost : $" + order.getCost() + 
+                             "\nItems : " + strItems;
+            txpOrder.setText(strOutput);
+        } else {
+            txpOrder.setText("");
         }
-        
-        String txpOutput = "Order ID : " + order.getOrderID() +
-                         "\nPeriod : " + order.getPeriod() + 
-                         "\nStatus : " + order.getStatusString() + 
-                         "\nCost : " + order.getCost() + 
-                         "\nItems : " + strItems;
-        txpOrder.setText(strItems);
     }//GEN-LAST:event_lst_incomingOrdersValueChanged
    
 

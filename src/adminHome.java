@@ -147,13 +147,14 @@ public class adminHome extends javax.swing.JPanel {
     
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         refresh();
-        period = cbxPeriod.getSelectedIndex();
+        period = cbxPeriod.getSelectedIndex()+2;
     }//GEN-LAST:event_formComponentShown
     
     public static void refresh(){
         try{
             BufferedReader reader = new BufferedReader(new FileReader("src/orders.txt"));
                 String line;
+                orders.clear();
                 while((line = reader.readLine()) != null){
                     String[] order = line.split(",");
                     int orderID = Integer.parseInt(order[0]);
