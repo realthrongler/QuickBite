@@ -45,4 +45,18 @@ public class BinarySearch { //Class for binary searching things
             return binarySearch(orders, order, mid+1, right);
         }
     }
+    public static int binarySearch(ArrayList<Order> orders, int orderID, int left, int right) {
+        if(left > right){
+            return -1;
+        }
+        
+        int mid = left + (right  - left)/2;
+        if(orderID == orders.get(mid).getOrderID()){
+            return mid;
+        } else if (orderID < orders.get(mid).getOrderID()){
+            return binarySearch(orders, orderID, left, mid-1);
+        } else {
+            return binarySearch(orders, orderID, mid+1, right);
+        }
+    }
 }

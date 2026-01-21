@@ -136,7 +136,7 @@ public class register extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
     
     //Account information file
-    File AccountFile = new File("Accounts.txt");
+    static File AccountFile = new File("Accounts.txt");
     //Account information arraylist (for searching and modifying the text file)
     public static ArrayList<Customer> AccountList = new ArrayList<>();
     public static Customer CurrentUser;

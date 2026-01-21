@@ -121,6 +121,8 @@ public class login extends javax.swing.JPanel {
         lbl_email.setBounds(80, 210, 50, 30);
     }// </editor-fold>//GEN-END:initComponents
 
+    static int userIndex = -1;
+    
     private void btn_toRegisterScreenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_toRegisterScreenMouseClicked
         //When user clicks the prompt on the login screen, this takes them to the register screen
         CardLayout cl = (CardLayout) mainPanel.getLayout();
@@ -144,6 +146,7 @@ public class login extends javax.swing.JPanel {
                for (int i = 0; i < register.AccountList.size(); i++) {
                    if (register.AccountList.get(i).getEmail().equalsIgnoreCase(txt_email.getText().strip()) && register.AccountList.get(i).getPassword().equals(txt_password.getText().strip())) {
                        loginSuccess = true;
+                       userIndex = i;
                        register.CurrentUser = register.AccountList.get(i);
                        JOptionPane.showMessageDialog(this, "Login success!");
                        

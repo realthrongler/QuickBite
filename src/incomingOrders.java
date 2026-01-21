@@ -202,7 +202,7 @@ public class incomingOrders extends javax.swing.JPanel {
                          "\nPeriod : " + order.getPeriod() + 
                          "\nStatus : " + order.getStatusString() + 
                          "\nCost : " + order.getCost() + 
-                         "\nItems : " + strItems + "\n\n";
+                         "\nItems : " + strItems;
         txpOrder.setText(strItems);
     }//GEN-LAST:event_lst_incomingOrdersValueChanged
    

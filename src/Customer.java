@@ -18,7 +18,7 @@ public class Customer extends User{ //Uses inheritance, and encapsulation
     private String cardNumber; //Customer's debit/credit card number (both verified with the Luhn algorithm)
     private String securityCode; //Those 3 funny numbers on the back of the customer's card
     private int points; //Integer for the number of points the customer has
-    private ArrayList <String> orderIDs;
+    private ArrayList <Integer> orderIDs;
     
     public Customer(String email, String password, String cardNumber, String securityCode) {
         super(email, password);
@@ -46,7 +46,7 @@ public class Customer extends User{ //Uses inheritance, and encapsulation
         return orderNumber - 1;
     }
     
-    public ArrayList <String> getOrderIDsArrayList() { 
+    public ArrayList <Integer> getOrderIDsArrayList() { 
         return orderIDs;
     }
     
@@ -75,7 +75,7 @@ public class Customer extends User{ //Uses inheritance, and encapsulation
         this.points -= cost;
     }
     
-    public void setOrderIDs(ArrayList <String> orderIDs) { 
+    public void setOrderIDs(ArrayList <Integer> orderIDs) { 
         this.orderIDs = orderIDs;
     }
 }
