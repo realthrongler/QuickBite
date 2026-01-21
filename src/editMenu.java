@@ -199,7 +199,7 @@ public class editMenu extends javax.swing.JPanel {
     
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         try{
-            BufferedReader reader = new BufferedReader(new FileReader("src/orders.txt"));
+            BufferedReader reader = new BufferedReader(new FileReader("src/menuItems.txt"));
                 String line;
                 while((line = reader.readLine()) != null){
                     String[] item = line.split(",");
@@ -218,10 +218,10 @@ public class editMenu extends javax.swing.JPanel {
     
     public void write(){
         try{
-            BufferedWriter writer = new BufferedWriter(new FileWriter("src/orders.txt"));
-            writer.write(adminHome.orders.get(0).toString());
-            for(int i = 1; i < adminHome.orders.size(); i++){
-                writer.write("\n" + (adminHome.orders.get(i).toString()));
+            BufferedWriter writer = new BufferedWriter(new FileWriter("src/menuItems.txt"));
+            writer.write(menuItems.get(0).toString());
+            for(int i = 1; i < menuItems.size(); i++){
+                writer.write("\n" + (menuItems.toString()));
             }
             writer.close();
         } catch (Exception e){
