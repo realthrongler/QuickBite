@@ -43,7 +43,7 @@ public class customerHomeScreen extends javax.swing.JPanel {
         btn_newOrder = new javax.swing.JButton();
         pane_orderDisplay = new javax.swing.JScrollPane();
         txt_orderDisplay = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        btnRefresh = new javax.swing.JButton();
 
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
@@ -97,16 +97,18 @@ public class customerHomeScreen extends javax.swing.JPanel {
         add(pane_orderDisplay);
         pane_orderDisplay.setBounds(0, 130, 370, 240);
 
-        jButton1.setText("Refresh");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnRefresh.setText("Refresh");
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnRefreshActionPerformed(evt);
             }
         });
-        add(jButton1);
-        jButton1.setBounds(290, 375, 74, 21);
+        add(btnRefresh);
+        btnRefresh.setBounds(290, 375, 75, 23);
     }// </editor-fold>//GEN-END:initComponents
 
+    ArrayList <Order> orders = new ArrayList <Order>();
+    
     private void btn_newOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_newOrderActionPerformed
         CardLayout cl = (CardLayout) mainPanel.getLayout();
         cl.show(mainPanel, "newOrder");
@@ -114,18 +116,48 @@ public class customerHomeScreen extends javax.swing.JPanel {
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         lbl_loggedInAs.setText("Logged in as: " + register.CurrentUser.getEmail());
+        
+        orders = register.CurrentUser.get
     }//GEN-LAST:event_formComponentShown
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        refresh();
+        
+        
+    }//GEN-LAST:event_btnRefreshActionPerformed
 
+    public void refresh(){
+        try{
+            BufferedReader reader = new BufferedReader(new FileReader("src/orders.txt"));
+                String line;
+                while((line = reader.readLine()) != null){
+                    String[] order = line.split(",");
+                    int orderID = Integer.parseInt(order[0]);
+                    int period = Integer.parseInt(order[1]);
+                    int status = Integer.parseInt(order[2]);
+                    double cost = Double.parseDouble(order[3]);
+                    ArrayList<Item> items = new ArrayList<Item>();
+                    for(int i = 4; i < order.length; i+=3){
+                        String itemName = order[i];
+                        int itemQuantity = Integer.parseInt(order[i+1]);
+                        double itemCost = Double.parseDouble(order[i+2]);
+                        
+                        items.add(new Item(itemName, itemQuantity, itemCost));
+                    }
+                    
+                    orders.add(new Order(orderID, period, status, cost, items));
+                    
+                }
+        } catch (Exception e){
+            //e.printStackTrace();
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btn_newOrder;
     private javax.swing.JLabel icon_gradient1;
     private javax.swing.JLabel icon_logo2;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel lbl_currentOrders;
     private javax.swing.JLabel lbl_loggedInAs;
     private javax.swing.JLabel lbl_newOrder;

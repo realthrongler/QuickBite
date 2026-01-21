@@ -248,8 +248,13 @@ public class register extends javax.swing.JPanel {
                     String cardNumber = lineArray[2];
                     String cvv = lineArray[3];
                     int points = Integer.parseInt(lineArray[4]);
+                    ArrayList <String> orderIDs = new ArrayList <String>();
+                    for(int i = 5; i < lineArray.length; i++){
+                        orderIDs.add(lineArray[i]);
+                    }
                     Customer person = new Customer(email, password, cardNumber, cvv); //Constructor only takes these values
                     person.addPoints(points); //Adding customer's points to the default balance of zero
+                    person.setOrderIDs(orderIDs);
                     AccountList.add(person);
                 }
                 reader.close();
@@ -278,7 +283,7 @@ public class register extends javax.swing.JPanel {
                     writeLine += AccountList.get(index).getCardNumber() + ",";
                     writeLine += AccountList.get(index).getSecurityCode() + ",";
                     writeLine += AccountList.get(index).getPoints();
-                    writeLine += "\n";
+                    writeLine += AccountList.get(index).getOrderIDsString() + "\n";
                     writer.append(writeLine);
                 }
                 writer.close();
