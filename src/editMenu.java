@@ -1,5 +1,9 @@
 
+import static adminHome.orders;
 import java.awt.CardLayout;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 
 /*
@@ -32,51 +36,57 @@ public class editMenu extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane2 = new javax.swing.JScrollPane();
-        lst_completeOrders = new javax.swing.JList<>();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
+        lstMenu = new javax.swing.JList<>();
+        lblTitle = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
+        lblName = new javax.swing.JLabel();
+        btnRemove = new javax.swing.JButton();
+        btnAdd = new javax.swing.JButton();
+        btnReplace = new javax.swing.JButton();
+        lblCost = new javax.swing.JLabel();
+        txtCost = new javax.swing.JTextField();
+        btnBack = new javax.swing.JButton();
 
-        jScrollPane2.setViewportView(lst_completeOrders);
-
-        jLabel1.setFont(new java.awt.Font("sansserif", 1, 20)); // NOI18N
-        jLabel1.setText("Menu");
-
-        jLabel2.setText("Name : ");
-
-        jButton1.setText("Remove");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentShown(java.awt.event.ComponentEvent evt) {
+                formComponentShown(evt);
             }
         });
 
-        jButton2.setText("Add");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jScrollPane2.setViewportView(lstMenu);
+
+        lblTitle.setFont(new java.awt.Font("sansserif", 1, 20)); // NOI18N
+        lblTitle.setText("Menu");
+
+        lblName.setText("Name : ");
+
+        btnRemove.setText("Remove");
+        btnRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnRemoveActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Replace");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnAdd.setText("Add");
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnAddActionPerformed(evt);
             }
         });
 
-        jLabel3.setText("Cost : ");
-
-        jButton4.setText("< Back");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnReplace.setText("Replace");
+        btnReplace.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnReplaceActionPerformed(evt);
+            }
+        });
+
+        lblCost.setText("Cost : ");
+
+        btnBack.setText("< Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
             }
         });
 
@@ -88,17 +98,17 @@ public class editMenu extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(155, 155, 155)
-                        .addComponent(jLabel1))
+                        .addComponent(lblTitle))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton4)
+                                .addComponent(btnBack)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jButton1)
+                                .addComponent(btnRemove)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton3))
+                                .addComponent(btnReplace))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -108,16 +118,16 @@ public class editMenu extends javax.swing.JPanel {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGap(0, 0, Short.MAX_VALUE)
-                                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel2)
-                                                    .addComponent(jLabel3))
+                                                    .addComponent(lblName)
+                                                    .addComponent(lblCost))
                                                 .addGap(18, 18, 18)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jTextField1)
+                                                    .addComponent(txtName)
                                                     .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(txtCost, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addGap(0, 0, Short.MAX_VALUE)))))
                                         .addGap(133, 133, 133)))))))
                 .addContainerGap(10, Short.MAX_VALUE))
@@ -126,57 +136,76 @@ public class editMenu extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(12, 12, 12)
-                .addComponent(jLabel1)
+                .addComponent(lblTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblCost)
+                    .addComponent(txtCost, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton1))
+                    .addComponent(btnAdd)
+                    .addComponent(btnReplace)
+                    .addComponent(btnRemove))
                 .addGap(38, 38, 38)
-                .addComponent(jButton4)
+                .addComponent(btnBack)
                 .addGap(14, 14, 14))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         CardLayout cl = (CardLayout) mainPanel.getLayout();
         cl.show(mainPanel, "adminHome");
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnBackActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnRemoveActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnAddActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnReplaceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReplaceActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnReplaceActionPerformed
+    
+    ArrayList <Item> menuItems = new ArrayList <Item>();
+    
+    private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
+        try{
+            BufferedReader reader = new BufferedReader(new FileReader("src/orders.txt"));
+                String line;
+                while((line = reader.readLine()) != null){
+                    String[] item = line.split(",");
+                    String name = item[0];
+                    int quantity = Integer.parseInt(item[1]);
+                    double cost = Double.parseDouble(item[2]);
+                    
+                    menuItems.add(new Item(name, quantity, cost));
+                }
+        } catch (Exception e){
+            //e.printStackTrace();
+        }
+    }//GEN-LAST:event_formComponentShown
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnRemove;
+    private javax.swing.JButton btnReplace;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JList<String> lst_completeOrders;
+    private javax.swing.JLabel lblCost;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblTitle;
+    private javax.swing.JList<String> lstMenu;
+    private javax.swing.JTextField txtCost;
+    private javax.swing.JTextField txtName;
     // End of variables declaration//GEN-END:variables
 }
