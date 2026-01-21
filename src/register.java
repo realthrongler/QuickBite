@@ -139,7 +139,7 @@ public class register extends javax.swing.JPanel {
     File AccountFile = new File("Accounts.txt");
     //Account information arraylist (for searching and modifying the text file)
     public static ArrayList<Customer> AccountList = new ArrayList<>();
-    public static User CurrentUser;
+    public static Customer CurrentUser;
     
     private void txt_cardNumberActionPerformed(java.awt.event.ActionEvent evt) {                                               
 
@@ -248,9 +248,9 @@ public class register extends javax.swing.JPanel {
                     String cardNumber = lineArray[2];
                     String cvv = lineArray[3];
                     int points = Integer.parseInt(lineArray[4]);
-                    ArrayList <String> orderIDs = new ArrayList <String>();
+                    ArrayList <Integer> orderIDs = new ArrayList <Integer>();
                     for(int i = 5; i < lineArray.length; i++){
-                        orderIDs.add(lineArray[i]);
+                        orderIDs.add(Integer.parseInt(lineArray[i]));
                     }
                     Customer person = new Customer(email, password, cardNumber, cvv); //Constructor only takes these values
                     person.addPoints(points); //Adding customer's points to the default balance of zero

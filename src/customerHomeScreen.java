@@ -115,15 +115,41 @@ public class customerHomeScreen extends javax.swing.JPanel {
     }//GEN-LAST:event_btn_newOrderActionPerformed
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
-        lbl_loggedInAs.setText("Logged in as: " + register.CurrentUser.getEmail());
+        try {
+            if (!register.AccountFile.createNewFile()) { //If the account fails to create (Already existing), read from the file
+                BufferedReader reader = new BufferedReader(new FileReader(register.AccountFile.getAbsoluteFile()));
+                String line;
+                
+                while ((line = reader.readLine()) != null) {
+                    String[] lineArray = line.split(","); //Splitting everything by commas
+                    String email = lineArray[0];
+                    String password = lineArray[1];
+                    String cardNumber = lineArray[2];
+                    String cvv = lineArray[3];
+                    int points = Integer.parseInt(lineArray[4]);
+                    ArrayList <Integer> orderIDs = new ArrayList <Integer>();
+                    for(int i = 5; i < lineArray.length; i++){
+                        orderIDs.add(Integer.parseInt(lineArray[i]));
+                    }
+                    Customer person = new Customer(email, password, cardNumber, cvv); //Constructor only takes these values
+                    person.addPoints(points); //Adding customer's points to the default balance of zero
+                    person.setOrderIDs(orderIDs);
+                    register.AccountList.add(person);
+                }
+                reader.close();
+            }            
+        } catch (Exception e) {
+            
+        }
+        register.CurrentUser = register.AccountList.get(login.userIndex);
         
-        orders = register.CurrentUser.get
+        lbl_loggedInAs.setText("Logged in as: " + register.CurrentUser.getEmail());
+
+        refresh();
     }//GEN-LAST:event_formComponentShown
 
     private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
         refresh();
-        
-        
     }//GEN-LAST:event_btnRefreshActionPerformed
 
     public void refresh(){
@@ -151,6 +177,29 @@ public class customerHomeScreen extends javax.swing.JPanel {
         } catch (Exception e){
             //e.printStackTrace();
         }
+        
+        ArrayList <Integer> orderIDs = register.CurrentUser.getOrderIDsArrayList();
+        
+        String strOutput = "";
+        for(int i = 0; i < orderIDs.size(); i++){
+            int index = BinarySearch.binarySearch(orders, orderIDs.get(i), 0, orders.size());
+            if(index >= 0){
+                Order order = orders.get(index);
+                ArrayList <Item> items = order.getItems();
+                String strItems = "";
+                for(int j = 0; j < items.size(); j++){
+                    Item item = items.get(i);
+                    strItems += "\n  x" + item.getQuantity() + " " + item.getName() + ", " + item.getCost();
+                }
+        
+                strOutput += "Order ID : " + order.getOrderID() +
+                             "\nPeriod : " + order.getPeriod() + 
+                             "\nStatus : " + order.getStatusString() + 
+                             "\nCost : " + order.getCost() + 
+                             "\nItems : " + strItems + "\n\n";
+            }
+        }
+        txt_orderDisplay.setText(strOutput);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

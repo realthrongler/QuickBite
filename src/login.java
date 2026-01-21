@@ -59,7 +59,7 @@ public class login extends javax.swing.JPanel {
 
         lbl_registerPrompt.setText("New user?");
         add(lbl_registerPrompt);
-        lbl_registerPrompt.setBounds(100, 400, 60, 15);
+        lbl_registerPrompt.setBounds(90, 400, 70, 17);
 
         btn_login.setText("Login");
         btn_login.addActionListener(new java.awt.event.ActionListener() {
@@ -68,7 +68,7 @@ public class login extends javax.swing.JPanel {
             }
         });
         add(btn_login);
-        btn_login.setBounds(160, 360, 60, 21);
+        btn_login.setBounds(150, 360, 70, 23);
 
         icon_logo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/quick_bite_logo_80x80.png"))); // NOI18N
         add(icon_logo);
@@ -95,7 +95,7 @@ public class login extends javax.swing.JPanel {
 
         txt_loginType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Customer", "Administrator" }));
         add(txt_loginType);
-        txt_loginType.setBounds(80, 180, 214, 21);
+        txt_loginType.setBounds(80, 180, 214, 23);
 
         btn_toRegisterScreen.setForeground(new java.awt.Color(0, 0, 255));
         btn_toRegisterScreen.setText("Register an account");
@@ -106,7 +106,7 @@ public class login extends javax.swing.JPanel {
             }
         });
         add(btn_toRegisterScreen);
-        btn_toRegisterScreen.setBounds(160, 400, 120, 15);
+        btn_toRegisterScreen.setBounds(160, 400, 130, 17);
 
         lbl_password.setFont(new java.awt.Font("Gill Sans MT", 0, 18)); // NOI18N
         lbl_password.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
