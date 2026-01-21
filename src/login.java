@@ -15,6 +15,7 @@ import javax.swing.JPanel;
  */
 import javax.swing.JOptionPane;
 import java.io.*;
+import java.util.ArrayList;
 
 public class login extends javax.swing.JPanel {
     JPanel mainPanel;
@@ -184,9 +185,14 @@ public class login extends javax.swing.JPanel {
                     String cardNumber = lineArray[2];
                     String cvv = lineArray[3];
                     int points = Integer.parseInt(lineArray[4]);
+                    ArrayList <Integer> orderIDs = new ArrayList <>();
+                    for(int i = 5; i < lineArray.length; i++){
+                        orderIDs.add(Integer.parseInt(lineArray[i]));
+                    }
                     
                     Customer person = new Customer(email, password, cardNumber, cvv); //Constructor only takes these values
                     person.addPoints(points); //Adding customer's points to the default balance of zero
+                    person.setOrderIDs(orderIDs);
                     register.AccountList.add(person);
                 }
                 reader.close();
