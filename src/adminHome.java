@@ -155,6 +155,28 @@ public class adminHome extends javax.swing.JPanel {
         } catch (Exception e){
 
         }
+        
+        try {
+            register.AccountFile.createNewFile();
+            try (BufferedWriter deleter = new BufferedWriter(new FileWriter(register.AccountFile.getAbsolutePath()))){
+                deleter.write("");
+                deleter.close();
+                BufferedWriter writer = new BufferedWriter(new FileWriter(register.AccountFile.getAbsolutePath(), true));
+
+                for (int index = 0; index < register.AccountList.size(); index++) {
+                    String writeLine = "";
+                    writeLine += register.AccountList.get(index).getEmail() + ",";
+                    writeLine += register.AccountList.get(index).getPassword() + ",";
+                    writeLine += register.AccountList.get(index).getCardNumber() + ",";
+                    writeLine += register.AccountList.get(index).getSecurityCode() + ",";
+                    writeLine += register.AccountList.get(index).getPoints() + "\n";
+                    writer.append(writeLine);
+                }
+                writer.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }//GEN-LAST:event_btnClearAllOrdersActionPerformed
     
     static ArrayList <Order> orders = new ArrayList <Order>();
